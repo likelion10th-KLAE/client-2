@@ -18,7 +18,7 @@ import Post from "./components/community/post";
 const App = () => {
 	return (
 		<Routes>
-			<Route index element={<Initial />} /> {/* 초키 페이지 */}
+			{/* <Route index element={<Initial />} /> {/* 초키 페이지 */}
 			<Route path="/login" element={<Login />} /> {/* 로그인 페이지 */}
 			<Route path="/signup" element={<Signup />} /> {/* 회원가입 페이지 */}
 			<Route path="/welcome" element={<Welcome />} />{" "}
