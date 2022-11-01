@@ -1,7 +1,7 @@
 import React from "react";
 
-const Main = () => {
+const Welcome = () => {
 	return <div></div>;
 };
 
-export default Main;
+export default Welcome;
