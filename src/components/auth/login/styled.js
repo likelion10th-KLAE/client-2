@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Img from "../../../assets/flower_login.jpg";
+import Img from "../../../assets/Login/flower_login.jpg";
+import Login from "./index";
 
 export const LoginSection = styled.div`
   background-color: E5E5E5;
