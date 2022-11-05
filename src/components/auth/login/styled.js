@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Img from "../../../assets/Login/flower_login.jpg";
-import Login from "./index";
+import KakaoImg from "../../../assets/Login/kakao-Logo.png";
+import IdImg from "../../../assets/Login/ID.png";
+import passwordImg from "../../../assets/Login/password.png";
 
 export const LoginSection = styled.div`
   background-color: E5E5E5;
@@ -64,11 +66,35 @@ export const RightSubTitle = styled.div`
   text-align: center;
 `;
 
-export const LoginInput = styled.input`
+export const LoginInputDiv = styled.div`
   width: 420px;
   height: 70px;
   border: 1px solid rgba(117, 117, 117, 1);
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+`;
+
+export const LoginInput = styled.input`
+  all: unset;
+  //background-color: yellow;
+  width: 300px;
+  height: 33px;
+  margin-left: 10px;
+`;
+
+export const IdIcon = styled.div`
+  background-image: url(${IdImg});
+  width: 18px;
+  height: 20px;
+  margin-left: 20px;
+`;
+
+export const PwIcon = styled.div`
+  background-image: url(${passwordImg});
+  width: 13px;
+  height: 18px;
+  margin-left: 20px;
 `;
 
 export const LoginButton = styled.button`
@@ -77,10 +103,19 @@ export const LoginButton = styled.button`
   height: 70px;
   color: white;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const LoginLink = styled.div`
   text-decoration: underline;
   font-size: 8pt;
   margin-bottom: 20px;
+  cursor: pointer;
+`;
+
+export const KakaoLogo = styled.div`
+  background-image: url(${KakaoImg});
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 `;

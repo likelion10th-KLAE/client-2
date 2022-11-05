@@ -7,9 +7,13 @@ import {
   LoginRight,
   RightTitle,
   RightSubTitle,
-  LoginInput,
+  LoginInputDiv,
   LoginButton,
   LoginLink,
+  KakaoLogo,
+  IdIcon,
+  LoginInput,
+  PwIcon,
 } from "./styled";
 
 const Login = () => {
@@ -25,10 +29,17 @@ const Login = () => {
       <LoginRight>
         <RightTitle>KLAE 에 오신 것을 환영합니다!</RightTitle>
         <RightSubTitle>지금 로그인하고 반려식물을 확인해보세요.</RightSubTitle>
-        <LoginInput />
-        <LoginInput />
+        <LoginInputDiv>
+          <IdIcon />
+          <LoginInput placeholder="ID" />
+        </LoginInputDiv>
+        <LoginInputDiv>
+          <PwIcon />
+          <LoginInput placeholder="PW" />
+        </LoginInputDiv>
         <LoginButton>LOGIN</LoginButton>
         <LoginLink>계정이 없으신가요? 지금 회원가입하세요!</LoginLink>
+        <KakaoLogo />
       </LoginRight>
     </LoginSection>
   );
