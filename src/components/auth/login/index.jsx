@@ -1,7 +1,12 @@
 import React from "react";
+import { LoginSection, LoginLeft } from "./styled";
 
 const Login = () => {
-	return <div></div>;
+  return (
+    <LoginSection>
+      <LoginLeft />
+    </LoginSection>
+  );
 };
 
 export default Login;
