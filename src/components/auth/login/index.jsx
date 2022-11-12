@@ -35,7 +35,7 @@ const Login = () => {
         </LoginInputDiv>
         <LoginInputDiv>
           <PwIcon />
-          <LoginInput placeholder="PW" />
+          <LoginInput placeholder="PW" type="password" />
         </LoginInputDiv>
         <LoginButton>LOGIN</LoginButton>
         <LoginLink>계정이 없으신가요? 지금 회원가입하세요!</LoginLink>

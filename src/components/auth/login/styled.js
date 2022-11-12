@@ -11,32 +11,37 @@ export const LoginSection = styled.div`
 
 export const LoginLeft = styled.div`
   background-image: url(${Img});
-  width: 470px;
-  height: 900px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40vw;
+  height: 100vh;
   color: white;
+  margin: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const LeftTitle = styled.div`
-  // background-color: black;
-  font-size: 22pt;
+  //background-color: black;
+  font-size: 2.5vw;
   font-weight: 800;
   color: white;
-  width: 180px;
-  height: 40px;
-  margin: 0 auto;
-  white-space: pre-line;
+  opacity: 0.7;
+  //width: 17vw;
+  //height: 4vh;
+  white-space: pre-line; //공백처리
   position: relative;
-  top: 600px;
+  top: 70vh;
 `;
 
 export const LeftLogo = styled.div`
-  width: 100px;
-  hegith: 100px;
-  margin: 0 auto;
+  //background-color: black;
   position: relative;
-  top: 150px;
+  top: 10vh;
   color: white;
-  font-size: 20pt;
+  font-size: 2.5vw;
+  text-align: center;
 `;
 
 export const LoginRight = styled.div`
@@ -45,32 +50,34 @@ export const LoginRight = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  margin: -8px;
 `;
 
 export const RightTitle = styled.div`
   //background-color: red;
   color: rgba(33, 33, 33, 1);
-  font-size: 15pt;
-  width: 290px;
-  hegiht: 45px;
-  padding-bottom: 20px;
+  font-size: 2vw;
+  width: 29vw;
+  hegiht: 4.5vh;
+  padding-bottom: 2.5vh;
   text-align: center;
 `;
 
 export const RightSubTitle = styled.div`
   //background-color: blue;
   color: rgba(66, 66, 66, 1);
-  font-size: 10pt;
-  padding-bottom: 25px;
+  font-size: 1.3vw;
+  padding-bottom: 2.5vh;
   text-align: center;
 `;
 
 export const LoginInputDiv = styled.div`
-  width: 420px;
-  height: 70px;
+  //background-color: yellow;
+  width: 38vw;
+  height: 9vh;
   border: 1px solid rgba(117, 117, 117, 1);
-  margin-bottom: 20px;
+  margin-bottom: 2.5vh;
   display: flex;
   align-items: center;
 `;
@@ -78,44 +85,53 @@ export const LoginInputDiv = styled.div`
 export const LoginInput = styled.input`
   all: unset;
   //background-color: yellow;
-  width: 300px;
-  height: 33px;
-  margin-left: 10px;
+  width: 28vw;
+  height: 4vh;
+  margin-left: 1.5vw;
 `;
 
 export const IdIcon = styled.div`
+  //background-color: yellow;
   background-image: url(${IdImg});
-  width: 18px;
-  height: 20px;
-  margin-left: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1.5vw;
+  height: 2.5vh;
+  margin-left: 1.5vw;
 `;
 
 export const PwIcon = styled.div`
+  //background-color: yellow;
   background-image: url(${passwordImg});
-  width: 13px;
-  height: 18px;
-  margin-left: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1.5vw;
+  height: 2.5vh;
+  margin-left: 1.5vw;
 `;
 
 export const LoginButton = styled.button`
   background-color: rgba(36, 62, 51, 1);
-  width: 420px;
-  height: 70px;
+  width: 38vw;
+  height: 9vh;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 2.5vh;
   cursor: pointer;
 `;
 
 export const LoginLink = styled.div`
   text-decoration: underline;
-  font-size: 8pt;
-  margin-bottom: 20px;
+  font-size: 1vw;
+  margin-bottom: 2.5vh;
   cursor: pointer;
 `;
 
 export const KakaoLogo = styled.div`
+  //background-color: blue;
   background-image: url(${KakaoImg});
-  width: 40px;
-  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 4vw;
+  height: 6vh;
   cursor: pointer;
 `;
