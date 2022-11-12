@@ -23,7 +23,6 @@ export const HeaderItem = styled.div`
 
 export const HeaderItems = styled.div`
 	// background-color: green;
-	display: flex;
 	flex-direction: row;
 	width: 48vw;
 	float: left;

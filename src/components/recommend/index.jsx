@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Question, Answer, QuestionItems, Answers, Wrap } from "./styled";
 
 const questions = [
@@ -33,6 +33,17 @@ const questions = [
 	},
 ];
 
+// const [select, setSelect] = useState([
+// 	{ id: 1, num: 0 },
+// 	{ id: 2, num: 0 },
+// 	{ id: 3, num: 0 },
+// 	{ id: 4, num: 0 },
+// ]);
+
+const onselect = (queNum, aswNum) => {
+	console.log(queNum);
+};
+
 const Recommend = () => {
 	return (
 		<>
@@ -42,7 +53,14 @@ const Recommend = () => {
 						<Question>{q.que}</Question>
 						<Answers>
 							{q.asw.map((asw, idx) => (
-								<Answer key={idx}>{asw}</Answer>
+								<Answer
+									key={idx}
+									onClick={() => {
+										onselect(idx, asw);
+									}}
+								>
+									{asw}
+								</Answer>
 							))}
 						</Answers>
 					</QuestionItems>
