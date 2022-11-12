@@ -10,6 +10,7 @@ import Header from "./components/home/header/index";
 import Diary from "./components/plant/diary/index";
 import Create from "./components/plant/diary/create";
 import Recommend from "./components/recommend/index";
+import Cover from "./components/recommend/cover";
 import Result from "./components/recommend/result";
 import Addplant from "./components/plant/addplant/index";
 import Community from "./components/community/index";
@@ -30,7 +31,9 @@ const App = () => {
 				{/* 일지 상세 페이지 */}
 				<Route path="plant/:plantid/diary/create" element={<Create />} />{" "}
 				{/* 일지 작성 및 수정 페이지 */}
-				<Route path="recommend" element={<Recommend />} />{" "}
+				<Route path="recommend" element={<Cover />} />{" "}
+				{/* 식물 추천 시작 페이지 */}
+				<Route path="recommend/test" element={<Recommend />} />{" "}
 				{/* 식물 추천 페이지 */}
 				<Route path="recommend/result" element={<Result />} />{" "}
 				{/* 식물 추천 결과 페이지 */}
