@@ -23,6 +23,8 @@ export const Sidebar = styled.div`
     top: 8vh;
     background-color: #ffffff;
 `
+
+
 /* 유저 이모티콘 */
 export const Userpic = styled.div`
     background-image: url(${Usericon});
