@@ -37,7 +37,7 @@ const Lognone = () => {
 			<Registerbtn>
 				식물 등록 하기
 			</Registerbtn>
-		</div>;
+	</div>;
 };
 
 export default Lognone;
