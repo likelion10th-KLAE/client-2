@@ -431,6 +431,7 @@ export const Imageadd = styled.div`
 `
 
 /* 일지 내용 입력 */
+
 /* export const Logwrite = styled.input`
     background-image: url(${Write});
     position: absolute;
