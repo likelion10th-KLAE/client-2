@@ -15,6 +15,7 @@ export const PageBack = styled.div`
     background: #F4F5F4;
 `
 
+
 /* 윗 부분(제목 및 수정, 등록 버튼) */
 export const PageTitle = styled.div`
     position: absolute;
