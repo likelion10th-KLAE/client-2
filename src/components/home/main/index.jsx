@@ -69,7 +69,6 @@ const Main = () => {
 				<Logdate>2022.06.25</Logdate>
 			</LogList>
 		</LogListsec>
-		
 		</div>;
 };
 
