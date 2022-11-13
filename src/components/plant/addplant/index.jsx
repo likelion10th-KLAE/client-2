@@ -59,6 +59,7 @@ const Addplant = () => {
 				<Plantpicback>
 					<Plantpic/>
 				</Plantpicback>
+	
 				<Imageback>
 					<Imagepic/>
 				</Imageback>
