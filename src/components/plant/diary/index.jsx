@@ -73,7 +73,7 @@ const Diary = () => {
 			{/*<Logwrite type="textarea" placeholder="일지 내용을 입력하세요."></Logwrite>*/}
 		</Back>
 	</Page>
-	</div>;
+</div>;
 };
 
 export default Diary;
