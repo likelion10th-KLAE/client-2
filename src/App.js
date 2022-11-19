@@ -26,6 +26,7 @@ const App = () => {
 			<Route path="/" element={<Header />}>
 				<Route path="mypage" element={<Mypage />} /> {/* 마이 페이지*/}
 				<Route path="plant/:plantid" element={<Main />} /> {/* 메인 페이지*/}
+				<Route path="plant" element={<Lognone />} /> /* (일지 없을 경우 메인 페이지) */
 				<Route path="plant/:plantid/diary/:diaryid" element={<Diary />} />{" "}
 				{/* 일지 상세 페이지 */}
 				<Route path="plant/:plantid/diary/create" element={<Create />} />{" "}
