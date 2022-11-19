@@ -23,8 +23,6 @@ export const Sidebar = styled.div`
     top: 8vh;
     background-color: #ffffff;
 `
-
-
 /* 유저 이모티콘 */
 export const Userpic = styled.div`
     background-image: url(${Usericon});
@@ -60,7 +58,6 @@ export const Sidelist = styled.div`
     height: 77.333vh;
     left: 0vw;
     top: 14.667vh;
-    //background-color: pink;
 `
 
 export const Sideplantpic = styled.div`
@@ -76,12 +73,12 @@ export const Sideplantpic = styled.div`
 `
 
 export const Sideplantname = styled.div`
-    position: absolute;
     width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 1.59vh;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
@@ -89,13 +86,16 @@ export const Sideplantname = styled.div`
     font-size: 2vh;
     line-height: 3vh;
     color: #858585;
+    //background-color: black;
 `
 
 export const Listcompo = styled.div`
     width: 19.61vw;
     height: 5.99vh;
     margin-bottom: 2.3vh;
+    padding-top: 0;
     //background-color: aqua;
+    border-radius: 0vh 2.99vh 2.99vh 0vh;
 `
 
 export const Sideplantpicclicked = styled.div`
@@ -111,16 +111,16 @@ export const Sideplantpicclicked = styled.div`
 `
 
 export const Sideplantnameclicked = styled.div`
-    position: absolute;
-    width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 10vh;
+     width: 6.04vw;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 2vh;
     line-height: 3vh;
     color: #ffffff;
@@ -148,6 +148,7 @@ export const Plantname = styled.div`
     font-size: 36px;
     line-height: 54px;
 
+    //background-color: black;
     color: #858585;
 `
 
@@ -156,7 +157,7 @@ export const Plantdday = styled.div`
     width: 10.97vw;
     height: 1.445vh;
     left: 24.51vw;
-    top: 16.2222vh;
+    top: 16.6222vh;
 
     font-family: 'Poppins';
     font-style: normal;
@@ -230,6 +231,12 @@ export const LogListsec = styled.div`
     height: 51vh;
     left: 26.11vw;
     top: 25.467vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const LogList =  styled.div`
@@ -243,12 +250,11 @@ export const LogList =  styled.div`
 
 export const Logplantimg = styled.div`
     background-image: url(${Logplant});
-    position: relative;
     display: inline-block;
-    width: 3.636vw;
-    height: 6.33vh;
-    left: 2.2vw;
-    top: 1.5vh;
+    margin-left: 2.2vw;
+    margin-top: 2vh;
+    width: 3.33vw;
+    height: 5.33vh;
 
     background-repeat: no-repeat;
     background-size: contain;
@@ -256,19 +262,18 @@ export const Logplantimg = styled.div`
 
 export const Logtitle = styled.div`
     display: inline-block;
-    width: 15.333vw;
+    width: 45.333vw;
     height: 4.222vh;
-    margin-left: 6.6667vw;
-    margin-top: -3.3333vh;
+    margin-left: 6.66vw;
+    margin-top: 0vh;
 
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 3.11vh;
-    //line-height: 4.666vh;
+    line-height: 4.666vh;
 
     color: #000000;
-
 `
 
 export const Logdate = styled.div`
@@ -276,8 +281,8 @@ export const Logdate = styled.div`
     position: absolute;
     width: 6.94444vw;
     height: 1.77778vh;
-    margin-top: 3.754vh;
-    right:4.215vw;
+    margin-top: 0vh;
+    margin-left: 52vw;
 
     font-family: 'Poppins';
     font-style: normal;
