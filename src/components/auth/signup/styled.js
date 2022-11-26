@@ -93,7 +93,7 @@ export const SignRigntFormbutton = styled.button`
   width: 18vw;
   height: 8vh;
   color: white;
-  margin-bottom: 2.5vh;
+  margin-bottom: 3vh;
   cursor: pointer;
   text-align: center;
   border-radius: 50px;
