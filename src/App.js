@@ -44,7 +44,7 @@ const App = () => {
 				{/* 일지 게시판 페이지 */}
 				<Route path="plant/community/all" element={<AllPosts />} />{" "}
 				{/* 일지 게시판 전체 페이지 */}
-				<Route path="plant/community/:commuid" element={<Detail />} />{" "}
+				<Route path="plant/community/detail" element={<Detail />} />{" "}
 				{/* 일지 게시판 상세 페이지 */}
 			</Route>
 		</Routes>

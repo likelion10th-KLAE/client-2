@@ -29,7 +29,7 @@ export const Text = styled.div`
 
 export const PostSection = styled.div`
 	margin-top: 3vw;
-	margin-bottom: 10vw;
+	margin-bottom: 7vw;
 `;
 export const PostItem = styled.div`
 	float: left;
