@@ -13,8 +13,9 @@ import Recommend from "./components/recommend/index";
 import Cover from "./components/recommend/cover";
 import Result from "./components/recommend/result";
 import Addplant from "./components/plant/addplant/index";
-import Community from "./components/community/index";
-import Post from "./components/community/post";
+import Community from "./components/community/board/index";
+import AllPosts from "./components/community/board/allPosts";
+import Detail from "./components/community/post/detail";
 
 const App = () => {
 	return (
@@ -41,7 +42,9 @@ const App = () => {
 				{/* 식물 등록 페이지 */}
 				<Route path="plant/community" element={<Community />} />{" "}
 				{/* 일지 게시판 페이지 */}
-				<Route path="plant/community/:commuid" element={<Post />} />{" "}
+				<Route path="plant/community/all" element={<AllPosts />} />{" "}
+				{/* 일지 게시판 전체 페이지 */}
+				<Route path="plant/community/:commuid" element={<Detail />} />{" "}
 				{/* 일지 게시판 상세 페이지 */}
 			</Route>
 		</Routes>

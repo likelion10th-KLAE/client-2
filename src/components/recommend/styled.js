@@ -271,14 +271,14 @@ export const VolText = styled.div`
 `;
 
 export const Circle = styled.div`
-background-color: #828282;
-width; 4vw;
-// height: 2vh;
-aspect-ratio: auto 1/1;
-border-radius: 50vw;
-position: absolute;
-font-size: 0.9vw;
-color: rgba(0, 0, 255, 0);
-left: 20vw;
-top: 92.1vh;
+	background-color: #828282;
+	width; 4vw;
+	// height: 2vh;
+	aspect-ratio: auto 1/1;
+	border-radius: 50vw;
+	position: absolute;
+	font-size: 0.9vw;
+	color: rgba(0, 0, 255, 0);
+	left: 20vw;
+	top: 92.1vh;
 `;
