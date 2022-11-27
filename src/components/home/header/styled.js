@@ -19,6 +19,7 @@ export const Logo = styled.div`
 export const HeaderItem = styled.div`
 	// background-color: yellow;
 	margin-left: 3vw;
+	cursor: pointer;
 `;
 
 export const HeaderItems = styled.div`
