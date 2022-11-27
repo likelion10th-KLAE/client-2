@@ -33,11 +33,9 @@ export const HeaderItems = styled.div`
 
 export const LogOut = styled.div`
 	// background-color: orange;
-	margin-right: 2vw;
-`;
-
-export const Profile = styled.div`
-	// background-color: purple;
+	margin-right: 1vw;
+	font-size: 0.5vw;
+	text-decoration: underline;
 `;
 
 export const RightComp = styled.div`
@@ -49,4 +47,16 @@ export const RightComp = styled.div`
 	text-align: center;
 	display: flex;
 	justify-content: center;
+`;
+
+export const AuthImg = styled.div`
+	float: left;
+	aspect-ratio: auto 1/1;
+	width: 3vw;
+	background-color: #d9d9d9;
+	border-radius: 50vw;
+	img {
+		margin-left: 0.78vw;
+		margin-top: 0.65vw;
+	}
 `;

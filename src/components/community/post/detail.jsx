@@ -33,7 +33,7 @@ import {
 	AuthUserName,
 	But,
 } from "./styled";
-import Id from "../../../assets/auth/ID.png";
+import Id from "../../../assets/auth/Login/ID.png";
 import temp from "../../../assets/community/temp-image.png";
 import heart from "../../../assets/community/heart-icon.png";
 import comment from "../../../assets/community/comment.png";

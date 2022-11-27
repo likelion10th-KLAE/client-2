@@ -7,9 +7,11 @@ import {
 	Wrap,
 	HeaderItems,
 	RightComp,
+	AuthImg,
 } from "./styled";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Id from "../../../assets/auth/Login/ID.png";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -28,7 +30,7 @@ const Header = () => {
 	return (
 		<>
 			<Wrap>
-				<Logo>Logo</Logo>
+				<Logo>KLAE</Logo>
 				<HeaderItems>
 					<HeaderItem onClick={() => goHome()}>홈</HeaderItem>
 					<HeaderItem onClick={() => goDiary()}>일지</HeaderItem>
@@ -37,7 +39,9 @@ const Header = () => {
 				</HeaderItems>
 				<RightComp>
 					<LogOut>LOGOUT</LogOut>
-					<Profile>profile</Profile>
+					<AuthImg>
+						<img src={Id} />
+					</AuthImg>
 				</RightComp>
 			</Wrap>
 			<Outlet />
