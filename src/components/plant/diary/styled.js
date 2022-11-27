@@ -315,6 +315,9 @@ export const Waterinput = styled.input`
 
     background: #ffffff;
     border: 1px solid #D9D9D9;
+    ::placeholder{
+        color: #373F41;
+    }
 `
 
 /* 생육 보조제 투약 여부 */
@@ -345,6 +348,9 @@ export const Druginput = styled.input`
 
     background: #F4F5F4;
     border: 0;
+    ::placeholder{
+        color: #373F41;
+    }
 `
 
 /* 새로운 생장 변화 */
@@ -376,6 +382,8 @@ export const Newinput = styled.input`
     background: #3CB18E;
     opacity: 0.1;
     border: 1px solid #D9D9D9;
+    /********************* 글자색 바꿔야함************************/
+    
 `
 
 /* 오늘의 일지 */ 
@@ -426,12 +434,13 @@ export const Imageadd = styled.div`
     left: 2.569vw;
     top: 49.22vh;
 
+
     background-repeat: no-repeat;
     background-size: contain;
 `
 
-/* 일지 내용 입력 */
 
+/* 일지 내용 입력 */
 /* export const Logwrite = styled.input`
     background-image: url(${Write});
     position: absolute;
