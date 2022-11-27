@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrap = styled.div`
 	height: 8vh;
 	line-height: 8vh;
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 0.1vh solid #e5e5e5;
 	margin-top: -8px;
 	margin-left: -8px;
 	margin-right: -8px;
@@ -19,6 +19,7 @@ export const Logo = styled.div`
 export const HeaderItem = styled.div`
 	// background-color: yellow;
 	margin-left: 3vw;
+	cursor: pointer;
 `;
 
 export const HeaderItems = styled.div`

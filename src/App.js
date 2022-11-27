@@ -13,18 +13,19 @@ import Recommend from "./components/recommend/index";
 import Cover from "./components/recommend/cover";
 import Result from "./components/recommend/result";
 import Addplant from "./components/plant/addplant/index";
-import Community from "./components/community/index";
-import Post from "./components/community/post";
+import Community from "./components/community/board/index";
+import AllPosts from "./components/community/board/allPosts";
+import Detail from "./components/community/post/detail";
 
 const App = () => {
 	return (
 		<Routes>
-			<Route index element={<Initial />} /> {/* 초키 페이지 */}
 			<Route path="/login" element={<Login />} /> {/* 로그인 페이지 */}
 			<Route path="/signup" element={<Signup />} /> {/* 회원가입 페이지 */}
 			<Route path="/welcome" element={<Welcome />} />{" "}
 			{/* 회원가입 완료 페이지 */}
 			<Route path="/" element={<Header />}>
+				<Route index element={<Initial />} /> {/* 초기 페이지 */}
 				<Route path="mypage" element={<Mypage />} /> {/* 마이 페이지*/}
 				<Route path="plant/:plantid" element={<Main />} /> {/* 메인 페이지*/}
 				<Route path="plant" element={<Lognone />} /> /* (일지 없을 경우 메인 페이지) */
@@ -40,7 +41,9 @@ const App = () => {
 				{/* 식물 등록 페이지 */}
 				<Route path="plant/community" element={<Community />} />{" "}
 				{/* 일지 게시판 페이지 */}
-				<Route path="plant/community/:commuid" element={<Post />} />{" "}
+				<Route path="plant/community/all" element={<AllPosts />} />{" "}
+				{/* 일지 게시판 전체 페이지 */}
+				<Route path="plant/community/detail" element={<Detail />} />{" "}
 				{/* 일지 게시판 상세 페이지 */}
 			</Route>
 		</Routes>
