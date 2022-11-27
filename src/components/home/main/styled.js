@@ -2,25 +2,27 @@ import styled from "styled-components";
 import Usericon from "../../../assets/diary/유저 정보란.png";
 import Sideplant from "../../../assets/diary/마이페이지_사이드바 식물 icon_green.png";
 import Sideplantcl from "../../../assets/diary/마이페이지_사이드바 식물 icon_white.png";
-import Img from "../../../assets/diary/일지 작성 페이지_image.png";
-//import Write from "./img/일지 입력란.png"
+import Editimg from "../../../assets/diary/식물 정보 수정하기 버튼.png";
+import Logplant from "../../../assets/diary/icons8-화분에-심은-식물-48.png";
+import Recommend from '../../../assets/diary/일지 작성 페이지_image.png';
 
 /* 사이드바 */
-export const Page = styled.div`
+export const Page= styled.div`
     width: 100vw;
-    height: 127vh; // 임시 설정
+    height: 92vh;
+    left: 0px;
+    top: 8vh;
     background: #f0f0f0;
 `
 
 export const Sidebar = styled.div`
     position: absolute;
     width: 20.8vw;
-    height: 127vh;
+    height: 92vh;
     left: 0vw;
     top: 8vh;
     background-color: #ffffff;
 `
-
 /* 유저 이모티콘 */
 export const Userpic = styled.div`
     background-image: url(${Usericon});
@@ -56,7 +58,6 @@ export const Sidelist = styled.div`
     height: 77.333vh;
     left: 0vw;
     top: 14.667vh;
-    //background-color: pink;
 `
 
 export const Sideplantpic = styled.div`
@@ -72,12 +73,12 @@ export const Sideplantpic = styled.div`
 `
 
 export const Sideplantname = styled.div`
-    position: absolute;
     width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 1.59vh;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
@@ -85,13 +86,16 @@ export const Sideplantname = styled.div`
     font-size: 2vh;
     line-height: 3vh;
     color: #858585;
+    //background-color: black;
 `
 
 export const Listcompo = styled.div`
     width: 19.61vw;
     height: 5.99vh;
     margin-bottom: 2.3vh;
+    padding-top: 0;
     //background-color: aqua;
+    border-radius: 0vh 2.99vh 2.99vh 0vh;
 `
 
 export const Sideplantpicclicked = styled.div`
@@ -107,16 +111,16 @@ export const Sideplantpicclicked = styled.div`
 `
 
 export const Sideplantnameclicked = styled.div`
-    position: absolute;
-    width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 10vh;
+     width: 6.04vw;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 2vh;
     line-height: 3vh;
     color: #ffffff;
@@ -129,11 +133,12 @@ export const Listcompoclicked = styled.div`
     border-radius: 0vh 2.99vh 2.99vh 0vh;
 `
 
-/* 식물 이름, 디데이 */
+/* access(식물이름, 키운 지 D-day, 수정 버튼) */
+
 export const Plantname = styled.div`
     position:absolute;
-    width: 179.9px;
-    height: 47.79px;
+    width: 50.493vw;
+    height: 5.31vh;
     left: 24.375vw;
     top: 10.889vh;
 
@@ -143,6 +148,7 @@ export const Plantname = styled.div`
     font-size: 36px;
     line-height: 54px;
 
+    //background-color: black;
     color: #858585;
 `
 
@@ -151,7 +157,7 @@ export const Plantdday = styled.div`
     width: 10.97vw;
     height: 1.445vh;
     left: 24.51vw;
-    top: 16.2222vh;
+    top: 16.6222vh;
 
     font-family: 'Poppins';
     font-style: normal;
@@ -163,293 +169,228 @@ export const Plantdday = styled.div`
 
 `
 
-/* 흰 배경 */ 
-export const Back = styled.div`
+/* 식물 일지 추가하기 버튼 */
+export const Infoeditbtn = styled.button`
     position: absolute;
-    width: 71.458vw;
-    height: 102.22vh;
-    left: 24.34vw;
-    top: 20.444vh;
-
-    background: #FFFFFF;
-`
-
-/* 저장하기 버튼 */
-export const Savebtn = styled.button`
-    padding: 1.3vh 1.25vw;
-
-    position: absolute;
-    width: 9.44vw;
-    height: 4.666vh;
-    left: 56.805vw;
-    top: 7.11vh;
-    text-align: center;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.972vw;
-    line-height: 2vh;
-
-    text-align: center;
-    letter-spacing: 0.3px;
+    width: 9.92vw; 
+    height: 4.44vh;
+    right: 6.5vw;
+    top: 13vh;
 
     border: 0;
-    color:#ffffff;
-    background: #3CB172;
-`
-
-/* 공유하기 버튼 */
-export const Sharebtn = styled.button`
-    padding: 1.3vh 1.25vw;
-
-    position: absolute;
-    width: 9.44vw;
-    height: 4.666vh;
-    left: 44.583vw;
-    top: 7.11vh;
-    text-align: center;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.972vw;
-    line-height: 2vh;
-
-    text-align: center;
-    letter-spacing: 0.3px;
-
-    border: 0;
-    color: #ffffff;
-    background: #3CB172;
-`
-
-/* 수정하기 버튼 */
-export const Editbtn = styled.button`
-    padding: 1.3vh 1.25vw;
-
-    position: absolute;
-    width: 9.44vw;
-    height: 4.666vh;
-    left: 56.805vw;
-    top: 7.11vh;
-    text-align: center;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.972vw;
-    line-height: 2vh;
-
-    text-align: center;
-    letter-spacing: 0.3px;
-
-    border: 1px solid #3CB172;
-    color:#3CB172;
-    background: #ffffff;
-`
-
-/* 일지 제목을 입력하세요 */
-export const Logtitle = styled.input`
-    position: absolute;
-    width: 24.36vw; //22.36
-    height: 4.822vh;
-    left: 3.268vw;
-    top: 5.063vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.22vw;
-    line-height: 4.44vh;
-    letter-spacing: 0.1px;
-
     outline: 0;
-    border: 0;
-    ::placeholder{
-        color: #373F41;
-    }
+    background: #3CB172;
+    border-radius: 11.12vh;
 `
 
-/* 생육 정보 */ 
-export const Growinfo = styled.div`
+/* 식물 사진 */
+export const EditImg = styled.div`
+    background-image: url(${Editimg});
     position: absolute;
-    width: 8.22vw;  //7.22
-    height: 3.85vh;
-    left: 2.916vw;
-    top: 15.55vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.8vw;
-    line-height: 3.55vh;
-
-    letter-spacing: 0.2px;
-
-    color: #373F41;
-`
-
-/* 급수 여부 / 급수량 */
-export const Watertxt = styled.div`
-    position: absolute;
-    width: 13.88vw;
-    height: 2.41vh;
-    left: 3.611vw;
-    top: 21.3366vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.972vw;
-    line-height: 2.22vh;
-
-    letter-spacing: 0.2px;
-
-    color: #737B7D;
-`
-
-export const Waterinput = styled.input`
-    position: absolute;
-    width: 18.33vw;
-    height: 6.75vh;
-    left: 3.61vw;
-    top: 24.832vh;
-
-    background: #ffffff;
-    border: 1px solid #D9D9D9;
-    ::placeholder{
-        color: #373F41;
-    }
-`
-
-/* 생육 보조제 투약 여부 */
-export const Drugtxt = styled.div`
-    position: absolute;
-    width: 13.88vw;
-    height: 2.41vh;
-    left: 26.25vw;
-    top: 21.3366vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.972vw;
-    line-height: 2.22vh;
-
-    letter-spacing: 0.2px;
-
-    color: #737B7D;
-`
-
-export const Druginput = styled.input`
-    position: absolute;
-    width: 18.33vw;
-    height: 6.75vh;
-    left: 25.972vw;
-    top: 24.832vh;
-
-    background: #F4F5F4;
-    border: 0;
-    ::placeholder{
-        color: #373F41;
-    }
-`
-
-/* 새로운 생장 변화 */
-export const Newtxt = styled.div`
-    position: absolute;
-    width: 13.88vw;
-    height: 2.41vh;
-    left: 48.26vw;
-    top: 21.3366vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.972vw;
-    line-height: 2.22vh;
-
-    letter-spacing: 0.2px;
-
-    color: #737B7D;
-`
-
-export const Newinput = styled.input`
-    position: absolute;
-    width: 18.33vw;
-    height: 6.75vh;
-    left: 48.263vw;
-    top: 24.832vh;
-
-    background: #3CB18E;
-    opacity: 0.1;
-    border: 1px solid #D9D9D9;
-    /********************* 글자색 바꿔야함************************/
-    
-`
-
-/* 오늘의 일지 */ 
-export const Todaylog = styled.div`
-    position: absolute;
-    width: 10.22vw;  //7.22
-    height: 3.85vh;
-    left: 2.916vw;
-    top: 39.05vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.8vw;
-    line-height: 3.55vh;
-
-    letter-spacing: 0.2px;
-
-    color: #373F41;
-`
-
-/* 키운지 nnn일차 */
-export const Dday = styled.div`
-    position: absolute;
-    width: 24.72vw;
-    height: 22.411vw;
-    left: 3.2638vw;
-    top: 44.842vh;
-
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.972vw;
-    line-height: 2.22vh;
-
-    letter-spacing: 0.2px;
-
-    color: #737B7D;
-`
-
-/* 사진 첨부 */
-export const Imageadd = styled.div`
-    //background-image: url(${Img});
-    //background-color: pink;
-    position: absolute;
-    width: 37.083vw;
-    height: 45.204vh;
-    left: 2.569vw;
-    top: 49.22vh;
-    border: 0;
+    width: 0.904vw; //비율이,,,이상하다,,
+    height: 1.05vh; 
+    left: 1.38vw;
+    top: 1.64vh;
 
     background-repeat: no-repeat;
     background-size: contain;
 `
 
-
-/* 일지 내용 입력 */
-/* export const Logwrite = styled.input`
-    background-image: url(${Write});
+export const EditTxt = styled.div`
     position: absolute;
-    width: 27.083vw;
-    height: 50.778vh;
-    left: 41.18vw;
-    top: 49.22vh;
+    width: 5.772vw;
+    height: 1.798vh;
+    left: 3.11vw;
+    top: 1.4vh;
 
-    font-size: 3vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.694vw;
+    line-height: 1.67vh;
+
+    color: #FFFFFF;
+`
+
+/* 일지 표시 칸 */
+export const LogPage = styled.div`
+    position: absolute;
+    width: 67.4vw;
+    height: 61.1vh;
+    left: 24.236vw;
+    top: 20.4444vh;
+
+    background: #FFFFFF;
+    border: 2px solid #F0F0F0;
+    border-radius: 10px;
+`
+
+export const LogListsec = styled.div`
+    position: absolute;
+    width: 62.77vw;
+    height: 51vh;
+    left: 26.11vw;
+    top: 25.467vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+`
+
+export const LogList =  styled.div`
+    width: 62.75vw;
+    height: 9.42vh;
+    margin-bottom: 3.444vh;
+
+    background: rgba(228, 228, 228, 0.4);
+    border-radius: 10px;
+`
+
+export const Logplantimg = styled.div`
+    background-image: url(${Logplant});
+    display: inline-block;
+    margin-left: 2.2vw;
+    margin-top: 2vh;
+    width: 3.33vw;
+    height: 5.33vh;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+`
+
+export const Logtitle = styled.div`
+    display: inline-block;
+    width: 45.333vw;
+    height: 4.222vh;
+    margin-left: 6.66vw;
+    margin-top: 0vh;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.11vh;
+    line-height: 4.666vh;
+
+    color: #000000;
+`
+
+export const Logdate = styled.div`
+    display: inline-block;
+    position: absolute;
+    width: 6.94444vw;
+    height: 1.77778vh;
+    margin-top: 0vh;
+    margin-left: 52vw;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.77778vh;
+    line-height: 2.6667vh;
+
+    color: #000000;
+
+`
+
+/*------ 작성된 일지가 없는 경우 ------*/
+
+/* 일지가 비어있어요! 식물을 등록하고 일지를 작성해보세요.*/
+export const Text1 = styled.div`
+    position: absolute;
+    width: 46.736vw;
+    height: 8.889;
+    left: 24.51vw;
+    top: 29.22vh;
     
-    border: 0;
-`*/
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.94vw;
+    line-height: 4.6667vh;
+
+    color: #E5E5E5;
+`
+
+/* 키우고 있는 식물이 없다면 맞춤형 식물 추천을 받아보세요 */
+export const Text2 = styled.div`
+    position: absolute;
+    width: 68.72vw;
+    height: 7vh;
+    left: 24.791vw;
+    top: 41vh;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.5vw;
+    line-height: 6vh;
+
+    color: #C3CBCD;
+`
+
+/* 식물 추천 받기 */
+export const Recommendbtn = styled.button`
+    position: absolute;
+    width: 16vw; //13.88vw;
+    height: 5.33vh;
+    left: 24.791vw;
+    top: 48vh;
+
+    padding-left: 0;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.22vw;
+    line-height: 4.33vh;
+
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(14, 107, 94, 0.89);
+
+    color: rgba(14, 107, 94, 0.89);
+`
+
+/* 이미 기르고 있는 식물이 있다면 KLAE에 등록하세요. */
+export const Text3 = styled.div`
+    position: absolute;
+    width: 68.72vw;
+    height: 7vh;
+    left: 24.791vw;
+    top: 61.33vh;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.5vw;
+    line-height: 6vh;
+
+    color: #C3CBCD;
+`
+
+/* 식물 등록 하기 */
+export const Registerbtn = styled.button`
+    position: absolute;
+    width: 16vw; //13.88vw;
+    height: 5.33vh;
+    left: 24.791vw;
+    top: 68.33vh;
+
+    padding-left: 0;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.22vw;
+    line-height: 4.33vh;
+
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(14, 107, 94, 0.89);
+
+    color: rgba(14, 107, 94, 0.89);
+`
