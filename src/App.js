@@ -20,12 +20,12 @@ import Detail from "./components/community/post/detail";
 const App = () => {
 	return (
 		<Routes>
-			<Route index element={<Initial />} /> {/* 초키 페이지 */}
 			<Route path="/login" element={<Login />} /> {/* 로그인 페이지 */}
 			<Route path="/signup" element={<Signup />} /> {/* 회원가입 페이지 */}
 			<Route path="/welcome" element={<Welcome />} />{" "}
 			{/* 회원가입 완료 페이지 */}
 			<Route path="/" element={<Header />}>
+				<Route index element={<Initial />} /> {/* 초기 페이지 */}
 				<Route path="mypage" element={<Mypage />} /> {/* 마이 페이지*/}
 				<Route path="plant/:plantid" element={<Main />} /> {/* 메인 페이지*/}
 				<Route path="plant/:plantid/diary/:diaryid" element={<Diary />} />{" "}
