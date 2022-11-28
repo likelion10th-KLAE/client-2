@@ -39,9 +39,10 @@ const Header = () => {
 				</HeaderItems>
 				<RightComp>
 					<LogOut>LOGOUT</LogOut>
-					<AuthImg>
-						<img src={Id} />
-					</AuthImg>
+					{/* <AuthImg> */}
+					{/* <img src={Id} /> */}
+					profile
+					{/* </AuthImg> */}
 				</RightComp>
 			</Wrap>
 			<Outlet />
