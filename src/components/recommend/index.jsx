@@ -30,7 +30,7 @@ const answers = [
 ];
 
 const Recommend = () => {
-	const [select, setSelect] = useState([1, false, false, false]);
+	const [select, setSelect] = useState([1, 2, 0, 3]);
 	const [check, setCheck] = useState(false);
 
 	const navigate = useNavigate();
