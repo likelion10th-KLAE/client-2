@@ -25,17 +25,13 @@ import {
 	Logtitle,
 	Logdate,
 	Page,
+	Plantset,
+	PlantsetH,
 } from "./styled";
 
 function Plant({ plant }) {
 	const [isHovering, setIsHovering] = useState(0);
-	const [isChecked, setIsChecked] = useState(false);
-
-	function check(e) {
-		{
-			e.unchecked ? setIsChecked(false) : setIsChecked(true);
-		}
-	}
+	let { plantid } = useParams();
 
 	return (
 		<label class="radio">
@@ -43,20 +39,14 @@ function Plant({ plant }) {
 				type="radio"
 				name="sidebar"
 				id="radio"
+				style={{display: "none"}}
 				value={plant.id}
-				onChange={check}
 			/>
 			<div
 				onMouseOver={() => setIsHovering(1)}
 				onMouseOut={() => setIsHovering(0)}
 			>
-				{isHovering ? (
-					<Listcompoclicked>
-						<Sideplantpicclicked>
-							<Sideplantnameclicked>{plant.name}</Sideplantnameclicked>
-						</Sideplantpicclicked>
-					</Listcompoclicked>
-				) : isChecked ? (
+				{ (plant.id == plantid)|(isHovering)  ? (
 					<Listcompoclicked>
 						<Sideplantpicclicked>
 							<Sideplantnameclicked>{plant.name}</Sideplantnameclicked>
@@ -85,6 +75,7 @@ function Diary({ diary }) {
 
 const Main = () => {
 	let { plantid } = useParams();
+	const [isHovering, setIsHovering] = useState(0)
 
 	const user1 = [
 		{
@@ -114,7 +105,7 @@ const Main = () => {
 					id: 3,
 					title: "식물 ㄱㅇㅇ >_<",
 					date: "2022.03.15",
-					path: "diary/0/3",
+					path: "diary/3",
 				},
 				{
 					id: 4,
@@ -157,12 +148,14 @@ const Main = () => {
 		},
 	];
 
+	/* 일지 추가하기*/
 	const navigate = useNavigate();
-
 	const navigateToCreate = () => {
-		navigate("/plant/:plantid/diary/create");
+		/* 식물일지 추가하기 버튼 누를때 새로운 일지를 추가하는 페이지로*/
+		navigate(`/plant/${plantid}/diary/create`);
 	};
 
+	/* 정보 보여주기 */
 	const [iid, setIid] = useState(plantid);
 	const [diary, setDiary] = useState(
 		user1.map((plant) => user1[plantid].diary)
@@ -181,11 +174,12 @@ const Main = () => {
 				<Sidelist>
 					{user1.map((plant) => (
 						<div
-							onClick={() => {
+							onChange={() => {
 								setIid(plant.id);
 								setDiarylist(user1[plant.id].diary);
 								setPlantname(user1[plant.id].name);
 								setPlantdate("키운지 D+" + user1[plant.id].dday + "일 째");
+								navigate(`/plant/${plant.id}`);
 							}}
 						>
 							<Plant plant={plant} />
@@ -193,10 +187,25 @@ const Main = () => {
 					))}
 				</Sidelist>
 			</Sidebar>
-			<Link to="addplant">
-				<Plantname>{plantname}</Plantname>
-				<Plantdday>{plantdate}</Plantdday>
-			</Link>
+			<label
+			onMouseOver={() => setIsHovering(1)}
+			onMouseOut={() => setIsHovering(0)}>
+				{isHovering?(
+				<Link to="addplant">
+					<Plantname>{plantname}</Plantname>
+					<PlantsetH>⚙️</PlantsetH>
+					<Plantdday>{plantdate}</Plantdday>
+				</Link>
+				):(
+				<Link to="addplant">
+					<Plantname>{plantname}</Plantname>
+					<Plantset>⚙️</Plantset>
+					<Plantdday>{plantdate}</Plantdday>
+				</Link>
+				)}
+			
+			</label>
+			
 
 			<Infoeditbtn onClick={navigateToCreate}>
 				<EditImg />
