@@ -72,12 +72,12 @@ export const Sideplantpic = styled.div`
 `
 
 export const Sideplantname = styled.div`
-    position: absolute;
     width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 1.59vh;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
@@ -85,6 +85,7 @@ export const Sideplantname = styled.div`
     font-size: 2vh;
     line-height: 3vh;
     color: #858585;
+    //background-color: black;
 `
 
 export const Listcompo = styled.div`
@@ -92,6 +93,7 @@ export const Listcompo = styled.div`
     height: 5.99vh;
     margin-bottom: 2.3vh;
     //background-color: aqua;
+    border-radius: 0vh 2.99vh 2.99vh 0vh;
 `
 
 export const Sideplantpicclicked = styled.div`
@@ -107,16 +109,16 @@ export const Sideplantpicclicked = styled.div`
 `
 
 export const Sideplantnameclicked = styled.div`
-    position: absolute;
     width: 6.04vw;
-    height: 3vh;
-    left: 6.736vw;
-    top: 10vh;
+    padding-left: 2.6389vw;
+    padding-top: 0vh;
+    text-align: center;
     display: inline-block;
+
     font-family: 'Poppins';
     
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 2vh;
     line-height: 3vh;
     color: #ffffff;
@@ -193,9 +195,14 @@ export const Savebtn = styled.button`
     text-align: center;
     letter-spacing: 0.3px;
 
-    border: 0;
-    color:#ffffff;
+    border: 1px solid #3CB172;
+    color: #ffffff;
     background: #3CB172;
+
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
 `
 
 /* 공유하기 버튼 */
@@ -216,10 +223,14 @@ export const Sharebtn = styled.button`
 
     text-align: center;
     letter-spacing: 0.3px;
-
-    border: 0;
+    border: 1px solid #3CB172;
     color: #ffffff;
     background: #3CB172;
+
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
 `
 
 /* 수정하기 버튼 */
@@ -242,11 +253,36 @@ export const Editbtn = styled.button`
     letter-spacing: 0.3px;
 
     border: 1px solid #3CB172;
-    color:#3CB172;
-    background: #ffffff;
+    color: #ffffff;
+    background: #3CB172;
+
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
+
 `
 
 /* 일지 제목을 입력하세요 */
+export const Logtitlediv = styled.div`
+    position: absolute;
+    width: 24.36vw; //22.36
+    height: 4.822vh;
+    left: 3.268vw;
+    top: 5.063vh;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    color: #373F41;
+    font-weight: 700;
+    font-size: 2.22vw;
+    line-height: 4.44vh;
+    letter-spacing: 0.1px;
+
+    outline: 0;
+    border: 0;
+`
+
 export const Logtitle = styled.input`
     position: absolute;
     width: 24.36vw; //22.36
@@ -320,6 +356,20 @@ export const Waterinput = styled.input`
     }
 `
 
+export const Waterdiv = styled.div`
+    position: absolute;
+    width: 16.33vw;
+    height: 4.75vh;
+    left: 3.61vw;
+    top: 24.832vh;
+
+    background: #ffffff;
+    border: 1px solid #D9D9D9;
+    color: #373F41; 
+    padding-left: 2vw;
+    padding-top: 2vh;
+`
+
 /* 생육 보조제 투약 여부 */
 export const Drugtxt = styled.div`
     position: absolute;
@@ -353,6 +403,20 @@ export const Druginput = styled.input`
     }
 `
 
+export const Drugdiv = styled.div`
+    position: absolute;
+    width: 16.33vw;
+    height: 4.75vh;
+    left: 25.972vw;
+    top: 24.832vh;
+
+    background: #F4F5F4;
+    border: 0;
+    color: #373F41; 
+    padding-left: 2vw;
+    padding-top: 2vh;
+`
+
 /* 새로운 생장 변화 */
 export const Newtxt = styled.div`
     position: absolute;
@@ -379,10 +443,29 @@ export const Newinput = styled.input`
     left: 48.263vw;
     top: 24.832vh;
 
-    background: #3CB18E;
-    opacity: 0.1;
-    border: 1px solid #D9D9D9;
+    background: #E9F6F3;
+    border: 0;
+    ::placeholder{
+        color: #373F41;
+    }
+    
+    
     /********************* 글자색 바꿔야함************************/
+
+`
+
+export const Newdiv = styled.div`
+    position: absolute;
+    width: 16.33vw;
+    height: 4.75vh;
+    left: 48.263vw;
+    top: 24.832vh;
+
+    background: #E9F6F3;
+    border: 0;
+    padding-left: 2vw;
+    padding-top: 2vh;
+    font-style: ;
     
 `
 
@@ -425,31 +508,54 @@ export const Dday = styled.div`
 `
 
 /* 사진 첨부 */
-export const Imageadd = styled.div`
-    background-image: url(${Img});
-    //background-color: pink;
+export const ImgSection = styled.div`
     position: absolute;
     width: 37.083vw;
     height: 45.204vh;
     left: 2.569vw;
     top: 49.22vh;
-
-
+    
     background-repeat: no-repeat;
     background-size: contain;
 `
 
+export const Hide = styled.div`
+    display: none;
+`
 
 /* 일지 내용 입력 */
-/* export const Logwrite = styled.input`
-    background-image: url(${Write});
-    position: absolute;
-    width: 27.083vw;
-    height: 50.778vh;
+export const Bin = styled.div`
+	background-color: #f4f5f4;
+	color: #f4f5f4;
+	width: 27vw;
+	height: 6vh;
+`;
+export const Contents = styled.div`
+	// background-color: red;
+	height: 6vh;
+    width: 27vw;
+	line-height: 6vh;
+	border-bottom: 0.1vh solid #e8e8e8;
+	padding-left: 0.5vw;
+`;
+export const Right = styled.div`
+	position: absolute;
     left: 41.18vw;
     top: 49.22vh;
 
-    font-size: 3vh;
-    
-    border: 0;
-`*/
+`;
+
+export const TxtInput = styled.textarea`
+    position: absolute;
+    left: 41.18vw;
+    top: 55.22vh;
+    height: 42vh;
+    width: 27vw;
+    line-height: 6vh;
+	border: 0.1vh solid transparent;
+	padding-left: 0.5vw;
+    background-color: transparent;
+    outline: none;
+	font-size: 1.78vh;
+	resize: both;
+`
