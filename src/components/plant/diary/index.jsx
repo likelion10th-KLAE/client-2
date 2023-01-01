@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import {
 	Sidebar,
 	Userpic,
@@ -15,7 +15,7 @@ import {
 	Plantname,
 	Plantdday,
 	Back,
-	Logtitle,
+	Logtitlediv,
 	Sharebtn,
 	Editbtn,
 	Growinfo,
@@ -27,10 +27,52 @@ import {
 	Newinput,
 	Todaylog,
 	Dday,
-	Imageadd,
-	Logwrite
+	ImgSection,
+	Hide,
+	Waterdiv,
+	Drugdiv,
+	Newdiv,
+	Bin,
+	Right,
+	Contents,
+	SideBack
 } from "./styled";
 import Img from "../../../assets/diary/일지 작성 페이지_image.png";
+
+function Plant({ plant }) {
+	const [isHovering, setIsHovering] = useState(0);
+	let { plantid } = useParams();
+	
+	return (
+		<label class="radio">
+			<input
+				type="radio"
+				name="sidebar"
+				id="radio"
+				style={{display: "none"}}
+				value={plant.id}
+			/>
+			<div
+				onMouseOver={() => setIsHovering(1)}
+				onMouseOut={() => setIsHovering(0)}
+			>
+				{ (plant.id == plantid)|(isHovering)  ? (
+					<Listcompoclicked>
+						<Sideplantpicclicked>
+							<Sideplantnameclicked>{plant.name}</Sideplantnameclicked>
+						</Sideplantpicclicked>
+					</Listcompoclicked>
+				) : (
+					<Listcompo>
+						<Sideplantpic>
+							<Sideplantname>{plant.name}</Sideplantname>
+						</Sideplantpic>
+					</Listcompo>
+				)}
+			</div>
+		</label>
+	);
+}
 
 const Diary = () => {
 	const user1=[{
@@ -59,7 +101,7 @@ const Diary = () => {
 				drug: "22",
 				new: "33",
 				imagepath:"",
-				text:"않겠지.....",
+				text:"cccccccc않겠지.....",
 			},
 			{
 				id: 2,
@@ -153,77 +195,110 @@ const Diary = () => {
 	
 	const [ diarytitle, setDiarytitle ] = useState(user1[plantid].diary[diaryid].title);
   
-	const [imgFile, setImgFile] = useState("");
-	const imgRef = useRef();
+	/* 이미지 미리보기 구현 */
+	const [imageSrc, setImageSrc] = useState(Img);
 
+	const encodeFileToBase64 = (fileBlob) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(fileBlob);
+		return new Promise((resolve) => {
+		  reader.onload = () => {
+			setImageSrc(reader.result);
+			resolve();
+		  };
+		});
+	  };
 
-	const saveImgFile = () => {
-		const file = imgRef.current.files[0];
-		const reader = new FileReader();			
-		reader.readAsDataURL(file);
-		reader.onloadend = () => {
-			setImgFile(reader.result);
-		   };
-}
+	const imagestyle ={
+		width: "37.083vw",
+    	height: "45.204vh"
+	}
+	/* */
 
-	return <div>
+	/* 이미지 파일 수정 버튼 클릭시 전송 */
+
+	/* */
+
+	/* 일지 수정하기*/
+	const navigate = useNavigate();
+	const navigateToEdit = () => {
+		/* 해당 식물 아이디 값으로 이동 */
+		navigate(`/plant/${plantid}/diary/${diaryid}/edit`);
+	};
+
+	const navigateToShare =()=>{
+		navigate(`community`)
+	};
+	return (
+	<div>
 	<Page>
 		<Sidebar>
-		<Userpic/>
-			<Usernick>(닉네임) 님</Usernick>
-			<Sidelist>
-				<Listcompo>
-					<Sideplantpic/><Sideplantname>식물 1</Sideplantname>
-					</Listcompo>
-				<Listcompoclicked>
-					<Sideplantpicclicked/>
-					<Sideplantnameclicked>식물 2</Sideplantnameclicked>
-				</Listcompoclicked>
-			</Sidelist>
-		</Sidebar>
+				<Userpic />
+				<Usernick>(닉네임) 님</Usernick>
+				<Sidelist>
+				{user1.map((plant)=>(
+                    <div onClick={() =>{
+                        /* 해당 식물의 일지들 맵핑 */
+                        navigate(`/plant/${plant.id}`)
+                    }}>
+                        <Plant 
+                        plant={plant}/>
+                    </div>
+					))}
+				</Sidelist>
+			</Sidebar>
 
 		<Plantname>{user1[plantid].name}</Plantname>
 		<Plantdday>키운지 D+{user1[plantid].dday}일 째</Plantdday>
 
 		<Back>
-			<Logtitle placeholder={diarytitle}></Logtitle>
-			<Link to="community">
-				<Sharebtn>공유하기</Sharebtn>
-			</Link>
-			<Editbtn>수정하기</Editbtn>
+			<Logtitlediv>
+			{user1[plantid].diary[diaryid].title}
+			</Logtitlediv>
+			<Sharebtn onClick={navigateToShare}>공유하기</Sharebtn>
+			
+			<Editbtn onClick={navigateToEdit}>수정하기</Editbtn>
 
 			<Growinfo>생육 정보</Growinfo>
 
 			<Watertxt>급수 여부 / 급수량</Watertxt>
-			<Waterinput placeholder={user1[plantid].diary[diaryid].water}/>
+			<Waterdiv>
+				{user1[plantid].diary[diaryid].water}
+			</Waterdiv>
 
 			<Drugtxt>생육 보조제 투약 여부</Drugtxt>
-			<Druginput placeholder={user1[plantid].diary[diaryid].drug}/>
+			<Drugdiv>
+				{user1[plantid].diary[diaryid].drug}
+			</Drugdiv>
 
 			<Newtxt>새로운 생장 변화</Newtxt>
-			<Newinput placeholder={user1[plantid].diary[diaryid].new}/>
-
+			<Newdiv>
+			{user1[plantid].diary[diaryid].new}
+			</Newdiv>
 			<Todaylog>오늘의 일지:</Todaylog>
 			<Dday>키운지 {user1[plantid].dday}일차</Dday>
-			<label>
-				<Imageadd />
-				<img
-				src={imgFile ? imgFile :`/images/icon/user.png`}
-				alt="프로필 이미지"
-				/>
-
-				<input
-					type="file"
-					accept="image/*"
-					id="profileImg"
-					onChange={saveImgFile}
-					ref={imgRef}/>
-			</label>
-			{/* 수정 예정!*/}
-			{/*<Logwrite type="textarea" placeholder="일지 내용을 입력하세요."></Logwrite>*/}
+			
+			<ImgSection>
+        		<img src={imageSrc} 
+				style={imagestyle}
+					alt="preview-img"
+				/>	      			
+    		</ImgSection>
+			{/* 일기 쓰는 부분*/}
+			<Right>
+				<Bin>?</Bin>
+				<Contents>{user1[plantid].diary[diaryid].text}</Contents>
+				<Contents></Contents>
+				<Contents></Contents>
+				<Contents></Contents>
+				<Contents></Contents>
+			</Right>
+			
+			
 		</Back>
 	</Page>
-	</div>;
+	</div>
+	)
 };
 
 export default Diary;
