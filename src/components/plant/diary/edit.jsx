@@ -70,7 +70,7 @@ function Plant({ plant }) {
 	);
 }
 
-const Create = () => {
+const Edit = () => {
 	const user1=[{
 		id: 0,
 		name: "식물 1",
@@ -187,7 +187,8 @@ const Create = () => {
 		}] 
 
 	let { plantid } = useParams();
-	
+	let { diaryid } = useParams();
+
   
 	/* 이미지 미리보기 구현 */
 	const [imageSrc, setImageSrc] = useState(Img);
@@ -195,12 +196,10 @@ const Create = () => {
 	const encodeFileToBase64 = (fileBlob) => {
 		const reader = new FileReader();
 		reader.readAsDataURL(fileBlob);
-		
 		return new Promise((resolve) => {
 		  reader.onload = () => {
 			setImageSrc(reader.result);
 			resolve();
-			console.log(reader);
 		  };
 		});
 	  };
@@ -212,28 +211,28 @@ const Create = () => {
 	/* */
 	const navigate = useNavigate();
 
-	/************ 입력 데이터 받아오기 *****************/
-	const [info, setInfo] = useState({
-		title: "",
-		water: "",
-		drug: "",
-		new: "",
-		pic: "",
-		content: ""
-	});
-
-	const onChangeInfo = (e) =>{
-		setInfo({
-			...info,
-			[e.target.name]:e.target.value,
+		/************ 입력 데이터 받아오기 *****************/
+		const [info, setInfo] = useState({
+			title: "",
+			water: "",
+			drug: "",
+			new: "",
+			pic: "",
+			content: ""
 		});
-	}
-
-	/************ 입력 데이터 넘기기 *****************/
-	const onClickSave =(e) =>{
-		console.log(info);
-		console.log(imageSrc.name);
-	}
+	
+		const onChangeInfo = (e) =>{
+			setInfo({
+				...info,
+				[e.target.name]:e.target.value,
+			});
+		}
+	
+		/************ 입력 데이터 넘기기 *****************/
+		const onClickSave =(e) =>{
+			console.log(info);
+			console.log(imageSrc.name);
+		}
 
 	return <div>
 	<Page>
@@ -259,24 +258,27 @@ const Create = () => {
 
 		<Back>
 			<Logtitle 
-            type="text"
-            placeholder="제목을 입력하세요."
+			type="text" 
+			placeholder={user1[plantid].diary[diaryid].title}
 			id="title"
 			name="title"
 			onChange={onChangeInfo}
-			>
+			>			
 			</Logtitle>
 			<Savebtn
 			onClick={onClickSave}
-			>저장하기</Savebtn>
+			>
+			저장하기
+			</Savebtn>
 
 			<Growinfo>생육 정보</Growinfo>
 
 			<Watertxt>급수 여부 / 급수량</Watertxt>
-			<Waterinput
+			<Waterinput 
 			id="water"
 			name="water"
 			onChange={onChangeInfo}
+			placeholder={user1[plantid].diary[diaryid].water}
 			/>
 
 			<Drugtxt>생육 보조제 투약 여부</Drugtxt>
@@ -284,6 +286,7 @@ const Create = () => {
 			id="drug"
 			name="drug"
 			onChange={onChangeInfo}
+			placeholder={user1[plantid].diary[diaryid].drug}
 			/>
 
 			<Newtxt>새로운 생장 변화</Newtxt>
@@ -291,7 +294,8 @@ const Create = () => {
 			id="new"
 			name="new"
 			onChange={onChangeInfo}
-			/>
+			placeholder={user1[plantid].diary[diaryid].new}
+			></Newinput>
 
 			<Todaylog>오늘의 일지:</Todaylog>
 			<Dday>키운지 nnn일차</Dday>
@@ -313,7 +317,7 @@ const Create = () => {
         			{imageSrc && 
 					<img src={imageSrc} 
 					alt="preview-img" 
-					style={imagestyle} 
+					style={imagestyle}
 					/>	}      			
     			</ImgSection>
 			</label>
@@ -329,16 +333,14 @@ const Create = () => {
 				<Contents></Contents>
 				<Contents></Contents>
 			</Right>
-			
+
 			<TxtInput
 			id="content"
 			name="content"
-			onChange={onChangeInfo}
-			placeholder="일지 내용을 입력하세요"
-			/>
+			onChange={onChangeInfo}>{user1[plantid].diary[diaryid].text}</TxtInput>
 		</Back>
 	</Page>
 	</div>;
 };
 
-export default Create;
+export default Edit;
