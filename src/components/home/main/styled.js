@@ -23,6 +23,7 @@ export const Sidebar = styled.div`
     top: 8vh;
     background-color: #ffffff;
 `
+
 /* 유저 이모티콘 */
 export const Userpic = styled.div`
     background-image: url(${Usericon});
@@ -111,7 +112,7 @@ export const Sideplantpicclicked = styled.div`
 `
 
 export const Sideplantnameclicked = styled.div`
-     width: 6.04vw;
+    width: 6.04vw;
     padding-left: 2.6389vw;
     padding-top: 0vh;
     text-align: center;
@@ -152,6 +153,34 @@ export const Plantname = styled.div`
     color: #858585;
 `
 
+export const Plantset = styled.div`
+    position:absolute;
+    width: 22.493vw;
+    height: 3.31vh;
+    left: 34.375vw;
+    top: 10.889vh;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.9vw;
+    line-height: 54px;
+`
+
+export const PlantsetH = styled.div`
+    position:absolute;
+    width: 22.493vw;
+    height: 3.31vh;
+    left: 34.375vw;
+    top: 10.889vh;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.9vw;
+    line-height: 54px;
+`
+
 export const Plantdday = styled.div`
     position: absolute;
     width: 10.97vw;
@@ -177,7 +206,7 @@ export const Infoeditbtn = styled.button`
     right: 6.5vw;
     top: 13vh;
 
-    border: 0;
+    border: 1px solid #3CB172;
     outline: 0;
     background: #3CB172;
     border-radius: 11.12vh;
@@ -234,6 +263,7 @@ export const LogListsec = styled.div`
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    
     ::-webkit-scrollbar{
         display: none;
     }
