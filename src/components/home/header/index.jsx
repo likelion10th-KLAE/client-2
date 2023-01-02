@@ -11,7 +11,7 @@ import {
 } from "./styled";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Id from "../../../assets/auth/Login/ID.png";
+import Id from "../../../assets/header/avatar.png";
 
 const Header = () => {
 	const navigate = useNavigate();

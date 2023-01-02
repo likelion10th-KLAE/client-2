@@ -23,20 +23,14 @@ export const Auth = styled.div`
 `;
 
 export const AuthImg = styled.div`
-	display: inline-block;
-	aspect-ratio: auto 1/1;
-	width: 2.7vw;
-	background-color: #d9d9d9;
-	border-radius: 50vw;
+	float: left;
 	img {
-		margin-left: 0.78vw;
-		margin-top: 0.65vw;
+		width: 2.5vw;
 	}
 `;
 export const Username = styled.div`
 	display: inline-block;
-	margin-top: 1.4vh;
-	margin-left: 1.5vw;
+	margin-left: 1vw;
 	font-size: 1.3vw;
 	border-right: 1px solid #e5e5e5;
 	padding-right: 1vw;
@@ -144,58 +138,48 @@ export const Date = styled.div`
 `;
 export const ComtItem = styled.div`
 	background-color: #fafefd;
+	padding-top: 3vh;
 `;
 export const Cont = styled.div`
 	font-size: 1.2vw;
 `;
 export const ComWrap = styled.div`
-	display: inline-block;
-	// background-color: blue;
 	width: 75vw;
-	margin-top: 5vh;
+	height: 10vh;
 	margin-left: 1vw;
+	float: left;
+	margin-bottom: 3vh;
 `;
 
 export const ImgWrap = styled.div`
-	// background-color: yellow;
+	padding-top: 0.5vh;
 	width: 5vw;
-	padding-bottom: -10vh;
-	display: inline-block;
-`;
-
-export const AuthImg2 = styled.div`
-	display: inline-block;
-	aspect-ratio: auto 1/1;
-	width: 3vw;
-	background-color: #d9d9d9;
-	border-radius: 50vw;
-	margin-bottom: -90vh;
-	margin-left: 2vw;
+	float: left;
 	img {
-		width: 1.5vw;
-		margin-left: 0.78vw;
-		margin-top: 0.65vw;
-	}
+		width: 2.5vw;
 `;
 
 export const Input = styled.div`
 	margin-top: 7vh;
 	input {
-		margin-left: 2vw;
+		margin-left: 1.5vw;
+		padding-left: 1vw;
 		width: 58vw;
 		height: 5vh;
 		border: none;
 		background-color: #f4f5f4;
-		focus {
-			border: none;
+		&: focus {
+			outline: none;
 		}
 	}
 `;
 
 export const AuthUserName = styled.div`
-	display: inline-block;
-	margin-left: 2vw;
+	float: left;
+	margin-left: 1vw;
 	font-size: 1.2vw;
+	height: 5vh;
+	line-height: 5vh;
 `;
 
 export const But = styled.div`
@@ -206,8 +190,7 @@ export const But = styled.div`
 	text-align: center;
 	line-height: 5vh;
 	float: right;
-	margin-right: 3vw;
-	margin-top: 1vh;
+	margin-right: 5vw;
 	&:hover {
 		opacity: 80%;
 		cursor: pointer;

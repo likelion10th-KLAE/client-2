@@ -1,15 +1,13 @@
 // index
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Title = styled.div`
-	// background-color: red;
 	text-align: center;
 	height: 40vh;
 	padding-top: 15vh;
 	img {
 		width: 5vw;
 	}
-
 	hr {
 		width: 18vw;
 		height: 0.3vh;
@@ -52,7 +50,6 @@ export const PostCont = styled.div`
 	margin-top: 1.3vh;
 `;
 export const Wrap = styled.div`
-	// background-color: gray;
 	width: 80vw;
 	margin: 0 auto;
 `;
@@ -61,4 +58,50 @@ export const Text2 = styled.div`
 	float: right;
 	margin-right: 3vw;
 	cursor: pointer;
+`;
+
+export const PagingSection = styled.div`
+	padding-bottom: 3vh;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	button {
+		background-color: transparent;
+		border: none;
+	}
+`;
+
+export const PagenumberDiv = styled.div`
+	float: left;
+	font-size: 0.8vw;
+	margin-bottom: 5vh;
+	margin-left: 0.5vw;
+	margin-right: 0.5vw;
+	width: 2vw;
+	height: 3.5vh;
+	text-align: center;
+	line-height: 3.6vh;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.6;
+	}
+	${({ flag }) =>
+		flag === true
+			? css`
+					background-color: #6db178;
+					color: #ffffff;
+			  `
+			: css`
+					background-color: #e4e4e4;
+			  `}
+`;
+
+export const PageArrowDiv = styled.div`
+	float: left;
+	cursor: pointer;
+	height: 3vh;
+	line-height: 3vh;
+	&:hover {
+		opacity: 0.6;
+	}
 `;
