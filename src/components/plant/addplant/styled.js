@@ -15,7 +15,6 @@ export const PageBack = styled.div`
     background: #F4F5F4;
 `
 
-
 /* 윗 부분(제목 및 수정, 등록 버튼) */
 export const PageTitle = styled.div`
     position: absolute;
@@ -65,10 +64,15 @@ export const Editbtn = styled.button`
     font-weight: 700;
     font-size: 0.9vw;
 
-    color: #3CB172;
+    color: #FFFFFF;
+    background: #3CB172;
 
     border: 2px solid #3CB172;
     outline: 0;
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
 `
 
 /* 정보 등록 흰칸*/
@@ -115,7 +119,23 @@ export const SpecInput = styled.input`
 
     border: 1px solid #E9E9E9;
 `
+export const SpecDiv = styled.div`
+    position: absolute;
+    width: 22.72vw;
+    height: 4.72vh;
+    left: 10.138vw;
+    top: 11.22vh; 
+    padding-left: 2vw;
+    padding-top: 1.5vh;
 
+    border: 1px solid #E9E9E9;
+`
+
+
+/************************* 사진 첨부 ****************/
+export const Hide = styled.div`
+    display: none;
+`
 /* 식물 그림 */ 
 export const Plantpicback = styled.div`
     position: absolute;
@@ -129,20 +149,19 @@ export const Plantpicback = styled.div`
 `
 
 export const Plantpic = styled.div`
-    background-image: url(${Myplant});
+    //background-image: url(${Myplant});
     position: absolute;
     left: 2.78vw;
     top: 4.44vh;
     width: 18.75vw;
     height: 30vh;
-
+    
     background-repeat: no-repeat;
-
     background-size: contain;
 `
 
 /* 사진 표시 */ 
-export const Imageback = styled.button`
+export const Imageback = styled.div`
     position: absolute;
     width: 5.55vw;
     height: 8.888vh;
@@ -194,6 +213,7 @@ export const Xpic = styled.div`
     left: 0.8vw;
     top: 1.3vh;
 
+    background-repeat: no-repeat;
     background-size: contain;
 `
 
@@ -245,6 +265,18 @@ export const PlantnameInput = styled.input`
     border: 1px solid #E9E9E9;
 `
 
+export const Plantnamediv = styled.div`
+    position: absolute;
+    width: 33.55vw;
+    height: 4.77vh;
+    left: 44.305vw;
+    top: 25.889vh;
+    padding-left: 2vw;
+    padding-top: 1.5vh;
+
+    border: 1px solid #E9E9E9;
+`
+
 /* 생육 온도 */
 export const Growtmp = styled.div`
     position: absolute;
@@ -274,6 +306,20 @@ export const Growtmpinput = styled.input`
     border-left: none;
     border-right: none;
     border-bottom: 1px solid #737B7D;
+`
+
+export const Growtmpdiv = styled.div`
+    position: absolute;
+    width: 35.55vw;
+    height: 4.22vh;
+    left: 44.305vw;
+    top: 38.88vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #737B7D;
+
+    padding-top: 2vw;
 `
 
 /* 일조량 */
@@ -307,6 +353,19 @@ export const Sunshineinput = styled.input`
     border-bottom: 1px solid #737B7D;
 `
 
+export const Sunshinediv = styled.div`
+    position: absolute;
+    width: 35.55vw;
+    height: 4.22vh;
+    left: 44.305vw;
+    top: 52.111vh;
+    padding-top: 2vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #737B7D;
+`
+
 /* 1회 급수량 */
 export const Water = styled.div`
     position: absolute;
@@ -332,6 +391,20 @@ export const Waterinput = styled.input`
     height: 6.22vh;
     left: 44.305vw;
     top: 65.44vh;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #737B7D;
+`
+
+export const Waterdiv = styled.div`
+    position: absolute;
+    width: 35.55vw;
+    height: 4.22vh;
+    left: 44.305vw;
+    top: 65.44vh;
+    padding-top: 2vh;
 
     border-top: none;
     border-left: none;
@@ -438,12 +511,29 @@ export const Watertxt = styled.div`
 
     font-family: 'Mulish';
     font-style: normal;
+    font-weight: 500;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    
+    color: #737B7D;
+`
+
+export const Watertxtb = styled.div`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 95vh; //94.66
+
+    font-family: 'Mulish';
+    font-style: normal;
     font-weight: 600;
     font-size: 1.388vw;
     line-height: 2.22vh;
 
     letter-spacing: 0.2px;
-
     color: #737B7D;
 `
 
@@ -467,7 +557,31 @@ export const Waterinputunder = styled.input`
     letter-spacing: 0.2px;
 
     background-color: #ECF8F4;
-    color: #C3CBCD;
+    color: #000000;
+`
+
+export const Waterdivunder = styled.div`
+    position: absolute;
+    width: 30vw;
+    height: 3.19vh;
+    left: 48.472vw;
+    top: 94vh;
+
+    padding-left: 1.25vw;
+    padding-top: 1.25vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.388vw;
+    line-height: 2vh;
+
+    letter-spacing: 0.2px;
+
+    background-color: #ECF8F4;
+    color: #000000;
 `
 
 /* 영양제 투여 주기 */
@@ -513,12 +627,29 @@ export const Nutritxt = styled.div`
 
     font-family: 'Mulish';
     font-style: normal;
+    font-weight: 500;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    
+    color: #737B7D;
+`
+
+export const Nutritxtb = styled.div`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 102.333vh;
+
+    font-family: 'Mulish';
+    font-style: normal;
     font-weight: 600;
     font-size: 1.388vw;
     line-height: 2.22vh;
 
     letter-spacing: 0.2px;
-
     color: #737B7D;
 `
 
@@ -542,7 +673,31 @@ export const Nutriinputunder = styled.input`
     letter-spacing: 0.2px;
 
     background-color: #ECF8F4;
-    color: #C3CBCD;
+    color: #000000;
+`
+
+export const Nutridivunder = styled.div`
+    position: absolute;
+    width: 30vw;
+    height: 3.19vh;
+    left: 48.472vw;
+    top: 101.5vh;
+
+    padding-left: 1.25vw;
+    padding-top: 1.25vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.388vw;
+    line-height: 2vh;
+
+    letter-spacing: 0.2px;
+
+    background-color: #ECF8F4;
+    color: #000000;
 `
 
 /* 분갈이 주기 */
@@ -588,12 +743,29 @@ export const Repottxt = styled.div`
 
     font-family: 'Mulish';
     font-style: normal;
+    font-weight: 500;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    
+    color: #737B7D;
+`
+
+export const Repottxtb = styled.div`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 110vh;
+
+    font-family: 'Mulish';
+    font-style: normal;
     font-weight: 600;
     font-size: 1.388vw;
     line-height: 2.22vh;
 
     letter-spacing: 0.2px;
-
     color: #737B7D;
 `
 
@@ -617,7 +789,31 @@ export const Repotinputunder = styled.input`
     letter-spacing: 0.2px;
 
     background-color: #ECF8F4;
-    color: #C3CBCD;
+    color: #000000;
+`
+
+export const Repotdivunder = styled.div`
+    position: absolute;
+    width: 30vw;
+    height: 3.19vh;
+    left: 48.472vw;
+    top: 109vh;
+
+    padding-left: 1.25vw;
+    padding-top: 1.25vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.388vw;
+    line-height: 2vh;
+
+    letter-spacing: 0.2px;
+
+    background-color: #ECF8F4;
+    color: #000000;
 `
 
 /* 식물과 처음 함께 한*/
@@ -663,12 +859,29 @@ export const Firstdaytxt = styled.div`
 
     font-family: 'Mulish';
     font-style: normal;
+    font-weight: 500;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    
+    color: #737B7D;
+`
+
+export const Firstdaytxtb = styled.div`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 117.77vh;
+
+    font-family: 'Mulish';
+    font-style: normal;
     font-weight: 600;
     font-size: 1.388vw;
     line-height: 2.22vh;
 
     letter-spacing: 0.2px;
-
     color: #737B7D;
 `
 
@@ -692,7 +905,31 @@ export const Firstdayinputunder = styled.input`
     letter-spacing: 0.2px;
 
     background-color: #ECF8F4;
-    color: #C3CBCD;
+    color: #000000;
+`
+
+export const Firstdaydivunder = styled.div`
+    position: absolute;
+    width: 30vw;
+    height: 3.19vh;
+    left: 48.472vw;
+    top: 116vh;
+
+    padding-left: 1.25vw;
+    padding-top: 1.25vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.388vw;
+    line-height: 2vh;
+
+    letter-spacing: 0.2px;
+
+    background-color: #ECF8F4;
+    color: #000000;
 `
 
 /* 클릭하여 항목을 추가 */
@@ -729,13 +966,15 @@ export const Clickicon = styled.div`
     background-size: contain;
 `
 
-export const Clicktxt = styled.div`
+export const Clicktxt = styled.input`
     position: absolute;
     width: 18.541vw;
     height: 2.22vh;
     left: 24.027vw;
     top: 125.55vh;
 
+    outline: 0;
+    border: 0;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 500;
@@ -744,7 +983,46 @@ export const Clicktxt = styled.div`
 
     letter-spacing: 0.2px;
     
-    color: #d9d9d9;
+    color: #737B7D;
+`
+
+export const Clicktxtb = styled.input`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 125.55vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    color: #737B7D;
+`
+
+export const Clicktxtdiv = styled.div`
+    position: absolute;
+    width: 18.541vw;
+    height: 2.22vh;
+    left: 24.027vw;
+    top: 125.55vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.388vw;
+    line-height: 2.22vh;
+
+    letter-spacing: 0.2px;
+    
+    color: #737B7D;
 `
 
 export const Clickinputunder = styled.input`
@@ -767,5 +1045,29 @@ export const Clickinputunder = styled.input`
     letter-spacing: 0.2px;
 
     background-color: #ECF8F4;
-    color: #C3CBCD;
+    color: #000000;
+`
+
+export const Clickdivunder = styled.div`
+    position: absolute;
+    width: 30vw;
+    height: 3.19vh;
+    left: 48.472vw;
+    top: 124vh;
+
+    padding-left: 1.25vw;
+    padding-top: 1.25vh;
+
+    outline: 0;
+    border: 0;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.388vw;
+    line-height: 2vh;
+
+    letter-spacing: 0.2px;
+
+    background-color: #ECF8F4;
+    color: #000000;
 `
