@@ -154,31 +154,25 @@ export const Plantname = styled.div`
 `
 
 export const Plantset = styled.div`
-    position:absolute;
+    display: inline-block;
     width: 22.493vw;
     height: 3.31vh;
-    left: 34.375vw;
-    top: 10.889vh;
 
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 1.9vw;
-    line-height: 54px;
 `
 
 export const PlantsetH = styled.div`
-    position:absolute;
+    display: inline-block;
     width: 22.493vw;
     height: 3.31vh;
-    left: 34.375vw;
-    top: 10.889vh;
 
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 2.9vw;
-    line-height: 54px;
 `
 
 export const Plantdday = styled.div`
