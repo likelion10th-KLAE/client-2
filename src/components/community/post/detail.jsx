@@ -27,13 +27,12 @@ import {
 	ComtItem,
 	Cont,
 	ComWrap,
-	AuthImg2,
 	Input,
 	ImgWrap,
 	AuthUserName,
 	But,
 } from "./styled";
-import Id from "../../../assets/auth/Login/ID.png";
+import Id from "../../../assets/community/avatar.png";
 import temp from "../../../assets/community/temp-image.png";
 import heart from "../../../assets/community/heart-icon.png";
 import comment from "../../../assets/community/comment.png";
@@ -139,9 +138,7 @@ const Detail = () => {
 						{commetSample.map((cmt) => (
 							<ComtItem>
 								<ImgWrap>
-									<AuthImg2>
-										<img src={Id} />
-									</AuthImg2>
+									<img src={Id} />
 								</ImgWrap>
 								<ComWrap>
 									<UserName>{cmt.username}</UserName>
@@ -151,9 +148,9 @@ const Detail = () => {
 							</ComtItem>
 						))}
 						<Input>
-							<AuthImg2>
+							<ImgWrap>
 								<img src={Id} />
-							</AuthImg2>
+							</ImgWrap>
 							<AuthUserName>shsh</AuthUserName>
 							<input />
 							<But>입력</But>
