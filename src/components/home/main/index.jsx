@@ -192,14 +192,20 @@ const Main = () => {
 			onMouseOut={() => setIsHovering(0)}>
 				{isHovering?(
 				<Link to="addplant">
-					<Plantname>{plantname}</Plantname>
-					<PlantsetH>⚙️</PlantsetH>
+					<Plantname>
+						{plantname}
+						<PlantsetH>⚙️</PlantsetH>
+					</Plantname>
+					
 					<Plantdday>{plantdate}</Plantdday>
 				</Link>
 				):(
 				<Link to="addplant">
-					<Plantname>{plantname}</Plantname>
-					<Plantset>⚙️</Plantset>
+					<Plantname>
+						{plantname}
+						<Plantset>⚙️</Plantset>
+					</Plantname>
+					
 					<Plantdday>{plantdate}</Plantdday>
 				</Link>
 				)}
