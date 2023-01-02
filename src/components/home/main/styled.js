@@ -171,7 +171,7 @@ export const PlantsetH = styled.div`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 2.9vw;
+    font-size: 2.4vw;
 `
 
 export const Plantdday = styled.div`
