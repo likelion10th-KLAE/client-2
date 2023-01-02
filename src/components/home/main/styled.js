@@ -10,7 +10,6 @@ import Recommend from '../../../assets/diary/일지 작성 페이지_image.png';
 export const Page= styled.div`
     width: 100vw;
     height: 92vh;
-    left: 0px;
     top: 8vh;
     background: #f0f0f0;
 `
@@ -146,8 +145,8 @@ export const Plantname = styled.div`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 54px;
+    font-size: 2.5vw;
+    line-height: 6vh;
 
     //background-color: black;
     color: #858585;
@@ -200,7 +199,7 @@ export const Infoeditbtn = styled.button`
     right: 6.5vw;
     top: 13vh;
 
-    border: 1px solid #3CB172;
+    border: 0.11vh solid #3CB172;
     outline: 0;
     background: #3CB172;
     border-radius: 11.12vh;
@@ -244,7 +243,7 @@ export const LogPage = styled.div`
     top: 20.4444vh;
 
     background: #FFFFFF;
-    border: 2px solid #F0F0F0;
+    border: 0.22vh solid #F0F0F0;
     border-radius: 10px;
 `
 
@@ -269,7 +268,7 @@ export const LogList =  styled.div`
     margin-bottom: 3.444vh;
 
     background: rgba(228, 228, 228, 0.4);
-    border-radius: 10px;
+    border-radius: 1.11vh;
 `
 
 export const Logplantimg = styled.div`
@@ -373,7 +372,7 @@ export const Recommendbtn = styled.button`
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(14, 107, 94, 0.89);
+    border-bottom: 0.11vh solid rgba(14, 107, 94, 0.89);
 
     color: rgba(14, 107, 94, 0.89);
 `
@@ -414,7 +413,7 @@ export const Registerbtn = styled.button`
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(14, 107, 94, 0.89);
+    border-bottom: 0.11vh solid rgba(14, 107, 94, 0.89);
 
     color: rgba(14, 107, 94, 0.89);
 `
