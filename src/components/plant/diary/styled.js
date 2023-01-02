@@ -134,16 +134,16 @@ export const Listcompoclicked = styled.div`
 /* 식물 이름, 디데이 */
 export const Plantname = styled.div`
     position:absolute;
-    width: 179.9px;
-    height: 47.79px;
+    width: 12.493vw;
+    height: 5.31vh;
     left: 24.375vw;
     top: 10.889vh;
 
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 54px;
+    font-size: 2.5vw;
+    line-height: 6vh;
 
     color: #858585;
 `
@@ -193,9 +193,9 @@ export const Savebtn = styled.button`
     line-height: 2vh;
 
     text-align: center;
-    letter-spacing: 0.3px;
+     letter-spacing: 0.033333vh;
 
-    border: 1px solid #3CB172;
+    border:0.11vh solid #3CB172;
     color: #ffffff;
     background: #3CB172;
 
@@ -222,8 +222,8 @@ export const Sharebtn = styled.button`
     line-height: 2vh;
 
     text-align: center;
-    letter-spacing: 0.3px;
-    border: 1px solid #3CB172;
+    letter-spacing: 0.0333vh;
+    border: 0.111vh solid #3CB172;
     color: #ffffff;
     background: #3CB172;
 
@@ -250,9 +250,9 @@ export const Editbtn = styled.button`
     line-height: 2vh;
 
     text-align: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.033333vh;
 
-    border: 1px solid #3CB172;
+    border:0.11vh solid #3CB172;
     color: #ffffff;
     background: #3CB172;
 
@@ -277,7 +277,7 @@ export const Logtitlediv = styled.div`
     font-weight: 700;
     font-size: 2.22vw;
     line-height: 4.44vh;
-    letter-spacing: 0.1px;
+    letter-spacing: 0.011vh;
 
     outline: 0;
     border: 0;
@@ -295,7 +295,7 @@ export const Logtitle = styled.input`
     font-weight: 700;
     font-size: 2.22vw;
     line-height: 4.44vh;
-    letter-spacing: 0.1px;
+    letter-spacing: 0.011vh;
 
     outline: 0;
     border: 0;
@@ -318,7 +318,7 @@ export const Growinfo = styled.div`
     font-size: 1.8vw;
     line-height: 3.55vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.022vh;
 
     color: #373F41;
 `
@@ -337,7 +337,7 @@ export const Watertxt = styled.div`
     font-size: 0.972vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.022vh;
 
     color: #737B7D;
 `
@@ -364,7 +364,7 @@ export const Waterdiv = styled.div`
     top: 24.832vh;
 
     background: #ffffff;
-    border: 1px solid #D9D9D9;
+    border: 0.11vh solid #D9D9D9;
     color: #373F41; 
     padding-left: 2vw;
     padding-top: 2vh;
@@ -384,7 +384,7 @@ export const Drugtxt = styled.div`
     font-size: 0.972vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:  0.0222vh;
 
     color: #737B7D;
 `
@@ -431,7 +431,7 @@ export const Newtxt = styled.div`
     font-size: 0.972vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:  0.0222vh;
 
     color: #737B7D;
 `
@@ -448,10 +448,6 @@ export const Newinput = styled.input`
     ::placeholder{
         color: #373F41;
     }
-    
-    
-    /********************* 글자색 바꿔야함************************/
-
 `
 
 export const Newdiv = styled.div`
@@ -465,8 +461,6 @@ export const Newdiv = styled.div`
     border: 0;
     padding-left: 2vw;
     padding-top: 2vh;
-    font-style: ;
-    
 `
 
 /* 오늘의 일지 */ 
@@ -483,7 +477,7 @@ export const Todaylog = styled.div`
     font-size: 1.8vw;
     line-height: 3.55vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #373F41;
 `
@@ -502,7 +496,7 @@ export const Dday = styled.div`
     font-size: 0.972vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #737B7D;
 `
