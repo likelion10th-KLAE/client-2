@@ -10,8 +10,8 @@ import Click from "../../../assets/add_plant/pin 1.png";
 
 /* 임시 페이지 크기 */
 export const PageBack = styled.div`
-    width: 1440px;
-    height: 1650px;
+    width: 100vw;
+    height: 183.33333vh;
     background: #F4F5F4;
 `
 
@@ -28,7 +28,7 @@ export const PageTitle = styled.div`
     font-weight: 700;
     font-size: 4.88vh;
     line-height: 5.55vh;
-    letter-spacing: -2px; //그램에서는 이게 더 자연스러운데 다른 컴은 어쩔지 모르겠다,,,
+    letter-spacing: -0.139vw;
 
     color: #373F41;
 `
@@ -67,7 +67,7 @@ export const Editbtn = styled.button`
     color: #FFFFFF;
     background: #3CB172;
 
-    border: 2px solid #3CB172;
+    border: 0.22vh solid #3CB172;
     outline: 0;
     :hover{
         color: #3CB172;
@@ -105,8 +105,6 @@ export const SpecTxt = styled.div`
     font-size: 1.38vw;
     line-height: 2.22vh;
 
-    //letter-spacing: 0.2px;
-
     color: #737B7D;
 `
 
@@ -117,7 +115,7 @@ export const SpecInput = styled.input`
     left: 10.138vw;
     top: 11.22vh; 
 
-    border: 1px solid #E9E9E9;
+    border: 0.11vh solid #E9E9E9;
 `
 export const SpecDiv = styled.div`
     position: absolute;
@@ -128,7 +126,7 @@ export const SpecDiv = styled.div`
     padding-left: 2vw;
     padding-top: 1.5vh;
 
-    border: 1px solid #E9E9E9;
+    border: 0.11vh solid #E9E9E9;
 `
 
 
@@ -231,7 +229,7 @@ export const BasicInfo = styled.div`
     font-size: 1.805vw;
     line-height: 3.55vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
 
     color: #373F41;
 `
@@ -250,7 +248,7 @@ export const Plantname = styled.div`
     font-size: 2vh;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #737B7D;
 `
@@ -262,7 +260,7 @@ export const PlantnameInput = styled.input`
     left: 44.305vw;
     top: 25.889vh;
 
-    border: 1px solid #E9E9E9;
+    border: 0.11vh solid #E9E9E9;
 `
 
 export const Plantnamediv = styled.div`
@@ -272,9 +270,9 @@ export const Plantnamediv = styled.div`
     left: 44.305vw;
     top: 25.889vh;
     padding-left: 2vw;
-    padding-top: 1.5vh;
+    padding-top: 0.167vh;
 
-    border: 1px solid #E9E9E9;
+    border: 0.11vh solid #E9E9E9;
 `
 
 /* 생육 온도 */
@@ -291,7 +289,7 @@ export const Growtmp = styled.div`
     font-size: 2vh;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #737B7D;
 `
@@ -305,7 +303,7 @@ export const Growtmpinput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 `
 
 export const Growtmpdiv = styled.div`
@@ -317,7 +315,7 @@ export const Growtmpdiv = styled.div`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 
     padding-top: 2vw;
 `
@@ -336,7 +334,7 @@ export const Sunshine = styled.div`
     font-size: 2vh;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
 
     color: #737B7D;
 `
@@ -350,7 +348,7 @@ export const Sunshineinput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 `
 
 export const Sunshinediv = styled.div`
@@ -363,7 +361,7 @@ export const Sunshinediv = styled.div`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 `
 
 /* 1회 급수량 */
@@ -380,7 +378,7 @@ export const Water = styled.div`
     font-size: 2vh;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #737B7D;
 `
@@ -395,7 +393,7 @@ export const Waterinput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 `
 
 export const Waterdiv = styled.div`
@@ -409,7 +407,7 @@ export const Waterdiv = styled.div`
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #737B7D;
+    border-bottom: 0.11vh solid #737B7D;
 `
 
 /* 추가 세부 정보 입력 */ 
@@ -426,7 +424,7 @@ export const Detail = styled.div`
     font-size: 1.805vw;
     line-height: 3.55vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #373F41;
 `
@@ -445,7 +443,7 @@ export const TodoandA = styled.div`
     font-size: 0.97vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
 
     color: #737B7D;
 `
@@ -464,7 +462,7 @@ export const Clickandinput = styled.div`
     font-size: 0.97vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     color: #737B7D;
 `
@@ -472,7 +470,7 @@ export const Clickandinput = styled.div`
 /* 마지막 급수 날짜 */
 export const WaterCB = styled.input`
     appearance: none;
-    border: 1.5px solid gainsboro;
+    border: 0.167vh solid gainsboro;
   
     position: absolute;
     width: 2.5vw;
@@ -515,7 +513,7 @@ export const Watertxt = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     
     color: #737B7D;
 `
@@ -533,7 +531,7 @@ export const Watertxtb = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
     color: #737B7D;
 `
 
@@ -554,7 +552,7 @@ export const Waterinputunder = styled.input`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -578,7 +576,7 @@ export const Waterdivunder = styled.div`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -587,7 +585,7 @@ export const Waterdivunder = styled.div`
 /* 영양제 투여 주기 */
 export const NutriCB = styled.input`
     appearance: none;
-    border: 1.5px solid gainsboro;
+    border: 0.167vh solid gainsboro;
   
     position: absolute;
     width: 2.5vw;
@@ -631,7 +629,7 @@ export const Nutritxt = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     
     color: #737B7D;
 `
@@ -649,7 +647,7 @@ export const Nutritxtb = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     color: #737B7D;
 `
 
@@ -670,7 +668,7 @@ export const Nutriinputunder = styled.input`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -694,7 +692,7 @@ export const Nutridivunder = styled.div`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -703,7 +701,7 @@ export const Nutridivunder = styled.div`
 /* 분갈이 주기 */
 export const RepotCB = styled.input`
     appearance: none;
-    border: 1.5px solid gainsboro;
+    border: 0.167vh solid gainsboro;
   
     position: absolute;
     width: 2.5vw;
@@ -747,7 +745,7 @@ export const Repottxt = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
     
     color: #737B7D;
 `
@@ -765,7 +763,7 @@ export const Repottxtb = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     color: #737B7D;
 `
 
@@ -786,7 +784,7 @@ export const Repotinputunder = styled.input`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -810,7 +808,7 @@ export const Repotdivunder = styled.div`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -863,7 +861,7 @@ export const Firstdaytxt = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     
     color: #737B7D;
 `
@@ -881,7 +879,7 @@ export const Firstdaytxtb = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     color: #737B7D;
 `
 
@@ -902,7 +900,7 @@ export const Firstdayinputunder = styled.input`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -926,7 +924,7 @@ export const Firstdaydivunder = styled.div`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -981,7 +979,7 @@ export const Clicktxt = styled.input`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
     
     color: #737B7D;
 `
@@ -1001,7 +999,7 @@ export const Clicktxtb = styled.input`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
     color: #737B7D;
 `
 
@@ -1020,7 +1018,7 @@ export const Clicktxtdiv = styled.div`
     font-size: 1.388vw;
     line-height: 2.22vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
     
     color: #737B7D;
 `
@@ -1042,7 +1040,7 @@ export const Clickinputunder = styled.input`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing:0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
@@ -1066,7 +1064,7 @@ export const Clickdivunder = styled.div`
     font-size: 1.388vw;
     line-height: 2vh;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0222vh;
 
     background-color: #ECF8F4;
     color: #000000;
