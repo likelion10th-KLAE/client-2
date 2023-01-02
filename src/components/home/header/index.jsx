@@ -12,6 +12,7 @@ import {
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Id from "../../../assets/header/avatar.png";
+import logo from "../../../assets/header/logo.png";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -30,7 +31,9 @@ const Header = () => {
 	return (
 		<>
 			<Wrap>
-				<Logo>KLAE</Logo>
+				<Logo>
+					<img src={logo} />
+				</Logo>
 				<HeaderItems>
 					<HeaderItem onClick={() => goHome()}>홈</HeaderItem>
 					<HeaderItem onClick={() => goDiary()}>일지</HeaderItem>
@@ -39,10 +42,9 @@ const Header = () => {
 				</HeaderItems>
 				<RightComp>
 					<LogOut>LOGOUT</LogOut>
-					{/* <AuthImg> */}
-					{/* <img src={Id} /> */}
-					profile
-					{/* </AuthImg> */}
+					<AuthImg>
+						<img src={Id} />
+					</AuthImg>
 				</RightComp>
 			</Wrap>
 			<Outlet />

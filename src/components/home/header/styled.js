@@ -10,10 +10,14 @@ export const Wrap = styled.div`
 `;
 
 export const Logo = styled.div`
-	// background-color: red;
 	width: 25vw;
+	height: 8vh;
 	float: left;
 	text-align: center;
+	img {
+		width: 3.8vw;
+		margin-top: 1.2vh;
+	}
 `;
 
 export const HeaderItem = styled.div`
@@ -51,12 +55,8 @@ export const RightComp = styled.div`
 
 export const AuthImg = styled.div`
 	float: left;
-	aspect-ratio: auto 1/1;
-	width: 3vw;
-	background-color: #d9d9d9;
-	border-radius: 50vw;
 	img {
-		margin-left: 0.78vw;
+		width: 3vw;
 		margin-top: 0.65vw;
 	}
 `;
