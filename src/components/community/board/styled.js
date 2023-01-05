@@ -27,10 +27,11 @@ export const Text = styled.div`
 
 export const PostSection = styled.div`
 	margin-top: 3vw;
-	margin-bottom: 7vw;
+	width: 80vw;
 `;
 export const PostItem = styled.div`
-	float: left;
+	display: inline-block;
+	width: 18vw;
 	margin-right: 2vw;
 	margin-bottom: 10vw;
 	cursor: pointer;

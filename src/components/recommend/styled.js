@@ -126,18 +126,16 @@ export const Answer = styled.div`
 export const But = styled.div`
 	background-color: #3cb172;
 	color: #ffffff;
-	// width: 69vw;
 	width: 20vw;
 	height: 7vh;
 	text-align: center;
 	line-height: 7vh;
 	margin: 0 auto;
 	margin-bottom: 5vh;
+	border: 0.1vw solid #3cb172;
 	&:hover {
-		// opacity: 80%;
 		color: #3cb172;
 		background: #ffffff;
-		border: 0.1vw solid #3cb172;
 		cursor: pointer;
 	}
 `;

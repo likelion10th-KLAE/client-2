@@ -32,7 +32,6 @@ const Community = () => {
 			method: "get",
 			url: `http://127.0.0.1:8000/account/likes_4_posts`,
 		}).then((response) => {
-			console.log(response.data);
 			setBestPosts(response.data);
 			setLoading(false);
 		});
