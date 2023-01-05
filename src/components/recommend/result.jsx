@@ -3,7 +3,6 @@ import {
 	UpResult,
 	Text,
 	KorName,
-	EngName,
 	DownResult,
 	ResultPlant,
 	LikeInfo,
@@ -31,7 +30,6 @@ import sun from "../../assets/recommend/sun.png";
 
 const plant = {
 	korName: "알로카시아 밤비노",
-	engName: "alocasia bambino",
 	inform:
 		"Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor",
 	sum: 100,
@@ -49,7 +47,6 @@ const Result = () => {
 			<UpResult>
 				<Text>클레님에게 추천드리는 식물은:</Text>
 				<KorName>{plant.korName}</KorName>
-				<EngName>{plant.engName}</EngName>
 			</UpResult>
 			<DownResult>
 				<LikeInfo>

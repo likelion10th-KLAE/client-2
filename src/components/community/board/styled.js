@@ -32,12 +32,17 @@ export const PostSection = styled.div`
 export const PostItem = styled.div`
 	float: left;
 	margin-right: 2vw;
-	img {
-		width: 18vw;
-	}
 	margin-bottom: 10vw;
 	cursor: pointer;
 `;
+
+export const PostImg = styled.div`
+	img {
+		width: 18vw;
+		height: 38vh;
+	}
+`;
+
 export const PostTitle = styled.div`
 	font-size: 1.4vw;
 	text-align: center;
