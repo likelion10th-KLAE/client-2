@@ -25,7 +25,6 @@ const Cover = () => {
 			<Start>
 				<Title>식물 추천 받기</Title>
 				<StartWrap onClick={() => goTest()}>
-					{/* <StartWrap> */}
 					<StartText>시작하기</StartText>
 					<StartBox>
 						<StartBut>→</StartBut>

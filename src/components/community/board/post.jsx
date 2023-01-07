@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const Post = ({ id, title, body, photo }) => {
 	const navigate = useNavigate();
-	const goDetail = () => {
-		navigate("/plant/community/detail");
+	const goDetail = (id) => {
+		navigate(`/plant/community/${id}`);
 	};
 	return (
-		<PostItem key={id} onClick={() => goDetail()}>
+		<PostItem key={id} onClick={() => goDetail(id)}>
 			<PostImg>
 				{photo ? <img src={photo} alt="alt" /> : <img src={temp} />}
 			</PostImg>

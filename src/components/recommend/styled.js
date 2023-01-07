@@ -43,11 +43,11 @@ export const StartBut = styled.div`
 	background-color: #3cb172;
 	font-size: 2vw;
 	width: 3.5vw;
+	line-height: 3.5vw;
 	text-align: center;
 	color: #ffffff;
 	aspect-ratio: auto 1/1;
 	margin-left: 1vw;
-	// padding-top: 2vh;
 `;
 
 export const StartWrap = styled.div`

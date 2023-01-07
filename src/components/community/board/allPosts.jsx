@@ -33,7 +33,6 @@ const AllPosts = () => {
 			url: `http://127.0.0.1:8000/account/post/page=${page}`,
 		}).then((response) => {
 			setPosts(response.data);
-			console.log(response.data);
 			setLoading(false);
 		});
 	});

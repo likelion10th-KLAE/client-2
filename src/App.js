@@ -40,7 +40,9 @@ const App = () => {
 				{/* 일지 수정 페이지 */}
 				<Route path="plant/:plantid/diary/create" element={<Create />} />
 				{/* 일지 작성 페이지 */}
-				<Route path="recommend" element={<Recommend />} />{" "}
+				<Route path="recommend" element={<Cover />} />{" "}
+				{/* 식물 추천 시작 페이지 */}
+				<Route path="recommend/test" element={<Recommend />} />{" "}
 				{/* 식물 추천 페이지 */}
 				<Route path="recommend/result" element={<Result />} />{" "}
 				{/* 식물 추천 결과 페이지 */}
@@ -59,7 +61,7 @@ const App = () => {
 				{/* 일지 게시판 페이지 */}
 				<Route path="plant/community/all" element={<AllPosts />} />{" "}
 				{/* 일지 게시판 전체 페이지 */}
-				<Route path="plant/community/detail" element={<Detail />} />{" "}
+				<Route path="plant/community/:postId" element={<Detail />} />{" "}
 				{/* 일지 게시판 상세 페이지 */}
 			</Route>
 		</Routes>
