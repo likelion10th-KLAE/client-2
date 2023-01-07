@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LeafImg from "../../../assets/auth/Mypage/leaf_image.png";
+//import LeafImg from "../../../assets/auth/Mypage/leaf_image.png";
 import PushImg from "../../../assets/auth/Mypage/push_image.png";
 import LeafBg from "../../../assets/auth/Mypage/leaf_image_bg.png";
 

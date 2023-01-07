@@ -11,7 +11,6 @@ import {
   MypageLeft,
   MypageLeftImg,
   MypageRight,
-  MypageRightImg,
   MypageSection,
 } from "./styled";
 
