@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 // cover
 export const Plant = styled.div`
@@ -73,59 +73,71 @@ export const StartBox = styled.div`
 `;
 
 // index
+
 export const Wrap = styled.div`
-	// background-color: yellow;
+	padding-bottom: 8vh;
 `;
 
 export const QuestionItems = styled.div`
 	margin: 3vw;
-	width: 91vw;
 	margin-top: 13vh;
 `;
 
 export const Question = styled.div`
-	// background-color: orange;
-	font-size: 2vw;
+	font-size: 1.5vw;
 	font-weight: bold;
 	height: 10vh;
 	line-height: 10vh;
+	width: 69vw;
+	margin: 0 auto;
 `;
 
 export const Answers = styled.div`
-	// background-color: red;
 	display: flex;
 	justify-content: space-between;
 	flex-flow: wrap;
-	width: 91vw;
+	width: 69vw;
+	margin: 0 auto;
 `;
 
 export const Answer = styled.div`
 	margin-top: 0.5vw;
-	width: 45vw;
-	height: 15vh;
+	width: 34vw;
+	height: 13vh;
 	font-size: 1.2vw;
 	border-radius: 2vw;
-	line-height: 15vh;
+	line-height: 13vh;
 	text-align: center;
 	&:hover {
 		opacity: 50%;
 		cursor: pointer;
 	}
+	${({ flag }) =>
+		flag === true
+			? css`
+					background-color: #6db178;
+					color: #ffffff;
+			  `
+			: css`
+					background-color: #e4e4e4;
+			  `}
 `;
 
 export const But = styled.div`
 	background-color: #3cb172;
 	color: #ffffff;
-	width: 15vw;
+	// width: 69vw;
+	width: 20vw;
 	height: 7vh;
 	text-align: center;
 	line-height: 7vh;
-	margin-top: 14vh;
-	margin-bottom: 8vh;
-	float: right;
-	margin-right: 5vw;
+	margin: 0 auto;
+	margin-bottom: 5vh;
 	&:hover {
-		opacity: 80%;
+		// opacity: 80%;
+		color: #3cb172;
+		background: #ffffff;
+		border: 0.1vw solid #3cb172;
 		cursor: pointer;
 	}
 `;
@@ -212,7 +224,7 @@ export const InforCon = styled.div`
 
 export const ResultPlant = styled.div`
 	background-color: #e4e4e4;
-	margin-right: 5vw;
+	margin-right: 4vw;
 	border-radius: 10vw;
 	width: 20vw;
 	aspect-ratio: auto 1/1;

@@ -26,17 +26,17 @@ const answers = [
 		"A1. 햇볕이 거의 들어오지 않는 환경에 있어요",
 		"A2. 외출을 자주 해서 급수 주기가 길었으면 좋겠어요",
 	],
-	["A1. 공기 정화", "A2. 해충박멸", "A3. 탈취", "A4. 아로마"],
+	["A1. 해충박멸", "A2. 탈취/아로마"],
 ];
 
 const Recommend = () => {
-	const [select, setSelect] = useState([1, 2, 0, 3]);
-	const [check, setCheck] = useState(false);
-
 	const navigate = useNavigate();
 	const goResult = () => {
 		navigate("/recommend/result");
 	};
+
+	const [select, setSelect] = useState([false, false, false, false]);
+	const [check, setCheck] = useState(false);
 
 	const onSelect = (qidx, aidx) => {
 		const temp = select;
@@ -44,7 +44,6 @@ const Recommend = () => {
 		setSelect(temp);
 		console.log(select);
 	};
-	// useEffect(onSelect, [select]);
 
 	useEffect(() => {
 		if (
@@ -55,7 +54,7 @@ const Recommend = () => {
 		) {
 			setCheck(true);
 		}
-	}, [select]);
+	});
 
 	return (
 		<>
@@ -64,19 +63,25 @@ const Recommend = () => {
 					<QuestionItems key={qidx}>
 						<Question>{que}</Question>
 						<Answers>
-							{answers[qidx].map((ans, aidx) => (
-								<Answer
-									style={{
-										backgroundColor:
-											select[qidx] === aidx ? "#6db178" : "#e4e4e4",
-										color: select[qidx] === aidx ? "#FFFFFF" : "",
-									}}
-									onClick={() => onSelect(qidx, aidx)}
-									key={aidx}
-								>
-									{ans}
-								</Answer>
-							))}
+							{answers[qidx].map((ans, aidx) =>
+								select[qidx] === aidx ? (
+									<Answer
+										flag={true}
+										onClick={() => onSelect(qidx, aidx)}
+										key={aidx}
+									>
+										{ans}
+									</Answer>
+								) : (
+									<Answer
+										flag={false}
+										onClick={() => onSelect(qidx, aidx)}
+										key={aidx}
+									>
+										{ans}
+									</Answer>
+								)
+							)}
 						</Answers>
 					</QuestionItems>
 				))}
