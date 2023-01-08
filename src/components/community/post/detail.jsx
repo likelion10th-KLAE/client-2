@@ -36,7 +36,7 @@ import {
 import Id from "../../../assets/community/avatar.png";
 import temp from "../../../assets/community/temp-image.png";
 import heart from "../../../assets/community/heart-icon.png";
-import comment from "../../../assets/community/comment.png";
+import commentImg from "../../../assets/community/comment.png";
 import { useParams } from "react-router-dom";
 
 const Detail = () => {
@@ -66,17 +66,37 @@ const Detail = () => {
 			url: `http://127.0.0.1:8000/account/comment/${postId}`,
 		}).then((response) => {
 			setComments(response.data);
-			console.log(response.data);
 			setLoading(false);
 		});
 	});
 
-	// const
+	const saveComment = async () => {
+		setLoading(true);
+		await axios({
+			method: "post",
+			url: `http://127.0.0.1:8000/account/comment/post/${postId}/`,
+			data: { content: comment },
+		}).then(() => {
+			console.log("성공");
+			// setLoading(false);
+		});
+	};
+
+	const handelKeyPress = (e) => {
+		if (e.key === "Enter") {
+			saveComment();
+		}
+	};
 
 	useEffect(() => {
 		getPost();
 		getComments();
 	}, []);
+
+	// 대기 중일 때
+	if (loading) {
+		return <div>로딩 중 ...</div>;
+	}
 
 	return (
 		<Wrap>
@@ -137,7 +157,7 @@ const Detail = () => {
 					<Icon>
 						<img src={heart} />
 						<Num>{post.like_num}</Num>
-						<img src={comment} />
+						<img src={commentImg} />
 						<Num>{post.comment_cnt}</Num>
 					</Icon>
 					<Comments>
@@ -158,8 +178,15 @@ const Detail = () => {
 								<img src={Id} />
 							</ImgWrap>
 							<AuthUserName>shsh</AuthUserName>
-							<input />
-							<But>입력</But>
+							<input
+								onKeyDown={(e) => {
+									handelKeyPress(e);
+								}}
+								onChange={(e) => {
+									setComment(e.target.value);
+								}}
+							/>
+							<But onClick={saveComment}>입력</But>
 						</Input>
 					</Comments>
 				</ComtSection>
