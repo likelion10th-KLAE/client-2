@@ -31,8 +31,8 @@ const Login = () => {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          localStorage.setItem("userID", id);
-          localStorage.setItem("userPW", password);
+          sessionStorage.setItem("userID", id);
+          sessionStorage.setItem("userPW", password);
         }
       })
       .catch((error) => {
