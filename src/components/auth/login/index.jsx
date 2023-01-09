@@ -15,8 +15,26 @@ import {
   LoginInput,
   PwIcon,
 } from "./styled";
+import axios from "axios";
+import { useState } from "react";
 
 const Login = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLoginButton = () => {
+    console.log(id, password);
+
+    axios
+      .post("http://127.0.0.1:8000/account/login/", {
+        email: id,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+      });
+  };
+
   return (
     <LoginSection>
       <LoginLeft>
@@ -31,13 +49,22 @@ const Login = () => {
         <RightSubTitle>지금 로그인하고 반려식물을 확인해보세요.</RightSubTitle>
         <LoginInputDiv>
           <IdIcon />
-          <LoginInput placeholder="ID" />
+          <LoginInput
+            placeholder="ID"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
         </LoginInputDiv>
         <LoginInputDiv>
           <PwIcon />
-          <LoginInput placeholder="PW" type="password" />
+          <LoginInput
+            placeholder="PW"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </LoginInputDiv>
-        <LoginButton>LOGIN</LoginButton>
+        <LoginButton onClick={handleLoginButton}>LOGIN</LoginButton>
         <LoginLink>계정이 없으신가요? 지금 회원가입하세요!</LoginLink>
       </LoginRight>
     </LoginSection>

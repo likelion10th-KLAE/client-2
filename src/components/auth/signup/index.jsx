@@ -12,6 +12,27 @@ import {
   SignRigntFormbutton,
   SignLoginLink,
 } from "./styled";
+import axios from "axios";
+
+const handleSignUpButton = async () => {
+  try {
+    await axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/account/signup",
+      data: {
+        username: "email",
+        password: "password",
+        nickname: "name",
+      },
+    });
+    alert("Success");
+    // setTimeout(() => {
+    // 	navigate("/login");
+    // }, 2000);
+  } catch (e) {
+    alert("이미 존재하는 아이디입니다.");
+  }
+};
 
 const Signup = () => {
   return (
@@ -41,7 +62,9 @@ const Signup = () => {
           <SignRigntFormInput />
           <SignRigntFormTitle>Password</SignRigntFormTitle>
           <SignRigntFormInput type="password" />
-          <SignRigntFormbutton>SIGN UP</SignRigntFormbutton>
+          <SignRigntFormbutton onClick={handleSignUpButton}>
+            SIGN UP
+          </SignRigntFormbutton>
         </SignRightForm>
         <SignLoginLink>
           계정이 있으신가요? 지금 바로 로그인 하세요.
