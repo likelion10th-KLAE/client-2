@@ -23,8 +23,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleLoginButton = () => {
-    console.log(id, password);
-
     axios
       .post("http://127.0.0.1:8000/account/login/", {
         email: id,
@@ -32,6 +30,18 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response);
+        if (response.status === 200) {
+          localStorage.setItem("userID", id);
+          localStorage.setItem("userPW", password);
+        }
+      })
+      .catch((error) => {
+        console.log(error.response);
+        if (error.response.status === 404) {
+          alert("존재하지 않는 아이디거나 비밀번호가 틀렸습니다.");
+        } else if (error.response.status === 400) {
+          alert("아이디와 비밀번호 모두 입력해주세요.");
+        }
       });
   };
 
