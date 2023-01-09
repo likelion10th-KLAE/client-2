@@ -196,3 +196,8 @@ export const But = styled.div`
 		cursor: pointer;
 	}
 `;
+
+export const NoComments = styled.div`
+	padding-left: 2vw;
+	padding-top: 3vh;
+`;

@@ -19,7 +19,7 @@ const Community = () => {
 		setLoading(true);
 		await axios({
 			method: "get",
-			url: `http://127.0.0.1:8000/account/new_4_posts`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/new_4_posts`,
 		}).then((response) => {
 			setNewPosts(response.data);
 			setLoading(false);
@@ -30,7 +30,7 @@ const Community = () => {
 		setLoading(true);
 		await axios({
 			method: "get",
-			url: `http://127.0.0.1:8000/account/likes_4_posts`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/likes_4_posts`,
 		}).then((response) => {
 			setBestPosts(response.data);
 			setLoading(false);

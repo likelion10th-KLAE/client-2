@@ -32,6 +32,7 @@ import {
 	ImgWrap,
 	AuthUserName,
 	But,
+	NoComments,
 } from "./styled";
 import Id from "../../../assets/community/avatar.png";
 import temp from "../../../assets/community/temp-image.png";
@@ -52,7 +53,7 @@ const Detail = () => {
 		setLoading(true);
 		await axios({
 			method: "get",
-			url: `http://127.0.0.1:8000/account/post/${postId}`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/post/${postId}`,
 		}).then((response) => {
 			setPost(response.data);
 			setLoading(false);
@@ -63,7 +64,7 @@ const Detail = () => {
 		setLoading(true);
 		await axios({
 			method: "get",
-			url: `http://127.0.0.1:8000/account/comment/${postId}`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/${postId}`,
 		}).then((response) => {
 			setComments(response.data);
 			setLoading(false);
@@ -74,7 +75,7 @@ const Detail = () => {
 		setLoading(true);
 		await axios({
 			method: "post",
-			url: `http://127.0.0.1:8000/account/comment/post/${postId}/`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/post/${postId}/`,
 			data: { content: comment },
 		}).then(() => {
 			console.log("성공");
@@ -161,24 +162,32 @@ const Detail = () => {
 						<Num>{post.comment_cnt}</Num>
 					</Icon>
 					<Comments>
-						{comments.map((cmt) => (
-							<ComtItem>
-								<ImgWrap>
-									<img src={Id} />
-								</ImgWrap>
-								<ComWrap>
-									<UserName>{cmt.user}</UserName>
-									<Date>{cmt.created_at}</Date>
-									<Cont>{cmt.content}</Cont>
-								</ComWrap>
-							</ComtItem>
-						))}
+						{post.comment_cnt === 0 ? (
+							<NoComments>입력된 댓글이 없습니다.</NoComments>
+						) : (
+							<>
+								{comments.map((cmt) => (
+									<ComtItem>
+										<ImgWrap>
+											<img src={Id} />
+										</ImgWrap>
+										<ComWrap>
+											<UserName>{cmt.user}</UserName>
+											<Date>{cmt.created_at}</Date>
+											<Cont>{cmt.content}</Cont>
+										</ComWrap>
+									</ComtItem>
+								))}
+							</>
+						)}
+
 						<Input>
 							<ImgWrap>
 								<img src={Id} />
 							</ImgWrap>
 							<AuthUserName>shsh</AuthUserName>
 							<input
+								placeholder="댓글을 입력해주세요 .."
 								onKeyDown={(e) => {
 									handelKeyPress(e);
 								}}

@@ -51,7 +51,7 @@ const Recommend = () => {
 		) {
 			setCheck(true);
 		}
-	});
+	}, [select]);
 
 	return (
 		<>

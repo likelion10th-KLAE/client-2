@@ -15,24 +15,23 @@ import Post from "./post";
 
 const AllPosts = () => {
 	const [page, setPage] = useState(1);
-	const [pages, setPages] = useState([1, 2, 3, 4, 5, 6, 7]);
+	const [pages, setPages] = useState([]);
 	const [posts, setPosts] = useState([]);
 	const [loading, setLoading] = useState(false);
-
-	const lastPage = 9;
-	const tempPages = [];
-	for (let i = 1; i <= lastPage; i++) {
-		tempPages.push(i);
-	}
-	// setPages(tempPages);
 
 	const getPostList = useCallback(async () => {
 		setLoading(true);
 		await axios({
 			method: "get",
-			url: `http://127.0.0.1:8000/account/post/page=${page}`,
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/post/page=${page}`,
 		}).then((response) => {
 			setPosts(response.data);
+			const lastPage = response.data[0].page_range;
+			const tempPages = [];
+			for (let i = 1; i <= lastPage; i++) {
+				tempPages.push(i);
+			}
+			setPages(tempPages);
 			setLoading(false);
 		});
 	});
