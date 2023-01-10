@@ -20,6 +20,28 @@ export const Sidebar = styled.div`
     top: 8vh;
     background-color: #ffffff;
 `
+/* 식물 추가 버튼 */
+export const AddBtn = styled.div`
+    position: absolute;
+    width: 4.7vw;
+    height: 2vh;
+    right: 1vw;
+    top: 11vh; 
+
+    padding: 0.5vw;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: 0.11vh solid #3CB172;
+    outline: 0;
+    background: #3CB172;
+    border-radius: 11.12vh;
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
+`
 
 /* 유저 이모티콘 */
 export const Userpic = styled.div`
@@ -55,7 +77,7 @@ export const Sidelist = styled.div`
     width: 20.8vw;
     height: 77.333vh;
     left: 0vw;
-    top: 14.667vh;
+    top: 17.667vh;
     //background-color: pink;
 `
 
@@ -266,7 +288,7 @@ export const Editbtn = styled.button`
 /* 일지 제목을 입력하세요 */
 export const Logtitlediv = styled.div`
     position: absolute;
-    width: 24.36vw; //22.36
+    width: 34.36vw; //22.36
     height: 4.822vh;
     left: 3.268vw;
     top: 5.063vh;
@@ -285,7 +307,7 @@ export const Logtitlediv = styled.div`
 
 export const Logtitle = styled.input`
     position: absolute;
-    width: 24.36vw; //22.36
+    width: 44.36vw; //22.36
     height: 4.822vh;
     left: 3.268vw;
     top: 5.063vh;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import {
 	Editbtn,
 	Infoback,
@@ -56,123 +55,22 @@ import {
 import Img from "../../../assets/add_plant/my_plant.png";
 
 const Createplant = () => {
-	const location = useLocation();
 	/* 정보 받아오기 */
-	const user1 = [
-		{
-			id: 0,
-			name: "식물 1",
-			dday: 333,
-			diary: [
-				{
-					id: 0,
-					title: "식물을 처음 키워본다,,,",
-					date: "2022.02.26",
-					path: "diary/0",
-					water: "1",
-					drug: "2",
-					new: "3",
-					imagepath: "",
-					text: "일지 쓰기 귀찮지ㅏㅁㄴ 열심히 써보자구 오이오이오이",
-				},
-				{
-					id: 1,
-					title: "익숙하지 않은 식물,,, 설마 내가 죽이지는",
-					date: "2022.03.01",
-					path: "diary/1",
-					water: "11",
-					drug: "22",
-					new: "33",
-					imagepath: "",
-					text: "cccccccc않겠지.....",
-				},
-				{
-					id: 2,
-					title: "오이오이 물주는걸 깜빡할 뻔",
-					date: "2022.03.10",
-					path: "diary/2",
-					water: "111",
-					drug: "222",
-					new: "333",
-					imagepath: "",
-					text: "하지만 물은 줬지",
-				},
-				{
-					id: 3,
-					title: "식물 ㄱㅇㅇ >_<",
-					date: "2022.03.15",
-					path: "diary/0/3",
-					water: "1111",
-					drug: "2222",
-					new: "3333",
-					imagepath: "",
-					text: "내가 ㄱ키워서 더 귀엽나벼 >-<",
-				},
-				{
-					id: 4,
-					title: "식물 ㄱㅇㅇ >_<",
-					date: "2022.03.15",
-					path: "diary/4",
-					water: "11111",
-					drug: "22222",
-					new: "33333",
-					imagepath: "",
-					text: "내가 키워서 더 귀엽나벼 아이좋아>-<",
-				},
-				{
-					id: 5,
-					title: "식물 ㄱㅇㅇ >_<",
-					date: "2022.03.15",
-					path: "diary/5",
-					water: "111111",
-					drug: "222222",
-					new: "333333",
-					imagepath: "",
-					text: "내가 키워서 더 귀엽나벼 아이좋아 좋아좋아>-<",
-				},
-			],
-		},
-		{
-			id: 1,
-			name: "식물 2",
-			dday: 22,
-			diary: [
-				{
-					id: 0,
-					title: "두번째 식물 도전!",
-					date: "2022.03.28",
-					path: "diary/0",
-					water: "4",
-					drug: "5",
-					new: "6",
-					imagepath: "",
-					text: "두번째는 잘 할 수 있지렁",
-				},
-				{
-					id: 1,
-					title: "역시 난 식물 천재야",
-					date: "2022.04.04",
-					path: "diary/1",
-					water: "44",
-					drug: "55",
-					new: "66",
-					imagepath: "",
-					text: "난,,,너무 멋져,,,",
-				},
-				{
-					id: 2,
-					title: "이정도면 다육대학교 식물학 박사 아니냐",
-					date: "2022.04.15",
-					path: "diary/2",
-					water: "444",
-					drug: "555",
-					new: "666",
-					imagepath: "",
-					text: "이중전공 바꿔봐?",
-				},
-			],
-		},
-	];
+	const oneplant = {
+		id: 1,
+		plant: "자작나무",
+		name: "자작나무",
+		userplant_image: null,
+		temperature: "20",
+		light: 20,
+		water_amount: 200,
+		last_watered: 20,
+		tonic: 20,
+		repot: 20,
+		start_date: 20,
+		extra1: null,
+		extra2: null,
+	};
 
 	/* 이미지 미리보기 구현 */
 	const [imageSrc, setImageSrc] = useState(Img);
@@ -263,16 +161,11 @@ const Createplant = () => {
 	return (
 		<div>
 			<PageBack>
-				<PageTitle>식물 등록 및 정보 수정</PageTitle>
+				<PageTitle>식물 정보 등록</PageTitle>
 				<Editbtn onClick={onClickSave}>저장하기</Editbtn>
 				<Infoback>
 					<SpecTxt>식물 종</SpecTxt>
-					<SpecInput
-						id="spec"
-						name="spec"
-						onChange={onChangeInfo}
-						value={location.state ? location.state : ""}
-					/>
+					<SpecInput id="spec" name="spec" onChange={onChangeInfo} />
 
 					{/* 식물 이미지 미리보기 */}
 					<Plantpicback>

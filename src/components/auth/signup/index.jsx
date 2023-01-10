@@ -13,28 +13,41 @@ import {
   SignLoginLink,
 } from "./styled";
 import axios from "axios";
-
-const handleSignUpButton = async () => {
-  try {
-    await axios({
-      method: "post",
-      url: "http://127.0.0.1:8000/account/signup",
-      data: {
-        username: "email",
-        password: "password",
-        nickname: "name",
-      },
-    });
-    alert("Success");
-    // setTimeout(() => {
-    // 	navigate("/login");
-    // }, 2000);
-  } catch (e) {
-    alert("이미 존재하는 아이디입니다.");
-  }
-};
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [nickname, setNickname] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignUpButton = async () => {
+    if (password === confirmedPassword) {
+      try {
+        await axios({
+          method: "post",
+          url: "http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/signup/",
+          data: {
+            email: email,
+            password: password,
+            username: nickname,
+          },
+        });
+        alert("회원가입이 완료되었습니다. 다시 로그인해주세요");
+        setTimeout(() => {
+          navigate("/login");
+        }, 500);
+      } catch (e) {
+        alert("이미 존재하는 아이디입니다.");
+      }
+    } else {
+      console.log(email, password, nickname, confirmedPassword);
+      alert("비밀번호가 일치하지 않습니다.");
+    }
+  };
+
   return (
     <SignUpSection>
       <SignUpLeft>
@@ -56,12 +69,28 @@ const Signup = () => {
           맞춤형 식물을 추천받으세요!
         </SignRightTitle>
         <SignRightForm>
-          <SignRigntFormTitle>Username</SignRigntFormTitle>
-          <SignRigntFormInput />
           <SignRigntFormTitle>Email</SignRigntFormTitle>
-          <SignRigntFormInput />
+          <SignRigntFormInput
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <SignRigntFormTitle>Nickname</SignRigntFormTitle>
+          <SignRigntFormInput
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+          />
           <SignRigntFormTitle>Password</SignRigntFormTitle>
-          <SignRigntFormInput type="password" />
+          <SignRigntFormInput
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <SignRigntFormTitle>confirm Password</SignRigntFormTitle>
+          <SignRigntFormInput
+            value={confirmedPassword}
+            onChange={(e) => setConfirmedPassword(e.target.value)}
+            type="password"
+          />
           <SignRigntFormbutton onClick={handleSignUpButton}>
             SIGN UP
           </SignRigntFormbutton>
