@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Question, Answer, QuestionItems, Answers, Wrap, But } from "./styled";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const questions = [
 	"Q1. 어디에서 키울 건가요? (생육 장소)",
@@ -28,12 +29,19 @@ const answers = [
 
 const Recommend = () => {
 	const navigate = useNavigate();
-	const goResult = () => {
-		navigate("/recommend/result");
-	};
 
 	const [select, setSelect] = useState([false, false, false, false]);
 	const [check, setCheck] = useState(false);
+
+	const goResult = async () => {
+		await axios({
+			method: "post",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/recommend/`,
+			data: { result: select.join("") },
+		}).then((res) => {
+			navigate("/recommend/result", { state: res.data });
+		});
+	};
 
 	const onSelect = (qidx, aidx) => {
 		const temp = select;

@@ -1,99 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
 	UpResult,
 	Text,
 	KorName,
 	DownResult,
 	ResultPlant,
-	LikeInfo,
-	LikeText,
-	Sun,
-	InforText,
-	Water,
-	DetailText,
-	Temp,
-	Infor,
-	InforCon,
 	PlantItem,
 	PlantName,
-	Icon,
-	Eng,
 	Kor,
-	Volume,
-	VolText,
-	Circle,
+	Button,
+	RigntInfo,
+	Atr1,
+	Atr2,
+	AtrTitle,
+	Item,
+	ItemTitle,
+	ItemConts,
+	AtrTitle2,
+	Item2,
+	ItemConts2,
+	AddButton,
+	AtrLeft,
 } from "./styled";
 import plantimg from "../../assets/recommend/my_plant.png";
-import waterGray from "../../assets/recommend/water_gray.png";
-import waterBlue from "../../assets/recommend/water_blue.png";
-import sun from "../../assets/recommend/sun.png";
 
 const plant = {
-	korName: "알로카시아 밤비노",
-	inform:
+	plant_name: "알로카시아 밤비노",
+	description:
 		"Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor",
-	sum: 100,
-	water: 50,
-	temp: 60,
+	difficulty: "쉬움",
+	plant_function: ["공기정화", "가습효과", "관상용"],
+	hydroponics: "가능",
 };
 
-// const setSun = () => {
-
-// }
+const color = ["#F183F3", "#8388f3", "#F3B983"];
 
 const Result = () => {
+	const navigate = useNavigate();
+	const addPlant = () => {
+		navigate(`/plant/addplant/createplant`, { state: plant.plant_name });
+	};
+	const reRecommend = () => {
+		navigate(`/recommend/test`);
+	};
+
+	const location = useLocation();
+	console.log(location.state);
+	console.log();
+
 	return (
 		<>
 			<UpResult>
 				<Text>클레님에게 추천드리는 식물은:</Text>
-				<KorName>{plant.korName}</KorName>
+				<KorName>{location.state.plant_name}</KorName>
+				<Button onClick={reRecommend}>식물 추천 다시 받기</Button>
 			</UpResult>
 			<DownResult>
-				<LikeInfo>
-					<LikeText>Like</LikeText>
-					<Sun>
-						<DetailText>햇빛</DetailText>
-						<Icon>
-							<img src={sun} />
-							<img src={sun} />
-							<img src={sun} />
-							<img src={sun} />
-							<img src={sun} />
-						</Icon>
-					</Sun>
-					<Water>
-						<DetailText>물</DetailText>
-						<Icon>
-							<img src={waterBlue} />
-							<img src={waterBlue} />
-							<img src={waterBlue} />
-							<img src={waterGray} />
-							<img src={waterGray} />
-						</Icon>
-					</Water>
-					<Temp>
-						<DetailText>온도</DetailText>
-						<Volume>
-							<VolText>22°</VolText>
-							<hr />
-							<Circle>1111</Circle>
-							<VolText>25°</VolText>
-						</Volume>
-					</Temp>
-				</LikeInfo>
 				<PlantItem>
-					<ResultPlant>
-						<img src={plantimg} />
-					</ResultPlant>
+					{location.state.plant_image ? (
+						<img
+							src={location.state.plant_image}
+							alt="alt"
+							style={{ width: "20vw" }}
+						/>
+					) : (
+						<ResultPlant>
+							<img src={plantimg} />
+						</ResultPlant>
+					)}
+
 					<PlantName>
-						<Eng>{plant.engName}</Eng>
-						<Kor>{plant.korName}</Kor>
+						<Kor>{location.state.plant_name}</Kor>
 					</PlantName>
 				</PlantItem>
-				<Infor>
-					<InforText>식물 설명</InforText>
-					<InforCon>{plant.inform}</InforCon>
-				</Infor>
+				<RigntInfo>
+					<Atr1>
+						<AtrLeft>
+							<AtrTitle>특징</AtrTitle>
+							<Item>
+								<ItemTitle>키우기 난이도</ItemTitle>
+								<ItemConts atr="difficulty">
+									{location.state.difficulty}
+								</ItemConts>
+							</Item>
+							<Item>
+								<ItemTitle>기능</ItemTitle>
+								<ItemConts atr="function">
+									{location.state.plant_function.split(" ").map((f, idx) => (
+										<div style={{ color: color[idx] }}>{f}</div>
+									))}
+								</ItemConts>
+							</Item>
+							<Item>
+								<ItemTitle>수경재배</ItemTitle>
+								<ItemConts atr="hydroponics">
+									{location.state.hydroponics}
+								</ItemConts>
+							</Item>
+						</AtrLeft>
+						<AddButton onClick={addPlant}>+ 내 식물로 추가하기</AddButton>
+					</Atr1>
+					<Atr2>
+						<AtrTitle2>식물 설명</AtrTitle2>
+						<Item2>
+							<ItemConts2>{location.state.description}</ItemConts2>
+						</Item2>
+					</Atr2>
+				</RigntInfo>
 			</DownResult>
 		</>
 	);
