@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Usericon from "../../../assets/diary/유저 정보란.png";
 import Sideplant from "../../../assets/diary/마이페이지_사이드바 식물 icon_green.png";
 import Sideplantcl from "../../../assets/diary/마이페이지_사이드바 식물 icon_white.png";
 import Editimg from "../../../assets/diary/식물 정보 수정하기 버튼.png";
 import Logplant from "../../../assets/diary/icons8-화분에-심은-식물-48.png";
+
 import Recommend from '../../../assets/diary/일지 작성 페이지_image.png';
 
 /* 사이드바 */
@@ -23,17 +23,27 @@ export const Sidebar = styled.div`
     background-color: #ffffff;
 `
 
-/* 유저 이모티콘 */
-export const Userpic = styled.div`
-    background-image: url(${Usericon});
+/* 식물 추가 버튼 */
+export const AddBtn = styled.div`
     position: absolute;
-    width: 2.57vw;
-    height: 4.22vh;
-    left: 2.85vw;
-    top: 4vh; 
+    width: 4.7vw;
+    height: 2vh;
+    right: 1vw;
+    top: 11vh; 
 
-    background-repeat: no-repeat;
-    background-size: contain;
+    padding: 0.5vw;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: 0.11vh solid #3CB172;
+    outline: 0;
+    background: #3CB172;
+    border-radius: 11.12vh;
+    :hover{
+        color: #3CB172;
+        background: #FFFFFF;
+    }
 `
 
 /* (닉네임) 님 */
@@ -55,9 +65,9 @@ export const Usernick = styled.div`
 export const Sidelist = styled.div`
     position: absolute;
     width: 20.8vw;
-    height: 77.333vh;
+    height: 75.333vh;
     left: 0vw;
-    top: 14.667vh;
+    top: 17.667vh;
 `
 
 export const Sideplantpic = styled.div`
