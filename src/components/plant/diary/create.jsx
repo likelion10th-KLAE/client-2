@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {
 	Sidebar,
-	Userpic,
+	AddBtn,
 	Usernick,
 	Sidelist,
 	Listcompo,
@@ -34,8 +34,23 @@ import {
 	TxtInput
 } from "./styled";
 import Img from "../../../assets/diary/일지 작성 페이지_image.png";
+import axios from 'axios';
+import Usericon from "../../../assets/diary/유저 정보란.png";
 
 function Plant({ plant }) {
+	/* 사이드바 식물 리스트 */
+	const getUserPlants =[
+		{
+			"id": 0,
+			"name": "소나무"
+		},
+		{
+			"id": 1,
+			"name": "자작나무"
+		}
+	]
+	/****************** */
+
 	const [isHovering, setIsHovering] = useState(0);
 	let { plantid } = useParams();
 	
@@ -52,16 +67,16 @@ function Plant({ plant }) {
 				onMouseOver={() => setIsHovering(1)}
 				onMouseOut={() => setIsHovering(0)}
 			>
-				{ (plant.id == plantid)|(isHovering)  ? (
+				{ (plant.id === plantid)|(isHovering)  ? (
 					<Listcompoclicked>
 						<Sideplantpicclicked>
-							<Sideplantnameclicked>{plant.name}</Sideplantnameclicked>
+							<Sideplantnameclicked>{getUserPlants[plant.id].name}</Sideplantnameclicked>
 						</Sideplantpicclicked>
 					</Listcompoclicked>
 				) : (
 					<Listcompo>
 						<Sideplantpic>
-							<Sideplantname>{plant.name}</Sideplantname>
+							<Sideplantname>{getUserPlants[plant.id].name}</Sideplantname>
 						</Sideplantpic>
 					</Listcompo>
 				)}
@@ -71,121 +86,6 @@ function Plant({ plant }) {
 }
 
 const Create = () => {
-	const user1=[{
-		id: 0,
-		name: "식물 1",
-		dday: 333,
-		diary:
-		[
-			{
-				id: 0,
-				title: "식물을 처음 키워본다,,,",
-				date: "2022.02.26",
-				path: "diary/0",
-				water: "1",
-				drug: "2",
-				new: "3",
-				imagepath:"",
-				text:"일지 쓰기 귀찮지ㅏㅁㄴ 열심히 써보자구 오이오이오이",
-			},
-			{
-				id: 1,  
-				title: "익숙하지 않은 식물,,, 설마 내가 죽이지는",
-				date: "2022.03.01",
-				path: "diary/1",
-				water: "11",
-				drug: "22",
-				new: "33",
-				imagepath:"",
-				text:"않겠지.....",
-			},
-			{
-				id: 2,
-				title: "오이오이 물주는걸 깜빡할 뻔",
-				date: "2022.03.10",
-				path: "diary/2",
-				water: "111",
-				drug: "222",
-				new: "333",
-				imagepath:"",
-				text:"하지만 물은 줬지",
-			},
-			{
-				id: 3,
-				title: "식물 ㄱㅇㅇ >_<",
-				date: "2022.03.15",
-				path: "diary/0/3",
-				water: "1111",
-				drug: "2222",
-				new: "3333",
-				imagepath:"",
-				text:"내가 ㄱ키워서 더 귀엽나벼 >-<",
-			},
-			{
-				id: 4,
-				title: "식물 ㄱㅇㅇ >_<",
-				date: "2022.03.15",
-				path: "diary/4",
-				water: "11111",
-				drug: "22222",
-				new: "33333",
-				imagepath:"",
-				text:"내가 키워서 더 귀엽나벼 아이좋아>-<",
-			},
-			{
-				id: 5,
-				title: "식물 ㄱㅇㅇ >_<",
-				date: "2022.03.15",
-				path: "diary/5",
-				water: "111111",
-				drug: "222222",
-				new: "333333",
-				imagepath:"",
-				text:"내가 키워서 더 귀엽나벼 아이좋아 좋아좋아>-<",
-			}
-		]
-	},
-	{ 
-		id: 1,
-		name: "식물 2",
-		dday: 22,
-		diary: 
-			[
-				{
-					id: 0,
-					title: "두번째 식물 도전!",
-					date: "2022.03.28",
-					path: "diary/0",
-					water: "4",
-					drug: "5",
-					new: "6",
-					imagepath:"",
-					text:"두번째는 잘 할 수 있지렁",
-				},
-				{
-					id: 1,
-					title: "역시 난 식물 천재야",
-					date: "2022.04.04",
-					path: "diary/1",
-					water: "44",
-					drug: "55",
-					new: "66",
-					imagepath:"",
-					text:"난,,,너무 멋져,,,",
-				},
-				{
-					id: 2,
-					title: "이정도면 다육대학교 식물학 박사 아니냐",
-					date: "2022.04.15",
-					path: "diary/2",
-					water: "444",
-					drug: "555",
-					new: "666",
-					imagepath:"",
-					text:"이중전공 바꿔봐?",
-				}]
-		}] 
-
 	let { plantid } = useParams();
 	
   
@@ -233,15 +133,66 @@ const Create = () => {
 	const onClickSave =(e) =>{
 		console.log(info);
 		console.log(imageSrc.name);
+		// 아이디 추가 로직
+		//navigate(`/plant/${plantid}/diary/${diaryid}`);
 	}
+
+	/* 사이드바 식물 리스트 */
+	const getUserPlants =[
+		{
+			"id": 0,
+			"name": "소나무"
+		},
+		{
+			"id": 1,
+			"name": "자작나무"
+		}
+	]
+	/****************** */
+
+	/* 사이드바 유저 정보 */
+	const accountMypage = 
+	{
+		"email":"klae@gmail.com",
+		"password":"pbkdf2_sha256$390000$m9CtGlBmyIvkCL341Yhfjo$9aCy0HzvKhde8lGZQHv6uxfLCyKhr78hY4O2L8gkS5w=",
+		"username":"klae",
+		"profile_image":null
+	}
+
+	const [userimageSrc, setUserimageSrc] = useState(Usericon);
+	
+	const userimagestyle ={
+		position: 'absolute',
+		width: '2.57vw',
+	    height: '4.22vh',
+	    left: '2.85vw',
+    	top: '4vh',
+    	'background-repeat': 'no-repeat',
+    	'background-size': 'contain'
+	}
+	/***********************/
+	
+	/* 식물 추가 */
+		const navigateToCreateplant = () => {
+			navigate(`/plant/addplant/createplant`);
+		};
 
 	return <div>
 	<Page>
 		<Sidebar>
-				<Userpic />
-				<Usernick>(닉네임) 님</Usernick>
+				<img 
+					src={userimageSrc} 
+					alt="preview-img" 
+					style={userimagestyle} 
+				/>
+				<Usernick>{accountMypage.username} 님</Usernick>
+				<AddBtn
+					onClick={navigateToCreateplant}
+				>
+					식물 추가
+				</AddBtn>
 				<Sidelist>
-				{user1.map((plant)=>(
+				{getUserPlants.map((plant)=>(
                     <div onClick={() =>{
                         /* 해당 식물의 일지들 맵핑 */
                         navigate(`/plant/${plant.id}`)
@@ -254,8 +205,8 @@ const Create = () => {
 		</Sidebar>
 			
 
-		<Plantname>{user1[plantid].name}</Plantname>
-		<Plantdday>키운지 D+{user1[plantid].dday}일 째</Plantdday>
+		<Plantname>{getUserPlants[plantid].name}</Plantname>
+		<Plantdday>키운지 D+nnn일 째</Plantdday>
 
 		<Back>
 			<Logtitle 
