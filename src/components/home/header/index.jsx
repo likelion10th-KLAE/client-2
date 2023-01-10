@@ -31,6 +31,10 @@ const Header = () => {
   const goLogin = () => {
     navigate("/login");
   };
+  const goMy = () => {
+    navigate("/mypage");
+  };
+
   const isLogin = Boolean(sessionStorage.getItem("userID"));
   const handleLogout = () => {
     sessionStorage.clear();
@@ -56,7 +60,7 @@ const Header = () => {
               <LogOut onClick={() => goLogin()}>LOGIN</LogOut>
             )}
           </>
-          <AuthImg>
+          <AuthImg onClick={() => goMy()}>
             <img src={Id} />
           </AuthImg>
         </RightComp>

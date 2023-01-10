@@ -61,4 +61,5 @@ export const AuthImg = styled.div`
     width: 3vw;
     margin-top: 0.65vw;
   }
+  cursor: pointer;
 `;
