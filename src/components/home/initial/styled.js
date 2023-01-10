@@ -47,7 +47,7 @@ export const InitialTopSubTitle = styled.div`
 
 export const ButtonContainer = styled.div`
   //background-color: pink;
-  width: 20vw; //210px;
+  width: 17vw; //210px;
   display: flex;
   justify-content: space-between;
 `;
