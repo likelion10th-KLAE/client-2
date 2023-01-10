@@ -187,7 +187,7 @@ const Detail = () => {
 							</ImgWrap>
 							<AuthUserName>shsh</AuthUserName>
 							<input
-								placeholder="댓글을 입력해주세요 .."
+								placeholder="댓글을 입력해주세요"
 								onKeyDown={(e) => {
 									handelKeyPress(e);
 								}}

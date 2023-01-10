@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Question, Answer, QuestionItems, Answers, Wrap, But } from "./styled";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const questions = [
 	"Q1. 어디에서 키울 건가요? (생육 장소)",
@@ -28,21 +29,38 @@ const answers = [
 
 const Recommend = () => {
 	const navigate = useNavigate();
-	const goResult = () => {
-		navigate("/recommend/result");
-	};
 
 	const [select, setSelect] = useState([false, false, false, false]);
 	const [check, setCheck] = useState(false);
 
-	const onSelect = (qidx, aidx) => {
-		const temp = select;
-		temp[qidx] = aidx;
-		setSelect(temp);
-		console.log(select);
+	const goResult = async () => {
+		if (check) {
+			await axios({
+				method: "post",
+				url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/recommend/`,
+				data: { result: select.join("") },
+			}).then((res) => {
+				navigate("/recommend/result", { state: res.data });
+			});
+		} else {
+			alert("모든 선택지를 골라주세요.");
+		}
+	};
+
+	const clickButton = (ques_idx, ans_idx) => {
+		let newArr = select.map((item, index) => {
+			if (index === ques_idx) {
+				return ans_idx;
+			} else {
+				return item;
+			}
+		});
+
+		setSelect(newArr);
 	};
 
 	useEffect(() => {
+		console.log(check);
 		if (
 			select[0] !== false &&
 			select[1] !== false &&
@@ -64,7 +82,10 @@ const Recommend = () => {
 								select[qidx] === aidx ? (
 									<Answer
 										flag={true}
-										onClick={() => onSelect(qidx, aidx)}
+										// onClick={() => onSelect(qidx, aidx)}
+										onClick={() => {
+											clickButton(qidx, aidx);
+										}}
 										key={aidx}
 									>
 										{ans}
@@ -72,7 +93,10 @@ const Recommend = () => {
 								) : (
 									<Answer
 										flag={false}
-										onClick={() => onSelect(qidx, aidx)}
+										// onClick={() => onSelect(qidx, aidx)}
+										onClick={() => {
+											clickButton(qidx, aidx);
+										}}
 										key={aidx}
 									>
 										{ans}
@@ -82,9 +106,16 @@ const Recommend = () => {
 						</Answers>
 					</QuestionItems>
 				))}
-				{check ? console.log("ok") : console.log("no")}
 			</Wrap>
-			<But onClick={() => goResult()}>추천 결과 보기</But>
+			{check ? (
+				<But activate={true} onClick={() => goResult()}>
+					추천 결과 보기
+				</But>
+			) : (
+				<But activate={false} onClick={() => goResult()}>
+					추천 결과 보기
+				</But>
+			)}
 		</>
 	);
 };

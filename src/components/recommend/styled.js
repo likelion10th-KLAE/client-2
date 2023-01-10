@@ -138,6 +138,12 @@ export const But = styled.div`
 		background: #ffffff;
 		cursor: pointer;
 	}
+	${({ activate }) =>
+		activate === true
+			? css``
+			: css`
+					opacity: 60%;
+			  `}
 `;
 
 // result
@@ -148,8 +154,7 @@ export const UpResult = styled.div`
 	margin-left: -7px;
 	text-align: center;
 	height: 31vh;
-	// line-height: 6vh;
-	padding-top: 15vh;
+	padding-top: 13vh;
 `;
 export const Text = styled.div`
 	font-size: 3vw;
@@ -157,67 +162,13 @@ export const Text = styled.div`
 export const KorName = styled.div`
 	font-size: 2.5vw;
 	font-weight: bold;
-`;
-export const EngName = styled.div`
-	font-size: 2.5vw;
+	margin-top: 1vh;
 `;
 export const DownResult = styled.div`
-	margin-top: 8vh;
+	margin-top: 10vh;
 	height: 60vh;
-`;
-export const LikeInfo = styled.div`
-	float: left;
-	// background-color: red;
-	width: 34vw;
-	padding-top: 10vh;
-`;
-export const LikeText = styled.div`
-	font-size: 1.7vw;
-	border-bottom: 1px solid black;
-	margin-left: 5vw;
-	margin-right: 2vw;
-	padding-bottom: 1vh;
-	padding-left: 1vw;
-`;
-export const Sun = styled.div`
-	margin-left: 7vw;
-	margin-top: 2vh;
-`;
-export const Water = styled.div`
-	margin-left: 7vw;
-	margin-top: 2vh;
-`;
-export const DetailText = styled.div`
-	// background-color: blue;
-	width: 2vw;
-	float: left;
-	line-height: 4vh;
-	text-align: center;
-`;
-export const Temp = styled.div`
-	margin-left: 7vw;
-	margin-top: 2vh;
-`;
-
-export const Infor = styled.div`
-	// background-color: blue;
-	float: left;
-	width: 34vw;
-	padding-top: 10vh;
-`;
-
-export const InforText = styled.div`
-	font-size: 1.7vw;
-	border-bottom: 1px solid black;
-	margin-left: 2vw;
-	margin-right: 5vw;
-	padding-bottom: 1vh;
-	padding-left: 1vw;
-`;
-export const InforCon = styled.div`
-	margin-left: 5vw;
-	margin-right: 8vw;
-	margin-top: 2vh;
+	display: flex;
+	justify-content: center;
 `;
 
 export const ResultPlant = styled.div`
@@ -244,51 +195,113 @@ export const PlantName = styled.div`
 	width: 20vw;
 `;
 
-export const Eng = styled.div`
-	font-size: 1.3vw;
-`;
 export const Kor = styled.div`
 	font-size: 1.6vw;
 `;
 
-export const Icon = styled.div`
-	margin-left: 6vw;
-	img {
-		width: 2vw;
-		margin-right: 1vw;
+export const Button = styled.div`
+	background-color: #86a174;
+	margin: 0 auto;
+	margin-top: 2vh;
+	color: #ffffff;
+	font-size: 1.2vw;
+	width: 11vw;
+	height: 7vh;
+	line-height: 7vh;
+	border-radius: 0.3vw;
+	box-shadow: 0vw 0.5vw 1vw 0vw #555555;
+	&: hover {
+		cursor: pointer;
 	}
 `;
 
-export const Volume = styled.div`
-	margin-left: 6vw;
-	hr {
-		width: 9.3vw;
-		height: 1vh;
-		float: left;
-		margin-left: 0.5vw;
-		margin-right: 0.5vw;
-		background-color: #d9d9d9;
-		border: 0;
-		margin-top: 1.3vh;
-	}
-`;
-export const VolText = styled.div`
-	// background-color: blue;
-	width: 2vw;
+export const RigntInfo = styled.div`
 	float: left;
-	line-height: 4vh;
+	margin-left: 5vw;
+`;
+
+export const Atr1 = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+
+export const AtrTitle = styled.div`
+	font-size: 1.5vw;
+	padding-bottom: 1vh;
+	padding-left: 0.5vw;
+	border-bottom: 0.1vw solid #7e7e7e;
+	width: 30vw;
+`;
+export const Item = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-top: 1.5vh;
+	font-size: 1.2vw;
+`;
+export const ItemTitle = styled.div`
+	width: 7.5vw;
 	text-align: center;
 `;
-
-export const Circle = styled.div`
-	background-color: #828282;
-	width; 4vw;
-	// height: 2vh;
-	aspect-ratio: auto 1/1;
-	border-radius: 50vw;
-	position: absolute;
-	font-size: 0.9vw;
-	color: rgba(0, 0, 255, 0);
-	left: 20vw;
-	top: 92.1vh;
+export const ItemConts = styled.div`
+	font-weight: bold;
+	margin-left: 0.5vw;
+	display: flex;
+	flex-direction: row;
+	div {
+		margin-right: 1vw;
+	}
+	${({ atr }) =>
+		atr === "difficulty"
+			? css`
+					color: #83f38e;
+			  `
+			: atr === "function"
+			? css`
+					color: #8388f3;
+			  `
+			: css`
+					color: #f38383;
+			  `}
 `;
+
+export const Atr2 = styled.div`
+	margin-top: 10vh;
+`;
+
+export const AtrTitle2 = styled.div`
+	font-size: 1.5vw;
+	padding-bottom: 1vh;
+	padding-left: 0.5vw;
+	border-bottom: 0.1vw solid #7e7e7e;
+	width: 45vw;
+`;
+export const Item2 = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-top: 1.5vh;
+	font-size: 1.2vw;
+`;
+export const ItemConts2 = styled.div`
+	margin-left: 0.5vw;
+	width: 35vw;
+`;
+
+export const AddButton = styled.div`
+	background-color: #0e6b5e;
+	opacity: 60%;
+	color: white;
+	text-align: center;
+	margin-left: 3vw;
+	width: 12vw;
+	height: 4.5vh;
+	line-height: 4.5vh;
+	margin-top: 2vh;
+	&: hover {
+		cursor: pointer;
+		background-color: white;
+		color: #0e6b5e;
+		border: 0.1vw solid #0e6b5e;
+	}
+`;
+
+export const AtrLeft = styled.div``;
