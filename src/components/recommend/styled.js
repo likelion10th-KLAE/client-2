@@ -109,7 +109,6 @@ export const Answer = styled.div`
 	line-height: 13vh;
 	text-align: center;
 	&:hover {
-		opacity: 50%;
 		cursor: pointer;
 	}
 	${({ flag }) =>
@@ -120,6 +119,8 @@ export const Answer = styled.div`
 			  `
 			: css`
 					background-color: #e4e4e4;
+					&:hover {
+						opacity: 70%;
 			  `}
 `;
 

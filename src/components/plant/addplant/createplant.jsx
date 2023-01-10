@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
 	Editbtn,
 	Infoback,
@@ -55,6 +56,8 @@ import {
 import Img from "../../../assets/add_plant/my_plant.png";
 
 const Createplant = () => {
+	const location = useLocation(); // 식물 추천에서 온 경우
+
 	/* 정보 받아오기 */
 	const oneplant = {
 		id: 1,
@@ -165,7 +168,12 @@ const Createplant = () => {
 				<Editbtn onClick={onClickSave}>저장하기</Editbtn>
 				<Infoback>
 					<SpecTxt>식물 종</SpecTxt>
-					<SpecInput id="spec" name="spec" onChange={onChangeInfo} />
+					<SpecInput
+						id="spec"
+						name="spec"
+						onChange={onChangeInfo}
+						value={location.state ? location.state : ""}
+					/>
 
 					{/* 식물 이미지 미리보기 */}
 					<Plantpicback>
