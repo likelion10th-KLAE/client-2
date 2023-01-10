@@ -138,6 +138,12 @@ export const But = styled.div`
 		background: #ffffff;
 		cursor: pointer;
 	}
+	${({ activate }) =>
+		activate === true
+			? css``
+			: css`
+					opacity: 60%;
+			  `}
 `;
 
 // result
