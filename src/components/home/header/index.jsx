@@ -42,6 +42,7 @@ const Header = () => {
 	const handleLogout = () => {
 		sessionStorage.clear();
 		setIsLogin(false);
+		navigate("/");
 	};
 
 	useEffect(() => {

@@ -88,7 +88,7 @@ const Signup = () => {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-					<SignRigntFormTitle>confirm Password</SignRigntFormTitle>
+					<SignRigntFormTitle>Confirm Password</SignRigntFormTitle>
 					<SignRigntFormInput
 						value={confirmedPassword}
 						onChange={(e) => setConfirmedPassword(e.target.value)}
