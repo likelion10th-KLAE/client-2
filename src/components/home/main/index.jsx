@@ -60,7 +60,7 @@ function Plant({ plant }) {
 				onMouseOver={() => setIsHovering(1)}
 				onMouseOut={() => setIsHovering(0)}
 			>
-				{ (plant.id === plantid+1)|(isHovering)  ? (
+				{ (plant.id == plantid)|(isHovering)  ? (
 					<Listcompoclicked>
 						<Sideplantpicclicked>
 							<Sideplantnameclicked>{getUserPlants[plant.id].name}</Sideplantnameclicked>

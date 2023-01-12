@@ -54,7 +54,7 @@ export const Xback = styled.div`
 `;
 
 export const MypageRight = styled.div`
-  //background-color: pink;
+  // background-color: pink;
   width: 50vw;
   height: 100vh;
   margin: -8px;
@@ -110,18 +110,18 @@ export const MypageFooter = styled.div`
 
 export const MypageFooterText1 = styled.div`
   //background-color: white;
-  font-size: 1.5vw;
+  font-size: 0.8vw;
   height: 3vh;
   margin: 0 auto;
   color: rgba(44, 44, 44, 1);
   text-align: center;
+  padding-top: 10vh;
 `;
 export const MypageFooterText2 = styled.div`
   //background-color: white;
-  font-size: 1.5vw;
+  font-size: 0.8vw;
   height: 3vh;
   margin: 0 auto;
-  padding-top: 4vh;
   color: rgba(44, 44, 44, 1);
   text-align: center;
 `;

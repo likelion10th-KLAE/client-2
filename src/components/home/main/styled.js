@@ -312,10 +312,10 @@ export const Logtitle = styled.div`
 export const Logdate = styled.div`
     display: inline-block;
     position: absolute;
-    width: 6.94444vw;
+    width: 13.94444vw;
     height: 1.77778vh;
     margin-top: 0vh;
-    margin-left: 52vw;
+    margin-left: 45vw;
 
     font-family: 'Poppins';
     font-style: normal;
