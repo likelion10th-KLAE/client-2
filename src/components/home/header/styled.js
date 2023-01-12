@@ -57,6 +57,7 @@ export const RightComp = styled.div`
 
 export const AuthImg = styled.div`
 	float: left;
+	height: 8vh;
 	img {
 		width: 3vw;
 		margin-top: 0.65vw;
