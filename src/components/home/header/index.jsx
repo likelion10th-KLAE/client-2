@@ -69,7 +69,11 @@ const Header = () => {
 							<>
 								<LogOut onClick={handleLogout}>LOGOUT</LogOut>
 								<AuthImg onClick={goMy}>
-									<img src={Id} />
+									{sessionStorage.getItem("profile") == "null" ? (
+										<img src={Id} />
+									) : (
+										<img src={sessionStorage.getItem("profile")} />
+									)}
 								</AuthImg>
 							</>
 						) : (

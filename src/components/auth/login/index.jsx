@@ -38,12 +38,13 @@ const Login = () => {
 				}
 			)
 			.then((response) => {
-				console.log(response);
 				if (response.status === 200) {
 					sessionStorage.setItem("userID", id);
 					sessionStorage.setItem("token", response.data.token.access);
 					sessionStorage.setItem("username", response.data.username);
-					console.log(response.data.username);
+					sessionStorage.setItem("profile", response.data.profile);
+					sessionStorage.setItem("userid", response.data.userid);
+					console.log(response.data.user_id);
 					alert("환영합니다!");
 					navigate("/");
 				}
