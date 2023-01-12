@@ -20,39 +20,39 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+	const [id, setId] = useState("");
+	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  const handleLoginButton = () => {
-    axios
-      .post(
-        "http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/login/",
-        {
-          email: id,
-          password: password,
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          sessionStorage.setItem("userID", id);
-          sessionStorage.setItem("userPW", password);
-
-          alert("환영합니다!");
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        console.log(error.response);
-        if (error.response.status === 404) {
-          alert("존재하지 않는 아이디거나 비밀번호가 틀렸습니다.");
-        } else if (error.response.status === 400) {
-          alert("아이디와 비밀번호 모두 입력해주세요.");
-        }
-      });
-  };
+	const handleLoginButton = () => {
+		axios
+			.post(
+				"http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/login/",
+				{
+					email: id,
+					password: password,
+				}
+			)
+			.then((response) => {
+				console.log(response);
+				console.log("성공");
+				if (response.status === 200) {
+					sessionStorage.setItem("userID", id);
+					sessionStorage.setItem("userPW", password);
+					// sessionStorage.setItem("token", response.data.);
+					alert("환영합니다!");
+					navigate("/");
+				}
+			})
+			.catch((error) => {
+				console.log(error.response);
+				if (error.response.status === 404) {
+					alert("존재하지 않는 아이디거나 비밀번호가 틀렸습니다.");
+				} else if (error.response.status === 400) {
+					alert("아이디와 비밀번호 모두 입력해주세요.");
+				}
+			});
+	};
 
 	return (
 		<LoginSection>

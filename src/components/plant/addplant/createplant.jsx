@@ -125,8 +125,8 @@ const Createplant = () => {
 			case "clickCB":
 				e.target.checked ? setClickCheck(true) : setClickCheck(false);
 				break;
-			default:
-				break;
+			// default:
+			// 	break;
 		}
 	};
 
