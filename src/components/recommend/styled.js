@@ -284,11 +284,12 @@ export const Item2 = styled.div`
 `;
 export const ItemConts2 = styled.div`
 	margin-left: 0.5vw;
-	width: 35vw;
+	width: 43vw;
 `;
 
 export const AddButton = styled.div`
 	background-color: #0e6b5e;
+	border: 0.1vw solid #0e6b5e;
 	opacity: 60%;
 	color: white;
 	text-align: center;
@@ -301,7 +302,6 @@ export const AddButton = styled.div`
 		cursor: pointer;
 		background-color: white;
 		color: #0e6b5e;
-		border: 0.1vw solid #0e6b5e;
 	}
 `;
 
