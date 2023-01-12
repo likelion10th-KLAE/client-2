@@ -18,19 +18,11 @@ export const Hide = styled.div`
 `;
 
 export const MypageLeft = styled.div`
-<<<<<<< HEAD
-	// background-color: red;
-	width: 50vw;
+	background-color: red;
+	// width: 50vw;
 	height: 90vh;
 	margin: -8px;
 	float: left;
-=======
-  //background-color: red;
-  width: 50vw;
-  height: 90vh;
-  margin: -8px;
-  float: left;
->>>>>>> 4602afd54089d9439fafa9ec80a94e52c9723575
 `;
 
 export const MypageLeftImg = styled.div`
@@ -40,14 +32,14 @@ export const MypageLeftImg = styled.div`
 	height: 20vw;
 	position: absolute;
 	margin: 0 auto;
-	top: 30vh;
-	left: 20vh;
+	top: 35vh;
+	left: 35vh;
 `;
 
 /* X 표시 */
 export const Xback = styled.div`
 	position: absolute;
-	left: 30vw;
+	left: 40vw;
 	top: 30vh;
 	width: 2vw;
 	height: 2vw;
@@ -63,7 +55,7 @@ export const Xback = styled.div`
 
 export const MypageRight = styled.div`
 	// background-color: pink;
-	width: 50vw;
+	width: 53vw;
 	height: 100vh;
 	margin: -8px;
 	//position: relative;
@@ -71,7 +63,7 @@ export const MypageRight = styled.div`
 `;
 
 export const MypageForm = styled.div`
-	//background-color: brown;
+	// background-color: brown;
 	width: 40vw;
 	height: 60vh;
 	display: flex;
@@ -82,7 +74,7 @@ export const MypageForm = styled.div`
 export const MypageFormTitle = styled.div`
 	//background-color: green;
 	color: black;
-	font-size: 1.3vw;
+	font-size: 1vw;
 	font-weight: 500;
 	width: 10vw;
 `;

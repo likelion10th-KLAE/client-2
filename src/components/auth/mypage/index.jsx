@@ -15,48 +15,13 @@ import {
 	MypageSection,
 	Xback,
 	Xpic,
+	FormItem,
 } from "./styled";
 import { useState, useRef } from "react";
 
 import Img from "../../../assets/auth/Mypage/push_image.png";
 
 const Mypage = () => {
-	return (
-		<MypageSection>
-			<MypageLeft>
-				<MypageLeftImg />
-			</MypageLeft>
-			<MypageRight>
-				<MypageForm>
-					<FormItem>
-						<MypageFormTitle>Nickname</MypageFormTitle>
-						<MypageFormInput />
-					</FormItem>
-					<FormItem>
-						<MypageFormTitle>Email</MypageFormTitle>
-						<MypageFormInput />
-					</FormItem>
-					<FormItem>
-						<MypageFormTitle>Password</MypageFormTitle>
-						<MypageFormInput />
-					</FormItem>
-					<FormItem>
-						<MypageFormTitle>Confirm Password</MypageFormTitle>
-						<MypageFormInput />
-					</FormItem>
-					<MypageFormbutton>Save</MypageFormbutton>
-				</MypageForm>
-			</MypageRight>
-			<MypageFooter>
-				<MypageFooterText1>(c)2022 All right reserved.</MypageFooterText1>
-				<MypageFooterText2>
-					Questions? Email us at
-					<MypageFooterSpan> office@product.com</MypageFooterSpan>
-				</MypageFooterText2>
-			</MypageFooter>
-		</MypageSection>
-		// <div>어떻게 나오나요</div>
-	);
 	/* 이미지 미리보기 구현 */
 	const [imageSrc, setImageSrc] = useState(Img);
 
@@ -108,15 +73,23 @@ const Mypage = () => {
 			</MypageLeft>
 			<MypageRight>
 				<MypageForm>
-					<MypageFormTitle>사용자 이름</MypageFormTitle>
-					<MypageFormInput />
-					<MypageFormTitle>이메일</MypageFormTitle>
-					<MypageFormInput />
-					<MypageFormTitle>비밀번호</MypageFormTitle>
-					<MypageFormInput />
-					<MypageFormTitle>비밀번호 확인</MypageFormTitle>
-					<MypageFormInput />
-					<MypageFormbutton>저장하기</MypageFormbutton>
+					<FormItem>
+						<MypageFormTitle>Nickname</MypageFormTitle>
+						<MypageFormInput />
+					</FormItem>
+					<FormItem>
+						<MypageFormTitle>Email</MypageFormTitle>
+						<MypageFormInput />
+					</FormItem>
+					<FormItem>
+						<MypageFormTitle>Password</MypageFormTitle>
+						<MypageFormInput />
+					</FormItem>
+					<FormItem>
+						<MypageFormTitle>Confirm Password</MypageFormTitle>
+						<MypageFormInput />
+					</FormItem>
+					<MypageFormbutton>Save</MypageFormbutton>
 				</MypageForm>
 			</MypageRight>
 			<MypageFooter>
