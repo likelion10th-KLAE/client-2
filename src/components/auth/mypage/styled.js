@@ -13,7 +13,7 @@ export const MypageSection = styled.div`
 `;
 
 export const MypageLeft = styled.div`
-	//background-color: red;
+	// background-color: red;
 	width: 50vw;
 	height: 90vh;
 	margin: -8px;
@@ -50,9 +50,8 @@ export const MypageRight = styled.div`
 // `;
 
 export const MypageForm = styled.div`
-	//background-color: brown;
+	// background-color: brown;
 	width: 40vw;
-	height: 60vh;
 	display: flex;
 	flex-direction: column;
 	margin-top: 20vh;
@@ -61,9 +60,13 @@ export const MypageForm = styled.div`
 export const MypageFormTitle = styled.div`
 	//background-color: green;
 	color: black;
-	font-size: 1.3vw;
+	font-size: 1vw;
 	font-weight: 500;
 	width: 10vw;
+`;
+
+export const FormItem = styled.div`
+	margin-bottom: 3vh;
 `;
 
 export const MypageFormInput = styled.input`
@@ -82,7 +85,6 @@ export const MypageFormbutton = styled.button`
 	color: white;
 	cursor: pointer;
 	text-align: center;
-	margin-top: 6vw;
 	margin-left: 26vw;
 `;
 
