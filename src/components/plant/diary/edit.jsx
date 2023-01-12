@@ -262,8 +262,6 @@ const Edit = () => {
 		navigate(`/plant/addplant/createplant`);
 	};
 
-	console.log(sessionStorage.getItem("username"));
-
 	return (
 		<div>
 			<Page>

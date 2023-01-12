@@ -18,6 +18,7 @@ import {
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/header/logo.png";
 
 const Login = () => {
 	const [id, setId] = useState("");
@@ -60,7 +61,9 @@ const Login = () => {
 					The Best Fit <br />
 					for My Plant
 				</LeftTitle>
-				<LeftLogo>Logo</LeftLogo>
+				<LeftLogo>
+					<img src={logo} />
+				</LeftLogo>
 			</LoginLeft>
 			<LoginRight>
 				<RightTitle>KLAE 에 오신 것을 환영합니다!</RightTitle>
