@@ -45,6 +45,7 @@ const Detail = () => {
 	const [post, setPost] = useState([]);
 	const [comments, setComments] = useState([]);
 	const [comment, setComment] = useState("");
+	const [like, setLike] = useState(0);
 
 	const params = useParams();
 	const postId = params.postId;
@@ -56,6 +57,7 @@ const Detail = () => {
 			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/post/${postId}`,
 		}).then((response) => {
 			setPost(response.data);
+			setLike(response.data.like_num);
 			setLoading(false);
 		});
 	});
@@ -73,13 +75,28 @@ const Detail = () => {
 
 	const saveComment = async () => {
 		setLoading(true);
+		console.log(sessionStorage.getItem("token"));
 		await axios({
 			method: "post",
 			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/post/${postId}/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
 			data: { content: comment },
 		}).then(() => {
 			console.log("성공");
-			// setLoading(false);
+			getComments();
+			getPost();
+			setLoading(false);
+		});
+	};
+
+	const clickLike = async () => {
+		await axios({
+			method: "get",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/post/${postId}/likes/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+		}).then((response) => {
+			setLike(response);
+			setLoading(false);
 		});
 	};
 
@@ -156,8 +173,8 @@ const Detail = () => {
 				</Inner>
 				<ComtSection>
 					<Icon>
-						<img src={heart} />
-						<Num>{post.like_num}</Num>
+						<img src={heart} onClick={clickLike} />
+						<Num>{like}</Num>
 						<img src={commentImg} />
 						<Num>{post.comment_cnt}</Num>
 					</Icon>
@@ -172,7 +189,7 @@ const Detail = () => {
 											<img src={Id} />
 										</ImgWrap>
 										<ComWrap>
-											<UserName>{cmt.user}</UserName>
+											<UserName>{cmt.username_comment}</UserName>
 											<Date>{cmt.created_at}</Date>
 											<Cont>{cmt.content}</Cont>
 										</ComWrap>
@@ -185,7 +202,7 @@ const Detail = () => {
 							<ImgWrap>
 								<img src={Id} />
 							</ImgWrap>
-							<AuthUserName>shsh</AuthUserName>
+							<AuthUserName>{sessionStorage.getItem("username")}</AuthUserName>
 							<input
 								placeholder="댓글을 입력해주세요"
 								onKeyDown={(e) => {
