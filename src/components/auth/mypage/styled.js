@@ -2,6 +2,7 @@ import styled from "styled-components";
 //import LeafImg from "../../../assets/auth/Mypage/leaf_image.png";
 import PushImg from "../../../assets/auth/Mypage/push_image.png";
 import LeafBg from "../../../assets/auth/Mypage/leaf_image_bg.png";
+import Xp from "../../../assets/add_plant/사진 추가.png";
 
 export const MypageSection = styled.div`
   background: url(${LeafBg});
@@ -10,6 +11,10 @@ export const MypageSection = styled.div`
   width: 100vw;
   height: 100vh;
   margin: -8px;
+`;
+
+export const Hide = styled.div`
+  display: none;
 `;
 
 export const MypageLeft = styled.div`
@@ -21,13 +26,31 @@ export const MypageLeft = styled.div`
 `;
 
 export const MypageLeftImg = styled.div`
-  background-image: url(${PushImg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 25vw;
+  //background-color: blue;
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
   margin: 0 auto;
-  margin-top: 20vh;
-  aspect-ratio: auto 1/1;
+  top: 30vh;
+  left: 20vh;
+`;
+
+/* X 표시 */
+export const Xback = styled.div`
+  position: absolute;
+  left: 30vw;
+  top: 30vh;
+  width: 2vw;
+  height: 2vw;
+  line-height: 2vw;
+  border-radius: 50%;
+  background-color: #e8e8e8;
+  //border: 0.1vw solid black;
+  font-size: 1vw;
+  color: black;
+  text-align: center;
+  cursor: pointer;
 `;
 
 export const MypageRight = styled.div`
@@ -38,16 +61,6 @@ export const MypageRight = styled.div`
   //position: relative;
   float: right;
 `;
-
-// export const MypageRightImg = styled.div`
-//   background-image: url(${LeafImg});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   opacity: 0.8;
-//   width: 48vw;
-//   height: 100vh;
-//   float: right;
-// `;
 
 export const MypageForm = styled.div`
   //background-color: brown;

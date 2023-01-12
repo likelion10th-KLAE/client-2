@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Hide,
   MypageFooter,
   MypageFooterSpan,
   MypageFooterText1,
@@ -12,13 +13,62 @@ import {
   MypageLeftImg,
   MypageRight,
   MypageSection,
+  Xback,
+  Xpic,
 } from "./styled";
+import { useState, useRef } from "react";
+
+import Img from "../../../assets/auth/Mypage/push_image.png";
 
 const Mypage = () => {
+  /* 이미지 미리보기 구현 */
+  const [imageSrc, setImageSrc] = useState(Img);
+
+  const encodeFileToBase64 = (fileBlob) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(fileBlob);
+    return new Promise((resolve) => {
+      reader.onload = () => {
+        setImageSrc(reader.result);
+        resolve();
+      };
+    });
+  };
+
+  /* X버튼 누르면 사진 지우기 */
+  const deletepic = () => {
+    setImageSrc(Img);
+  };
+
+  /* 미리보기 사진 스타일 조정 */
+  const imgstyle = {
+    width: "20vw",
+    height: "20vw",
+    borderRadius: "50%",
+    cursor: "pointer",
+  };
+
   return (
     <MypageSection>
       <MypageLeft>
-        <MypageLeftImg />
+        <label>
+          <Hide>
+            <input
+              type="file"
+              onChange={(e) => {
+                encodeFileToBase64(e.target.files[0]);
+                //onChangeInfo(e);
+              }}
+            />
+          </Hide>
+          <MypageLeftImg>
+            {imageSrc && (
+              <img src={imageSrc} alt="preview-img" style={imgstyle} />
+            )}
+          </MypageLeftImg>
+        </label>
+
+        <Xback onClick={deletepic}>X</Xback>
       </MypageLeft>
       <MypageRight>
         <MypageForm>
@@ -41,7 +91,6 @@ const Mypage = () => {
         </MypageFooterText2>
       </MypageFooter>
     </MypageSection>
-    // <div>어떻게 나오나요</div>
   );
 };
 
