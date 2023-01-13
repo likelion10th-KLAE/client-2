@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import {
   Editbtn,
@@ -59,7 +59,9 @@ import { useParams } from "react-router-dom";
 
 const Createplant = () => {
   const location = useLocation(); // 식물 추천에서 온 경우
+	const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [postid, setId] = useState();
 
   /* 이미지 미리보기 구현 */
   const [imageSrc, setImageSrc] = useState(Img);
@@ -125,15 +127,15 @@ const Createplant = () => {
   /*****입력 데이터 받아오기*********/
   const [info, setInfo] = useState({
     spec: "",
-    pic: "",
+    pic: null,
     name: "",
-    tmp: 0,
-    sun: 0,
-    water: 0,
-    last_water: 0,
-    nutri: 0,
-    repot: 0,
-    first: 0,
+    tmp: null,
+    sun: null,
+    water: null,
+    last_water: null,
+    nutri: null,
+    repot: null,
+    first:null,
     click: "",
   });
 
@@ -145,12 +147,10 @@ const Createplant = () => {
   };
 
   /************ 입력 데이터 넘기기 *****************/
-  const params = useParams();
-	const postid = params.postid;
-
   const onClickSave = (e) => {
     savePlant();
     console.log(info);
+    navigate(`/plant/${postid}/addplant`);
   };
 
   const savePlant = async()=>{
@@ -163,7 +163,7 @@ const Createplant = () => {
 			headers: { Authorization: sessionStorage.getItem("token") },
 			data: { 
         plant: info.spec,
-        userplant_image: info.pic,
+			  userplant_image: null,
 		  	name: info.name,
 		  	temperature: info.tmp,
 		  	light: info.sun,
@@ -174,9 +174,11 @@ const Createplant = () => {
 		  	start_date: info.first,
 		  	extra1: info.click1,
 		  	extra2: info.click2 },
-		}).then(() => {
-			setLoading(false);
-		});
+		}).then((response)=>setId(response.data.id)
+    , (error)=>{
+      console.log(error);
+    }
+    )
 	};
 
 
@@ -441,4 +443,3 @@ const Createplant = () => {
 };
 
 export default Createplant;
-
