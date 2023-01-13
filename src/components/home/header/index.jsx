@@ -20,10 +20,20 @@ const Header = () => {
 		navigate("/");
 	};
 	const goDiary = () => {
+		// if (sessionStorage.getItem("token")) {
 		navigate("plant/0");
+		// } else {
+		// 	alert("로그인을 해주세요");
+		// 	navigate("/login");
+		// }
 	};
 	const goCommu = () => {
+		// if (sessionStorage.getItem("token")) {
 		navigate("plant/community");
+		// } else {
+		// 	alert("로그인을 해주세요");
+		// 	navigate("/login");
+		// }
 	};
 	const goRecm = () => {
 		navigate("/recommend");
