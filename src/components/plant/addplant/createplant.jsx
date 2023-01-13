@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 import {
   Editbtn,
   Infoback,
@@ -54,26 +55,11 @@ import {
   Hide,
 } from "./styled";
 import Img from "../../../assets/add_plant/my_plant.png";
+import { useParams } from "react-router-dom";
 
 const Createplant = () => {
   const location = useLocation(); // 식물 추천에서 온 경우
-
-  /* 정보 받아오기 */
-  const oneplant = {
-    id: 1,
-    plant: "자작나무",
-    name: "자작나무",
-    userplant_image: null,
-    temperature: "20",
-    light: 20,
-    water_amount: 200,
-    last_watered: 20,
-    tonic: 20,
-    repot: 20,
-    start_date: 20,
-    extra1: null,
-    extra2: null,
-  };
+  const [loading, setLoading] = useState(false);
 
   /* 이미지 미리보기 구현 */
   const [imageSrc, setImageSrc] = useState(Img);
@@ -101,7 +87,7 @@ const Createplant = () => {
     height: "30vh",
     borderRadius: "50%",
   };
-  /***checkbox 여부에 따라 디자인 변경 ***/ /*코드 진짜 별로*/
+  /***checkbox 여부에 따라 디자인 변경 ***/
   const [waterCheck, setWaterCheck] = useState(false);
   const [nutriCheck, setNutriCheck] = useState(false);
   const [repotCheck, setRepotCheck] = useState(false);
@@ -134,7 +120,6 @@ const Createplant = () => {
   const checkedData = new Set();
   const checkData = (e) => {
     checkedData.add(e.target.id);
-    console.log(checkedData);
   };
 
   /*****입력 데이터 받아오기*********/
@@ -142,13 +127,13 @@ const Createplant = () => {
     spec: "",
     pic: "",
     name: "",
-    tmp: "",
-    sun: "",
-    water: "",
-    last_water: "",
-    nutri: "",
-    repot: "",
-    first: "",
+    tmp: 0,
+    sun: 0,
+    water: 0,
+    last_water: 0,
+    nutri: 0,
+    repot: 0,
+    first: 0,
     click: "",
   });
 
@@ -160,9 +145,41 @@ const Createplant = () => {
   };
 
   /************ 입력 데이터 넘기기 *****************/
+  const params = useParams();
+	const postid = params.postid;
+
   const onClickSave = (e) => {
+    savePlant();
     console.log(info);
   };
+
+  const savePlant = async()=>{
+    setLoading(true);
+    
+    await axios({
+			method: "post",
+			url: 
+      `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/post/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+			data: { 
+        plant: info.spec,
+        userplant_image: info.pic,
+		  	name: info.name,
+		  	temperature: info.tmp,
+		  	light: info.sun,
+		  	water_amount: info.water,
+		  	last_watered: info.last_water,
+		  	tonic: info.nutri,
+		  	repot: info.repot,
+		  	start_date: info.first,
+		  	extra1: info.click1,
+		  	extra2: info.click2 },
+		}).then(() => {
+			setLoading(false);
+		});
+	};
+
+
   return (
     <div>
       <PageBack>
@@ -174,7 +191,8 @@ const Createplant = () => {
             id="spec"
             name="spec"
             onChange={onChangeInfo}
-            value={location.state ? location.state : ""}
+            defaultValue={location.state ? location.state : ""}
+            /* 직접 추가할때 입력이 안되서 value->defaultValue로 변경*/
           />
 
           {/* 식물 이미지 미리보기 */}
@@ -423,3 +441,4 @@ const Createplant = () => {
 };
 
 export default Createplant;
+
