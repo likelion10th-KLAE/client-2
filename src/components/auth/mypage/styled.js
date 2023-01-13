@@ -5,130 +5,137 @@ import LeafBg from "../../../assets/auth/Mypage/leaf_image_bg.png";
 import Xp from "../../../assets/add_plant/사진 추가.png";
 
 export const MypageSection = styled.div`
-	background: url(${LeafBg});
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 100vw;
-	height: 100vh;
-	margin: -8px;
+  background: url(${LeafBg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  margin: -8px;
 `;
 
 export const Hide = styled.div`
-	display: none;
+  display: none;
 `;
 
 export const MypageLeft = styled.div`
-	background-color: red;
-	// width: 50vw;
-	height: 90vh;
-	margin: -8px;
-	float: left;
+  background-color: red;
+  // width: 50vw;
+  height: 90vh;
+  margin: -8px;
+  float: left;
 `;
 
 export const MypageLeftImg = styled.div`
-	//background-color: blue;
-	border-radius: 50%;
-	width: 20vw;
-	height: 20vw;
-	position: absolute;
-	margin: 0 auto;
-	top: 35vh;
-	left: 35vh;
+  //background-color: blue;
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  margin: 0 auto;
+  top: 35vh;
+  left: 35vh;
 `;
 
 /* X 표시 */
 export const Xback = styled.div`
-	position: absolute;
-	left: 40vw;
-	top: 30vh;
-	width: 2vw;
-	height: 2vw;
-	line-height: 2vw;
-	border-radius: 50%;
-	background-color: #e8e8e8;
-	//border: 0.1vw solid black;
-	font-size: 1vw;
-	color: black;
-	text-align: center;
-	cursor: pointer;
+  position: absolute;
+  left: 40vw;
+  top: 30vh;
+  width: 2vw;
+  height: 2vw;
+  line-height: 2vw;
+  border-radius: 50%;
+  background-color: #e8e8e8;
+  //border: 0.1vw solid black;
+  font-size: 1vw;
+  color: black;
+  text-align: center;
+  cursor: pointer;
 `;
 
 export const MypageRight = styled.div`
-	// background-color: pink;
-	width: 53vw;
-	height: 100vh;
-	margin: -8px;
-	//position: relative;
-	float: right;
+  // background-color: pink;
+  width: 53vw;
+  height: 100vh;
+  margin: -8px;
+  //position: relative;
+  float: right;
 `;
 
 export const MypageForm = styled.div`
-	// background-color: brown;
-	width: 40vw;
-	height: 60vh;
-	display: flex;
-	flex-direction: column;
-	margin-top: 20vh;
+  // background-color: brown;
+  width: 40vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20vh;
 `;
 
 export const MypageFormTitle = styled.div`
-	//background-color: green;
-	color: black;
-	font-size: 1vw;
-	font-weight: 500;
-	width: 10vw;
+  //background-color: green;
+  color: black;
+  font-size: 1vw;
+  font-weight: 500;
+  width: 10vw;
 `;
 
 export const FormItem = styled.div`
-	margin-bottom: 3vh;
+  margin-bottom: 3vh;
 `;
 
 export const MypageFormInput = styled.input`
-	all: unset;
-	border-bottom: 1px solid rgba(189, 189, 189, 1);
-	width: 30vw;
-	height: 4vh;
-	margin-bottom: 3vh;
+  all: unset;
+  border-bottom: 1px solid rgba(189, 189, 189, 1);
+  width: 30vw;
+  height: 4vh;
+  margin-bottom: 3vh;
+`;
+
+export const MypageFormDiv = styled.div`
+  border-bottom: 1px solid rgba(189, 189, 189, 1);
+  width: 30vw;
+  height: 4vh;
+  margin-bottom: 3vh;
 `;
 
 export const MypageFormbutton = styled.button`
-	all: unset;
-	background-color: rgba(60, 177, 114, 1);
-	width: 13vw;
-	height: 5vh;
-	color: white;
-	cursor: pointer;
-	text-align: center;
-	margin-left: 26vw;
+  all: unset;
+  background-color: rgba(60, 177, 114, 1);
+  width: 13vw;
+  height: 5vh;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 26vw;
 `;
 
 export const MypageFooter = styled.div`
-	//background-color: blue;
-	width: 100vw;
-	height: 10vh;
-	position: absolute;
-	top: 90vh;
-	margin-left: -8px;
+  //background-color: blue;
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  top: 90vh;
+  margin-left: -8px;
 `;
 
 export const MypageFooterText1 = styled.div`
-	//background-color: white;
-	font-size: 0.8vw;
-	height: 3vh;
-	margin: 0 auto;
-	color: rgba(44, 44, 44, 1);
-	text-align: center;
-	padding-top: 10vh;
+  //background-color: white;
+  font-size: 0.8vw;
+  height: 3vh;
+  margin: 0 auto;
+  color: rgba(44, 44, 44, 1);
+  text-align: center;
+  padding-top: 10vh;
 `;
 export const MypageFooterText2 = styled.div`
-	//background-color: white;
-	font-size: 0.8vw;
-	height: 3vh;
-	margin: 0 auto;
-	color: rgba(44, 44, 44, 1);
-	text-align: center;
+  //background-color: white;
+  font-size: 0.8vw;
+  height: 3vh;
+  margin: 0 auto;
+  color: rgba(44, 44, 44, 1);
+  text-align: center;
 `;
 
 export const MypageFooterSpan = styled.span`
-	color: rgba(154, 199, 91, 1);
+  color: rgba(154, 199, 91, 1);
 `;
