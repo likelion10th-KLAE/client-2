@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import {
 	Sidebar,
@@ -31,32 +31,8 @@ import {
 import Usericon from "../../../assets/diary/유저 정보란.png";
 
 function Plant({ plant }) {
-	const [loading, setLoading] = useState(false);
-	const [plants, setPlants] = useState([]);
 	let { plantid } = useParams();
-
-	const getPlants = useCallback(async () => {
-		setLoading(true);
-		await axios({
-			method: "get",
-			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/get_user_plants/`,
-			headers: { Authorization: sessionStorage.getItem("token") },
-		}).then((response) => {
-			setPlants(response.data);
-			setLoading(false);
-		});	
-	});
-	useEffect(() => {
-		getPlants();
-	}, []);
-
 	const [isHovering, setIsHovering] = useState(0);
-	
-	
-// 지금 plants[plant.id].name이 떴다 안떴다 하는게 문제인거 같아요 
-// 근데 plants[plant.id].name을 78, 86줄에 넣으면 에러 떠서 흰 창이 나옵니다,,,
-	console.log(plants[plant.id].name);
-
 
 	return (
 		<label class="radio">
@@ -74,17 +50,13 @@ function Plant({ plant }) {
 				{(plant.id == plantid) | isHovering ? (
 					<Listcompoclicked>
 						<Sideplantpicclicked>
-							<Sideplantnameclicked>
-								{plants[plant.id].name}
-							</Sideplantnameclicked>
+							<Sideplantnameclicked>{plant.name}</Sideplantnameclicked>
 						</Sideplantpicclicked>
 					</Listcompoclicked>
 				) : (
 					<Listcompo>
 						<Sideplantpic>
-							<Sideplantname>
-							{plants[plant.id].name}
-							</Sideplantname>
+							<Sideplantname>{plant.name}</Sideplantname>
 						</Sideplantpic>
 					</Listcompo>
 				)}
@@ -97,111 +69,10 @@ const Main = () => {
 	let { plantid } = useParams();
 	const [isHovering, setIsHovering] = useState(0);
 	const [loading, setLoading] = useState(false);
-	const [plants, setPlants] = useState([]);
 	const navigate = useNavigate();
 
-	/* 정보 보여주기 */
-	const [iid, setIid] = useState(plantid);
-
-	/* 사용자가 등록한 식물 일지 */
-	const getUserplantPost0 = [
-		{
-			id: 2,
-			title: "소나무 2일차",
-			body: "소나무 2일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:39:47",
-			ndate: 0,
-		},
-		{
-			id: 3,
-			title: "소나무 3일차",
-			body: "소나무 3일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:37:22",
-			ndate: 0,
-		},
-		{
-			id: 1,
-			title: "소나무 1일차",
-			body: "소나무 1일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:35:30",
-			ndate: 1,
-		},
-	];
-
-	const getUserplantPost1 = [
-		{
-			id: 2,
-			title: "자작나무 2일차",
-			body: "자작나무 2일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:39:47",
-			ndate: 0,
-		},
-		{
-			id: 3,
-			title: "자작나무 3일차",
-			body: "자작나무 3일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:37:22",
-			ndate: 0,
-		},
-		{
-			id: 1,
-			title: "자작나무 1일차",
-			body: "자작나무 1일차 글입니다!!",
-			photo: null,
-			like_num: 0,
-			share: false,
-			created_at: "2023-01-07 13:35:30",
-			ndate: 1,
-		},
-	];
-	/*********************/
-	const [plantdate, setPlantdate] = useState([
-		"키운지 D+" + getUserplantPost1[1].ndate + "일 째",
-	]);
-	const [diary, setDiary] = useState(
-		getUserplantPost1.map((plant) => getUserplantPost0)
-	);
 	const [userimageSrc, setUserimageSrc] = useState(Usericon);
 	const [plantname, setPlantname] = useState("");
-	const [error, setError] = useState(null);
-  
-	useEffect(() => {
-	  const fetchPlants = async () => {
-		try {
-		  setError(null);
-		  setPlants(null);
-		  setLoading(true);
-		  const response = await axios.get(
-			"http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/get_user_plants/",{
-				headers: {
-					Authorization: sessionStorage.getItem("token")},
-			});
-		  setPlants(response.data);
-		} catch (e) {
-		  setError(e);
-		}
-		setLoading(false);
-	  };
-	  fetchPlants();
-	}, []);
-	
-	if (loading) return <div>로딩중..</div>;
-	if (error) return <div>에러가 발생했습니다</div>;
 
 	/* 일지 추가하기*/
 	const navigateToCreate = () => {
@@ -223,34 +94,59 @@ const Main = () => {
 		"background-repeat": "no-repeat",
 		"background-size": "contain",
 	};
-	/***********************/
+
+	const [plants, setPlants] = useState([]);
+	const [diaries, setDiaries] = useState([]);
+
+	const getPlants = useCallback(async () => {
+		await axios({
+			method: "get",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/get_user_plants/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+		}).then((response) => {
+			setPlants(response.data);
+			setPlantname(response.data[0].name);
+		});
+	});
+
+	useEffect(() => {
+		getPlants();
+	}, []);
+
+	const getDiary = async (id) => {
+		await axios({
+			method: "get",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/get_userplant_post/${id}`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+		}).then((response) => {
+			console.log(response.data);
+			setDiaries(response.data);
+		});
+	};
 
 	return (
 		<Page>
 			<Sidebar>
-				<img 
-				src={userimageSrc} 
-				alt="preview-img" 
-				style={userimagestyle} 
-				/>
-				<Usernick> 
-					{sessionStorage.getItem("username")} 님
-					</Usernick>
-				<AddBtn onClick={navigateToCreateplant}>
-					식물 추가
-				</AddBtn>
+				{sessionStorage.getItem("profile") == "null" ? (
+					<img src={userimageSrc} alt="preview-img" style={userimagestyle} />
+				) : (
+					<img src={sessionStorage.getItem("profile")} style={userimagestyle} />
+				)}
+
+				<Usernick>{sessionStorage.getItem("username")} 님</Usernick>
+				<AddBtn onClick={navigateToCreateplant}>식물 추가</AddBtn>
 				<Sidelist>
-						{plants.map((plant) => (
-							<div
+					{plants.map((p) => (
+						<div
+							onClick={() => getDiary(p.id)}
 							onChange={() => {
-								setIid(plant.id);
-								setPlantname(plants[plant.id].name);
-								setPlantdate("키운지 D+" + getUserplantPost1.ndate + "일 째");
-								navigate(`/plant/${plant.id}`);
-							}}>	
-	 						<Plant plant={plant} />
-							</div>
-						))}
+								setPlantname(p.name);
+								navigate(`/plant/${p.id}`);
+							}}
+						>
+							<Plant plant={p} />
+						</div>
+					))}
 				</Sidelist>
 			</Sidebar>
 			<label
@@ -263,8 +159,11 @@ const Main = () => {
 							{plantname}
 							<PlantsetH>⚙️</PlantsetH>
 						</Plantname>
-
-						<Plantdday>{plantdate}</Plantdday>
+						{diaries.lenght >= 1 ? (
+							<Plantdday>키운지 D+{diaries[0].ndate}일 째</Plantdday>
+						) : (
+							""
+						)}
 					</Link>
 				) : (
 					<Link to="addplant">
@@ -272,8 +171,11 @@ const Main = () => {
 							{plantname}
 							<Plantset>⚙️</Plantset>
 						</Plantname>
-
-						<Plantdday>{plantdate}</Plantdday>
+						{diaries.lenght >= 1 ? (
+							<Plantdday>키운지 D+{diaries[0].ndate}일 째</Plantdday>
+						) : (
+							""
+						)}
 					</Link>
 				)}
 			</label>
@@ -282,19 +184,19 @@ const Main = () => {
 				<EditImg />
 				<EditTxt>식물 일지 추가하기</EditTxt>
 			</Infoeditbtn>
-
 			<LogPage />
 			<LogListsec>
-				{getUserplantPost1.map((diary) => (
+				{diaries.map((diary) => (
 					<Link to={`diary/${diary.id - 1}`}>
-						<LogList key={diary.id}>									<Logplantimg>
-							<Logtitle>{diary.title}</Logtitle>
-							<Logdate>{diary.created_at}</Logdate>
+						<LogList key={diary.id}>
+							{" "}
+							<Logplantimg>
+								<Logtitle>{diary.title}</Logtitle>
+								<Logdate>{diary.created_at}</Logdate>
 							</Logplantimg>
 						</LogList>
 					</Link>
 				))}
-
 			</LogListsec>
 		</Page>
 	);
