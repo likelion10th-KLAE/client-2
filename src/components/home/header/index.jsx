@@ -20,10 +20,26 @@ const Header = () => {
     navigate("/");
   };
   const goDiary = () => {
-    navigate("plant/0");
+    if (sessionStorage.getItem("token")) {
+      if (sessionStorage.getItem("firstPlant") !== null) {
+        navigate(`plant/${sessionStorage.getItem("firstPlant")}`, {
+          // state: location.state,
+        });
+      } else {
+        navigate("plant");
+      }
+    } else {
+      alert("로그인을 해주세요");
+      navigate("/login");
+    }
   };
   const goCommu = () => {
-    navigate("plant/community");
+    if (sessionStorage.getItem("token")) {
+      navigate("plant/community");
+    } else {
+      alert("로그인을 해주세요");
+      navigate("/login");
+    }
   };
   const goRecm = () => {
     navigate("/recommend");

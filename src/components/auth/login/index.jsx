@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   LoginSection,
   LoginLeft,
@@ -21,6 +21,22 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/header/logo.png";
 
 const Login = () => {
+  const getPlants = useCallback(async () => {
+    await axios({
+      method: "get",
+      url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/plants/get_user_plants/`,
+      headers: { Authorization: sessionStorage.getItem("token") },
+    }).then((response) => {
+      if (response.data.length) {
+        sessionStorage.setItem("firstPlant", response.data[0].id);
+      } else {
+        sessionStorage.setItem("firstPlant", null);
+      }
+      alert("환영합니다!");
+      navigate("/");
+    });
+  });
+
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -44,10 +60,8 @@ const Login = () => {
           sessionStorage.setItem("username", response.data.username);
           sessionStorage.setItem("profile", response.data.profile);
           sessionStorage.setItem("userid", response.data.userid);
-          sessionStorage.setItem("password", response.data.password);
           console.log(response.data.user_id);
-          alert("환영합니다!");
-          navigate("/");
+          getPlants();
         }
       })
       .catch((error) => {
