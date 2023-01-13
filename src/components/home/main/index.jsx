@@ -294,6 +294,7 @@ const Main = () => {
 						</LogList>
 					</Link>
 				))}
+
 			</LogListsec>
 		</Page>
 	);

@@ -36,7 +36,7 @@ const Initial = () => {
   };
 
   return (
-    <InitialSection>
+    <>
       <InitialTop>
         <InitialTopTitle>반려식물 일지를 기록하세요</InitialTopTitle>
         <InitialTopSubTitle>식물과 함께하는 삶</InitialTopSubTitle>
@@ -47,14 +47,14 @@ const Initial = () => {
               <>
                 <InitialTopButton
                   onClick={() => goRecm()}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none" }}
                 >
                   식물추천
                 </InitialTopButton>
 
                 <InitialTopButton
                   onClick={() => goAdd()}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none" }}
                 >
                   식물등록
                 </InitialTopButton>
@@ -63,13 +63,13 @@ const Initial = () => {
               <>
                 <InitialTopButton
                   onClick={() => goSignup()}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none" }}
                 >
                   회원가입
                 </InitialTopButton>
                 <InitialTopButton
                   onClick={() => goLogin()}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none" }}
                 >
                   로그인
                 </InitialTopButton>
@@ -118,7 +118,7 @@ const Initial = () => {
           </InitialItemBox>
         </InitialBottomContainer>
       </InitialBottom>
-    </InitialSection>
+    </>
   );
 };
 

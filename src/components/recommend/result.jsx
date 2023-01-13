@@ -25,28 +25,19 @@ import {
 } from "./styled";
 import plantimg from "../../assets/recommend/my_plant.png";
 
-const plant = {
-	plant_name: "알로카시아 밤비노",
-	description:
-		"Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor",
-	difficulty: "쉬움",
-	plant_function: ["공기정화", "가습효과", "관상용"],
-	hydroponics: "가능",
-};
-
 const color = ["#F183F3", "#8388f3", "#F3B983"];
 
 const Result = () => {
+	const location = useLocation();
 	const navigate = useNavigate();
 	const addPlant = () => {
-		navigate(`/plant/addplant/createplant`, { state: plant.plant_name });
+		navigate(`/plant/addplant/createplant`, {
+			state: location.state.plant_name,
+		});
 	};
 	const reRecommend = () => {
 		navigate(`/recommend/test`);
 	};
-
-	const location = useLocation();
-	console.log(location.state);
 
 	return (
 		<>
@@ -86,9 +77,15 @@ const Result = () => {
 							<Item>
 								<ItemTitle>기능</ItemTitle>
 								<ItemConts atr="function">
-									{location.state.plant_function.split(" ").map((f, idx) => (
-										<div style={{ color: color[idx] }}>{f}</div>
-									))}
+									{location.state.plant_function ? (
+										location.state.plant_function
+											.split(" ")
+											.map((f, idx) => (
+												<div style={{ color: color[idx] }}>{f}</div>
+											))
+									) : (
+										<>{location.state.plant_function}</>
+									)}
 								</ItemConts>
 							</Item>
 							<Item>

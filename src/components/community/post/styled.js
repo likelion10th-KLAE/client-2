@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
 	background-color: #f4f5f4;
@@ -34,6 +34,7 @@ export const Username = styled.div`
 	font-size: 1.3vw;
 	border-right: 1px solid #e5e5e5;
 	padding-right: 1vw;
+	font-weight: bold;
 `;
 export const Plant = styled.div`
 	display: inline-block;
@@ -116,6 +117,14 @@ export const ComtSection = styled.div`
 `;
 export const Icon = styled.div`
 	display: inline-block;
+	img {
+		${({ heart }) =>
+			heart === true
+				? css`
+						cursor: pointer;
+				  `
+				: css``}
+	}
 `;
 export const Num = styled.div`
 	display: inline-block;
@@ -129,7 +138,7 @@ export const Comments = styled.div`
 	padding-bottom: 4vh;
 `;
 export const UserName = styled.div`
-	font-size: 1.2vw;
+	font-size: 1.1vw;
 `;
 export const Date = styled.div`
 	margin-top: 1vh;
@@ -137,11 +146,12 @@ export const Date = styled.div`
 	color: #7e7e7e;
 `;
 export const ComtItem = styled.div`
-	background-color: #fafefd;
+	// background-color: #fafefd;
 	padding-top: 3vh;
 `;
 export const Cont = styled.div`
 	font-size: 1.2vw;
+	margin-top: 1vh;
 `;
 export const ComWrap = styled.div`
 	width: 75vw;
@@ -190,7 +200,7 @@ export const But = styled.div`
 	text-align: center;
 	line-height: 5vh;
 	float: right;
-	margin-right: 5vw;
+	margin-right: 4vw;
 	&:hover {
 		opacity: 80%;
 		cursor: pointer;
@@ -200,4 +210,17 @@ export const But = styled.div`
 export const NoComments = styled.div`
 	padding-left: 2vw;
 	padding-top: 3vh;
+`;
+
+export const Cancle = styled.div`
+	margin-left: 0.5vw;
+	font-size: 0.9vw;
+	color: #b90000;
+	&: hover {
+		cursor: pointer;
+	}
+`;
+export const CancleWrap = styled.div`
+	display: flex;
+	flex-direction: row;
 `;

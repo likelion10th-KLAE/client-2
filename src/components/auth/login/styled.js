@@ -9,7 +9,8 @@ export const LoginSection = styled.div`
 `;
 
 export const LoginLeft = styled.div`
-  background-image: url(${Img});
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(${Img});
   background-repeat: no-repeat;
   background-size: cover;
   width: 40vw;
@@ -26,7 +27,7 @@ export const LeftTitle = styled.div`
   font-size: 2.5vw;
   font-weight: 800;
   color: white;
-  opacity: 0.7;
+  opacity: 0.5;
   //width: 17vw;
   //height: 4vh;
   white-space: pre-line; //공백처리
@@ -35,12 +36,12 @@ export const LeftTitle = styled.div`
 `;
 
 export const LeftLogo = styled.div`
-  //background-color: black;
+  //background-color: white;
   position: relative;
   top: 10vh;
-  color: white;
-  font-size: 2.5vw;
-  text-align: center;
+  img {
+    width: 10vw;
+  }
 `;
 
 export const LoginRight = styled.div`

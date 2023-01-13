@@ -33,10 +33,13 @@ import {
 	AuthUserName,
 	But,
 	NoComments,
+	Cancle,
+	CancleWrap,
 } from "./styled";
 import Id from "../../../assets/community/avatar.png";
 import temp from "../../../assets/community/temp-image.png";
 import heart from "../../../assets/community/heart-icon.png";
+import colorHeart from "../../../assets/community/colored-heart-icon.png";
 import commentImg from "../../../assets/community/comment.png";
 import { useParams } from "react-router-dom";
 
@@ -45,6 +48,8 @@ const Detail = () => {
 	const [post, setPost] = useState([]);
 	const [comments, setComments] = useState([]);
 	const [comment, setComment] = useState("");
+	const [likeNum, setLikeNum] = useState(0);
+	const [like, setLike] = useState(false);
 
 	const params = useParams();
 	const postId = params.postId;
@@ -54,8 +59,11 @@ const Detail = () => {
 		await axios({
 			method: "get",
 			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/post/${postId}`,
+			headers: { Authorization: sessionStorage.getItem("token") },
 		}).then((response) => {
 			setPost(response.data);
+			setLike(response.data.bool_like_users);
+			setLikeNum(response.data.like_num);
 			setLoading(false);
 		});
 	});
@@ -65,7 +73,9 @@ const Detail = () => {
 		await axios({
 			method: "get",
 			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/${postId}`,
+			headers: { Authorization: sessionStorage.getItem("token") },
 		}).then((response) => {
+			// console.log(response);
 			setComments(response.data);
 			setLoading(false);
 		});
@@ -76,10 +86,38 @@ const Detail = () => {
 		await axios({
 			method: "post",
 			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/post/${postId}/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
 			data: { content: comment },
 		}).then(() => {
-			console.log("성공");
-			// setLoading(false);
+			getComments();
+			getPost();
+			setLoading(false);
+		});
+	};
+
+	const deleteComment = async (id) => {
+		setLoading(true);
+		await axios({
+			method: "delete",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/comment/delete/${id}`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+		}).then(() => {
+			getComments();
+			getPost();
+			setLoading(false);
+		});
+	};
+
+	const clickLike = async () => {
+		await axios({
+			method: "get",
+			url: `http://ec2-3-39-207-4.ap-northeast-2.compute.amazonaws.com/account/post/${postId}/likes/`,
+			headers: { Authorization: sessionStorage.getItem("token") },
+		}).then((response) => {
+			// console.log(response.data);
+			setLikeNum(response.data.like_num);
+			setLike(response.data.bool_like_users);
+			setLoading(false);
 		});
 	};
 
@@ -105,11 +143,16 @@ const Detail = () => {
 				<Title>{post.title}</Title>
 				<Auth>
 					<AuthImg>
-						{/* 수정 필요 */}
-						{post.photo ? <img src={post.photo} alt="alt" /> : <img src={Id} />}
+						{post.profile_image === "null" ? (
+							<img src={Id} />
+						) : (
+							<img src={post.profile_image} alt="alt" />
+						)}
 					</AuthImg>
-					<Username>tisx2glee</Username>
-					<Plant>파초일엽 밍밍이 키운지 {post.ndate}일차</Plant>
+					<Username>{post.writer}</Username>
+					<Plant>
+						{post.user_plant_name} 키운지 {post.ndate}일차
+					</Plant>
 				</Auth>
 				<Inner>
 					<Text>생육 정보</Text>
@@ -156,8 +199,20 @@ const Detail = () => {
 				</Inner>
 				<ComtSection>
 					<Icon>
-						<img src={heart} />
-						<Num>{post.like_num}</Num>
+						{like ? (
+							<img
+								src={colorHeart}
+								onClick={clickLike}
+								style={{ cursor: "pointer" }}
+							/>
+						) : (
+							<img
+								src={heart}
+								onClick={clickLike}
+								style={{ cursor: "pointer" }}
+							/>
+						)}
+						<Num>{likeNum}</Num>
 						<img src={commentImg} />
 						<Num>{post.comment_cnt}</Num>
 					</Icon>
@@ -172,7 +227,17 @@ const Detail = () => {
 											<img src={Id} />
 										</ImgWrap>
 										<ComWrap>
-											<UserName>{cmt.user}</UserName>
+											<CancleWrap>
+												<UserName>{cmt.username_comment}</UserName>
+												{sessionStorage.getItem("userid") ===
+												String(cmt.user) ? (
+													<Cancle onClick={() => deleteComment(cmt.id)}>
+														&#x2717;
+													</Cancle>
+												) : (
+													""
+												)}
+											</CancleWrap>
 											<Date>{cmt.created_at}</Date>
 											<Cont>{cmt.content}</Cont>
 										</ComWrap>
@@ -183,9 +248,13 @@ const Detail = () => {
 
 						<Input>
 							<ImgWrap>
-								<img src={Id} />
+								{sessionStorage.getItem("profile") == "null" ? (
+									<img src={Id} />
+								) : (
+									<img src={sessionStorage.getItem("profile")} />
+								)}
 							</ImgWrap>
-							<AuthUserName>shsh</AuthUserName>
+							<AuthUserName>{sessionStorage.getItem("username")}</AuthUserName>
 							<input
 								placeholder="댓글을 입력해주세요"
 								onKeyDown={(e) => {
